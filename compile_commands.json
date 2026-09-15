@@ -1,0 +1,274 @@
+[
+  {
+    "file": "src/main.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/simulador",
+      "src/main.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/simulador"
+  },
+  {
+    "file": "src/cpu.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/simulador",
+      "src/cpu.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/simulador"
+  },
+  {
+    "file": "src/dispositivos.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/simulador",
+      "src/dispositivos.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/simulador"
+  },
+  {
+    "file": "src/tela.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/simulador",
+      "src/tela.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/simulador"
+  },
+  {
+    "file": "src/instrucao.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/simulador",
+      "src/instrucao.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/simulador"
+  },
+  {
+    "file": "src/objeto.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/simulador",
+      "src/objeto.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/simulador"
+  },
+  {
+    "file": "src/memoria.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/simulador",
+      "src/memoria.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/simulador"
+  },
+  {
+    "file": "src/montador.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/montador",
+      "src/montador.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/montador"
+  },
+  {
+    "file": "src/instrucao.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/montador",
+      "src/instrucao.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/montador"
+  },
+  {
+    "file": "src/objeto.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/montador",
+      "src/objeto.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/montador"
+  },
+  {
+    "file": "src/memoria.c",
+    "arguments": [
+      "cc",
+      "-Wall",
+      "-Wextra",
+      "-std=gnu11",
+      "-g",
+      "-Isrc",
+      "-o",
+      "bin/montador",
+      "src/memoria.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/simulador_completo",
+    "output": "bin/montador"
+  },
+  {
+    "file": "src/pre.c",
+    "arguments": [
+      "cc",
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-D_GNU_SOURCE",
+      "-o",
+      "bin/mcc",
+      "src/pre.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/compilador_c",
+    "output": "bin/mcc"
+  },
+  {
+    "file": "src/lexer.c",
+    "arguments": [
+      "cc",
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-D_GNU_SOURCE",
+      "-o",
+      "bin/mcc",
+      "src/lexer.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/compilador_c",
+    "output": "bin/mcc"
+  },
+  {
+    "file": "src/tipos.c",
+    "arguments": [
+      "cc",
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-D_GNU_SOURCE",
+      "-o",
+      "bin/mcc",
+      "src/tipos.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/compilador_c",
+    "output": "bin/mcc"
+  },
+  {
+    "file": "src/simbolos.c",
+    "arguments": [
+      "cc",
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-D_GNU_SOURCE",
+      "-o",
+      "bin/mcc",
+      "src/simbolos.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/compilador_c",
+    "output": "bin/mcc"
+  },
+  {
+    "file": "src/parser.c",
+    "arguments": [
+      "cc",
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-D_GNU_SOURCE",
+      "-o",
+      "bin/mcc",
+      "src/parser.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/compilador_c",
+    "output": "bin/mcc"
+  },
+  {
+    "file": "src/main.c",
+    "arguments": [
+      "cc",
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-D_GNU_SOURCE",
+      "-o",
+      "bin/mcc",
+      "src/main.c"
+    ],
+    "directory": "/home/leonardo/Programming/C/ufsm/sistemasOperacionais/mancha/compilador_c",
+    "output": "bin/mcc"
+  }
+]

@@ -105,19 +105,19 @@ _f_main:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L182bdd18_26
+	jmpc gt, _Lf5aa95fc_26
 	ld r0, 0
-	jmp _L182bdd18_27
-_L182bdd18_26:
+	jmp _Lf5aa95fc_27
+_Lf5aa95fc_26:
 	ld r0, 1
-_L182bdd18_27:
+_Lf5aa95fc_27:
 	cmp r0, 0
-	jmpc eq, _L182bdd18_24
+	jmpc eq, _Lf5aa95fc_24
 	ld r0, (bp+-2)
-	jmp _L182bdd18_25
-_L182bdd18_24:
+	jmp _Lf5aa95fc_25
+_Lf5aa95fc_24:
 	ld r0, (bp+-4)
-_L182bdd18_25:
+_Lf5aa95fc_25:
 	push r0
 	call _f_print_int
 	add sp, 2
@@ -131,33 +131,33 @@ _L182bdd18_25:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L182bdd18_30
+	jmpc lt, _Lf5aa95fc_30
 	ld r0, 0
-	jmp _L182bdd18_31
-_L182bdd18_30:
+	jmp _Lf5aa95fc_31
+_Lf5aa95fc_30:
 	ld r0, 1
-_L182bdd18_31:
+_Lf5aa95fc_31:
 	cmp r0, 0
-	jmpc eq, _L182bdd18_29
+	jmpc eq, _Lf5aa95fc_29
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L182bdd18_32
+	jmpc gt, _Lf5aa95fc_32
 	ld r0, 0
-	jmp _L182bdd18_33
-_L182bdd18_32:
+	jmp _Lf5aa95fc_33
+_Lf5aa95fc_32:
 	ld r0, 1
-_L182bdd18_33:
+_Lf5aa95fc_33:
 	cmp r0, 0
-	jmpc eq, _L182bdd18_29
+	jmpc eq, _Lf5aa95fc_29
 	ld r0, 1
-	jmp _L182bdd18_28
-_L182bdd18_29:
+	jmp _Lf5aa95fc_28
+_Lf5aa95fc_29:
 	ld r0, 0
-_L182bdd18_28:
+_Lf5aa95fc_28:
 	push r0
 	call _f_print_int
 	add sp, 2
@@ -171,33 +171,33 @@ _L182bdd18_28:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L182bdd18_36
+	jmpc lt, _Lf5aa95fc_36
 	ld r0, 0
-	jmp _L182bdd18_37
-_L182bdd18_36:
+	jmp _Lf5aa95fc_37
+_Lf5aa95fc_36:
 	ld r0, 1
-_L182bdd18_37:
+_Lf5aa95fc_37:
 	cmp r0, 0
-	jmpc ne, _L182bdd18_35
+	jmpc ne, _Lf5aa95fc_35
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L182bdd18_38
+	jmpc gt, _Lf5aa95fc_38
 	ld r0, 0
-	jmp _L182bdd18_39
-_L182bdd18_38:
+	jmp _Lf5aa95fc_39
+_Lf5aa95fc_38:
 	ld r0, 1
-_L182bdd18_39:
+_Lf5aa95fc_39:
 	cmp r0, 0
-	jmpc ne, _L182bdd18_35
+	jmpc ne, _Lf5aa95fc_35
 	ld r0, 0
-	jmp _L182bdd18_34
-_L182bdd18_35:
+	jmp _Lf5aa95fc_34
+_Lf5aa95fc_35:
 	ld r0, 1
-_L182bdd18_34:
+_Lf5aa95fc_34:
 	push r0
 	call _f_print_int
 	add sp, 2
@@ -207,21 +207,21 @@ _L182bdd18_34:
 	add sp, 2
 	ld r0, 0
 	st r0, (bp+-18)
-_L182bdd18_40:
+_Lf5aa95fc_40:
 	ld r0, (bp+-18)
 	push r0
 	ld r0, 5
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L182bdd18_42
+	jmpc lt, _Lf5aa95fc_42
 	ld r0, 0
-	jmp _L182bdd18_43
-_L182bdd18_42:
+	jmp _Lf5aa95fc_43
+_Lf5aa95fc_42:
 	ld r0, 1
-_L182bdd18_43:
+_Lf5aa95fc_43:
 	cmp r0, 0
-	jmpc eq, _L182bdd18_41
+	jmpc eq, _Lf5aa95fc_41
 	ld r0, bp
 	add r0, -14
 	push r0
@@ -245,28 +245,28 @@ _L182bdd18_43:
 	pop r0
 	add r0, r1
 	st r0, (bp+-18)
-	jmp _L182bdd18_40
-_L182bdd18_41:
+	jmp _Lf5aa95fc_40
+_Lf5aa95fc_41:
 	ld r0, bp
 	add r0, -14
 	st r0, (bp+-16)
 	ld r0, 0
 	st r0, (bp+-18)
-_L182bdd18_44:
+_Lf5aa95fc_44:
 	ld r0, (bp+-18)
 	push r0
 	ld r0, 5
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L182bdd18_46
+	jmpc lt, _Lf5aa95fc_46
 	ld r0, 0
-	jmp _L182bdd18_47
-_L182bdd18_46:
+	jmp _Lf5aa95fc_47
+_Lf5aa95fc_46:
 	ld r0, 1
-_L182bdd18_47:
+_Lf5aa95fc_47:
 	cmp r0, 0
-	jmpc eq, _L182bdd18_45
+	jmpc eq, _Lf5aa95fc_45
 	ld r0, (bp+-16)
 	ld r1, r0
 	ld r0, (r1)
@@ -289,8 +289,8 @@ _L182bdd18_47:
 	pop r0
 	add r0, r1
 	st r0, (bp+-18)
-	jmp _L182bdd18_44
-_L182bdd18_45:
+	jmp _Lf5aa95fc_44
+_Lf5aa95fc_45:
 	ld r0, 10
 	push r0
 	call _f_putchar

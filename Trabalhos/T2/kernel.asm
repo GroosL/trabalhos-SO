@@ -1,5 +1,159 @@
 ; ===== código gerado por mcc =====
 .text
+_f_salvaContexto:
+	push bp
+	ld bp, sp
+	sub sp, 2
+	ld r0, (_g_up)
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_8
+	ld r0, 0
+	jmp _L76cdeed6_9
+_L76cdeed6_8:
+	ld r0, 1
+_L76cdeed6_9:
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_10
+	ld sp, bp
+	pop bp
+	ret
+_L76cdeed6_10:
+	ld r0, 0
+	st r0, (bp+-2)
+_L76cdeed6_11:
+	ld r0, (bp+-2)
+	push r0
+	ld r0, 16
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc lt, _L76cdeed6_14
+	ld r0, 0
+	jmp _L76cdeed6_15
+_L76cdeed6_14:
+	ld r0, 1
+_L76cdeed6_15:
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_13
+	ld r0, (_g_up)
+	ld r1, r0
+	ld r0, r1
+	add r0, 4
+	push r0
+	ld r0, (bp+-2)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	push r1
+	ld r0, (bp+4)
+	push r0
+	ld r0, (bp+-2)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	ld r0, (r1)
+	pop r1
+	st r0, (r1)
+_L76cdeed6_12:
+	ld r0, (bp+-2)
+	push r0
+	add r0, 1
+	st r0, (bp+-2)
+	pop r0
+	jmp _L76cdeed6_11
+_L76cdeed6_13:
+	ld sp, bp
+	pop bp
+	ret
+_f_restauraContexto:
+	push bp
+	ld bp, sp
+	sub sp, 2
+	ld r0, (_g_up)
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_24
+	ld r0, 0
+	jmp _L76cdeed6_25
+_L76cdeed6_24:
+	ld r0, 1
+_L76cdeed6_25:
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_26
+	ld sp, bp
+	pop bp
+	ret
+_L76cdeed6_26:
+	ld r0, 0
+	st r0, (bp+-2)
+_L76cdeed6_27:
+	ld r0, (bp+-2)
+	push r0
+	ld r0, 16
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc lt, _L76cdeed6_30
+	ld r0, 0
+	jmp _L76cdeed6_31
+_L76cdeed6_30:
+	ld r0, 1
+_L76cdeed6_31:
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_29
+	ld r0, (bp+4)
+	push r0
+	ld r0, (bp+-2)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	push r1
+	ld r0, (_g_up)
+	ld r1, r0
+	ld r0, r1
+	add r0, 4
+	push r0
+	ld r0, (bp+-2)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	ld r0, (r1)
+	pop r1
+	st r0, (r1)
+_L76cdeed6_28:
+	ld r0, (bp+-2)
+	push r0
+	add r0, 1
+	st r0, (bp+-2)
+	pop r0
+	jmp _L76cdeed6_27
+_L76cdeed6_29:
+	ld sp, bp
+	pop bp
+	ret
+_f_sched:
+	push bp
+	ld bp, sp
+	ld r0, (bp+4)
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_35
+	ld r0, 0
+	jmp _L76cdeed6_36
+_L76cdeed6_35:
+	ld r0, 1
+_L76cdeed6_36:
+	cmp r0, 0
+	jmpc eq, _L76cdeed6_37
+	ld sp, bp
+	pop bp
+	ret
+_L76cdeed6_37:
+	ld r0, (bp+4)
+	push r0
+	call _f_salvaContexto
+	add sp, 2
+	ld sp, bp
+	pop bp
+	ret
 
 .data
 _g_procs:
@@ -1316,8 +1470,7 @@ _g_procs:
 	.db 0
 	.db 0
 _g_up:
-	.db 0
-	.db 0
+	.dw 0
 _g_nextpid:
 	.dw 1
 

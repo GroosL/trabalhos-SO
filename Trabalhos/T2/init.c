@@ -1,5 +1,7 @@
 #include "libc.h"
 
+void rng_main(void);
+
 void
 filho(void)
 {
@@ -19,5 +21,7 @@ init(void)
   
   newproc(filho);
   
+  newproc(rng_main);
+
   killproc(0);
 }

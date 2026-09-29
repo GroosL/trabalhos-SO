@@ -48,7 +48,18 @@ _f_killproc:
 sys_le_handler:
   call  bios_console_disponivel
   cmp   r0, 0
-  jmpc  eq, sys_le_handler
+  jmpc  ne, .le_bios
+
+.espera:
+  inb   r0, (2)
+  and   r0, 2
+  cmp   r0, 0
+  jmpc  eq, .espera
+  inb   r0, (1)
+  and   r0, 255
+  ret
+
+.le_bios:
   call  bios_console_le
   ret
 

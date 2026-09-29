@@ -10,8 +10,11 @@ kernel.asm: kernel.c
 init.asm: init.c 
 	$(MCC) init.c -o init.asm
 
-multitarefa_c.mob: $(BIOS) ponte.asm kernel.asm init.asm
-	$(MONTADOR) $(BIOS) ponte.asm kernel.asm init.asm -o multitarefa_c.mob
+rng.asm: rng.c
+	$(MCC) rng.c -o rng.asm
+
+multitarefa_c.mob: $(BIOS) ponte.asm kernel.asm init.asm rng.asm
+	$(MONTADOR) $(BIOS) ponte.asm kernel.asm init.asm rng.asm -o multitarefa_c.mob
 
 clean:
 	rm -f kernel.asm init.asm multitarefa_c.mob

@@ -15,13 +15,11 @@ filho(void)
 void
 init(void)
 {
-  char *hello = "Bem-vindo ao kernel\n";
-  char *p = hello;
-  while (write(*p++));
+  puts("Bem-vindo ao kernel\n");
   
-  newproc(filho);
-  
-  newproc(rng_main);
+  int rng = newproc(rng_main);
+
+  int f = newproc(filho);
 
   killproc(0);
 }

@@ -41,6 +41,15 @@ _f_killproc:
   pop   bp
   ret
 
+_f_wait:
+  push  bp
+  ld    bp, sp
+  ld    r0, 4
+  ld    r1, (bp+4) ; pid
+  trap  7
+  ld    sp, bp
+  pop   bp
+  ret
 
 ; Syscalls
 
@@ -95,6 +104,12 @@ _trampolim_killproc:
   add   sp, 2
   ret
 
+; SO_ESPERA_PROC 4
+_trampolim_wait:
+  push  r1
+  call  _f_sys_wait
+  add   sp, 2
+  ret
 
 ; Kernel
 
@@ -119,6 +134,8 @@ _kernel_inicio:
   st    r0, (tabela_syscalls+4)
   ld    r0, _trampolim_killproc
   st    r0, (tabela_syscalls+6)
+  ld    r0, _trampolim_wait
+  st    r0, (tabela_syscalls+8)
   
   ; instala a ponte pro escalonador em C -- a partir daqui, todo
   ; estouro do relógio vai chamá-la em vez do comportamento padrão

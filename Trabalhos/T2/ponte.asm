@@ -97,7 +97,7 @@ _kernel_inicio:
 
 ; habilita interrupções de console (bit0) e relógio (bit2)
   ld    r0, 5
-  outb  r0, (0x30) Habilita interrupcoes
+  outb  r0, (0x30) ; Habilita interrupcoes
 
 ; Tabela syscalls
   ld    r0, sys_le_handler

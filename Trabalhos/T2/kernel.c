@@ -44,12 +44,6 @@ int sys_killproc(int pid);
 int die(void);
 int kill(int pid);
 
-// Funcoes da ponte asm
-int write(int c);
-int read(void);
-int newproc(void (*entry)(void));
-int killproc(int pid);
-
 // Inicializacao
 void procinit(void);
 void halt(void);
@@ -176,26 +170,4 @@ procinit(void)
   up = sys_newproc(init);
   up->state = RUNNING;
   restauraContexto();
-}
-
-void
-filho(void)
-{
-  char *msg = "Processo filho\n";
-  char *p = msg;
-  while (write(*p++));
-
-  killproc(0);
-}
-
-void
-init(void)
-{
-  char *hello = "Bem-vindo ao kernel\n";
-  char *p = hello;
-  while (write(*p++));
-  
-  newproc(filho);
-  
-  killproc(0);
 }

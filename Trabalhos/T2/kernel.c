@@ -27,8 +27,8 @@ struct Proc {
 
 // Variaveis globais
 Proc procs[NPROC];
-Proc *up = 0; // Processo atual
-int nextpid = 1;
+Proc *up; // Processo atual
+int nextpid;
 
 // Definicao das funcoes
 
@@ -38,12 +38,21 @@ void restauraContexto(void);
 void sched(void);
 
 // Processos
-Proc* newproc(void (*entry)(void));
-int sys_newproc(void (*entry)(void));
-
-int die();
-int kill(int pid);
+Proc* sys_newproc(void (*entry)(void));
 int sys_killproc(int pid);
+
+int die(void);
+int kill(int pid);
+
+// Funcoes da ponte asm
+int write(int c);
+int read(void);
+int newproc(void (*entry)(void));
+int killproc(int pid);
+
+// Inicializacao
+void procinit(void);
+void init(void);
 
 void
 salvaContexto(void)
@@ -72,10 +81,7 @@ restauraContexto(void)
 void
 sched(void) {
   salvaContexto();
-  if (up != 0 && up->state == RUNNING)
-    up->state = READY;
-
-  if (up != 0 && up->state == READY)
+  if (up != 0 && up->state != DEAD)
     up->state = RUNNING;
 
   else {
@@ -94,7 +100,7 @@ sched(void) {
 }
 
 Proc* 
-newproc(void (*entry)(void))
+sys_newproc(void (*entry)(void))
 {
   Proc* p = 0;
   int i;
@@ -120,17 +126,6 @@ newproc(void (*entry)(void))
   p->state = READY;
 
   return p;
-}
-
-int
-sys_newproc(void (*entry)(void))
-{
-  Proc* p = newproc(entry);
-
-  if (p == 0)
-    return -1;
-
-  return p->pid;
 }
 
 int
@@ -163,4 +158,42 @@ sys_killproc(int pid)
 
   else
     return kill(pid);
+}
+
+void
+procinit(void)
+{
+  nextpid = 1;
+  up = 0;
+
+  int i;
+  for (i = 0; i < NPROC; i++) {
+    procs[i].state = DEAD;
+  }
+
+  up = sys_newproc(init);
+  up->state = RUNNING;
+  restauraContexto();
+}
+
+void
+filho(void)
+{
+  char *msg = "Processo filho\n";
+  char *p = msg;
+  while (write(*p++));
+
+  killproc(0);
+}
+
+void
+init(void)
+{
+  char *hello = "Bem-vindo ao kernel\n";
+  char *p = hello;
+  while (write(*p++));
+  
+  newproc(filho);
+  
+  killproc(0);
 }

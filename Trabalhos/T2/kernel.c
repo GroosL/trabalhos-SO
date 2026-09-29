@@ -52,6 +52,7 @@ int killproc(int pid);
 
 // Inicializacao
 void procinit(void);
+void halt(void);
 void init(void);
 
 void
@@ -133,6 +134,7 @@ die(void)
 {
   up->state = DEAD;
   sched();
+  if (!up) halt();
   return 0;
 }
 

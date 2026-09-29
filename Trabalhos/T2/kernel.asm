@@ -6,35 +6,35 @@ _f_salvaContexto:
 	sub sp, 2
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_8
+	jmpc eq, _La0c4b417_8
 	ld r0, 0
-	jmp _Ld8ffae46_9
-_Ld8ffae46_8:
+	jmp _La0c4b417_9
+_La0c4b417_8:
 	ld r0, 1
-_Ld8ffae46_9:
+_La0c4b417_9:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_10
+	jmpc eq, _La0c4b417_10
 	ld sp, bp
 	pop bp
 	ret
-_Ld8ffae46_10:
+_La0c4b417_10:
 	ld r0, 0
 	st r0, (bp+-2)
-_Ld8ffae46_11:
+_La0c4b417_11:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Ld8ffae46_14
+	jmpc lt, _La0c4b417_14
 	ld r0, 0
-	jmp _Ld8ffae46_15
-_Ld8ffae46_14:
+	jmp _La0c4b417_15
+_La0c4b417_14:
 	ld r0, 1
-_Ld8ffae46_15:
+_La0c4b417_15:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_13
+	jmpc eq, _La0c4b417_13
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, r1
@@ -54,14 +54,14 @@ _Ld8ffae46_15:
 	ld r0, (r1)
 	pop r1
 	st r0, (r1)
-_Ld8ffae46_12:
+_La0c4b417_12:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _Ld8ffae46_11
-_Ld8ffae46_13:
+	jmp _La0c4b417_11
+_La0c4b417_13:
 	ld sp, bp
 	pop bp
 	ret
@@ -71,35 +71,35 @@ _f_restauraContexto:
 	sub sp, 2
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_24
+	jmpc eq, _La0c4b417_24
 	ld r0, 0
-	jmp _Ld8ffae46_25
-_Ld8ffae46_24:
+	jmp _La0c4b417_25
+_La0c4b417_24:
 	ld r0, 1
-_Ld8ffae46_25:
+_La0c4b417_25:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_26
+	jmpc eq, _La0c4b417_26
 	ld sp, bp
 	pop bp
 	ret
-_Ld8ffae46_26:
+_La0c4b417_26:
 	ld r0, 0
 	st r0, (bp+-2)
-_Ld8ffae46_27:
+_La0c4b417_27:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Ld8ffae46_30
+	jmpc lt, _La0c4b417_30
 	ld r0, 0
-	jmp _Ld8ffae46_31
-_Ld8ffae46_30:
+	jmp _La0c4b417_31
+_La0c4b417_30:
 	ld r0, 1
-_Ld8ffae46_31:
+_La0c4b417_31:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_29
+	jmpc eq, _La0c4b417_29
 	ld r0, 61408
 	push r0
 	ld r0, (bp+-2)
@@ -119,14 +119,14 @@ _Ld8ffae46_31:
 	ld r0, (r1)
 	pop r1
 	st r0, (r1)
-_Ld8ffae46_28:
+_La0c4b417_28:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _Ld8ffae46_27
-_Ld8ffae46_29:
+	jmp _La0c4b417_27
+_La0c4b417_29:
 	ld sp, bp
 	pop bp
 	ret
@@ -141,14 +141,14 @@ _f_sched:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _Ld8ffae46_50
+	jmpc ne, _La0c4b417_50
 	ld r0, 0
-	jmp _Ld8ffae46_51
-_Ld8ffae46_50:
+	jmp _La0c4b417_51
+_La0c4b417_50:
 	ld r0, 1
-_Ld8ffae46_51:
+_La0c4b417_51:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_49
+	jmpc eq, _La0c4b417_49
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -157,48 +157,48 @@ _Ld8ffae46_51:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _Ld8ffae46_52
+	jmpc ne, _La0c4b417_52
 	ld r0, 0
-	jmp _Ld8ffae46_53
-_Ld8ffae46_52:
+	jmp _La0c4b417_53
+_La0c4b417_52:
 	ld r0, 1
-_Ld8ffae46_53:
+_La0c4b417_53:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_49
+	jmpc eq, _La0c4b417_49
 	ld r0, 1
-	jmp _Ld8ffae46_48
-_Ld8ffae46_49:
+	jmp _La0c4b417_48
+_La0c4b417_49:
 	ld r0, 0
-_Ld8ffae46_48:
+_La0c4b417_48:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_54
+	jmpc eq, _La0c4b417_54
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
 	ld r0, 2
 	pop r1
 	st r0, (r1+2)
-	jmp _Ld8ffae46_55
-_Ld8ffae46_54:
+	jmp _La0c4b417_55
+_La0c4b417_54:
 	ld r0, 0
 	st r0, (_g_up)
 	ld r0, 0
 	st r0, (bp+-2)
-_Ld8ffae46_56:
+_La0c4b417_56:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Ld8ffae46_59
+	jmpc lt, _La0c4b417_59
 	ld r0, 0
-	jmp _Ld8ffae46_60
-_Ld8ffae46_59:
+	jmp _La0c4b417_60
+_La0c4b417_59:
 	ld r0, 1
-_Ld8ffae46_60:
+_La0c4b417_60:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_58
+	jmpc eq, _La0c4b417_58
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -211,14 +211,14 @@ _Ld8ffae46_60:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _Ld8ffae46_61
+	jmpc eq, _La0c4b417_61
 	ld r0, 0
-	jmp _Ld8ffae46_62
-_Ld8ffae46_61:
+	jmp _La0c4b417_62
+_La0c4b417_61:
 	ld r0, 1
-_Ld8ffae46_62:
+_La0c4b417_62:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_63
+	jmpc eq, _La0c4b417_63
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -233,22 +233,22 @@ _Ld8ffae46_62:
 	ld r0, 2
 	pop r1
 	st r0, (r1+2)
-	jmp _Ld8ffae46_58
-_Ld8ffae46_63:
-_Ld8ffae46_57:
+	jmp _La0c4b417_58
+_La0c4b417_63:
+_La0c4b417_57:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _Ld8ffae46_56
-_Ld8ffae46_58:
-_Ld8ffae46_55:
+	jmp _La0c4b417_56
+_La0c4b417_58:
+_La0c4b417_55:
 	call _f_restauraContexto
 	ld sp, bp
 	pop bp
 	ret
-_f_newproc:
+_f_sys_newproc:
 	push bp
 	ld bp, sp
 	sub sp, 4
@@ -256,21 +256,21 @@ _f_newproc:
 	st r0, (bp+-2)
 	ld r0, 0
 	st r0, (bp+-4)
-_Ld8ffae46_80:
+_La0c4b417_80:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Ld8ffae46_83
+	jmpc lt, _La0c4b417_83
 	ld r0, 0
-	jmp _Ld8ffae46_84
-_Ld8ffae46_83:
+	jmp _La0c4b417_84
+_La0c4b417_83:
 	ld r0, 1
-_Ld8ffae46_84:
+_La0c4b417_84:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_82
+	jmpc eq, _La0c4b417_82
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-4)
@@ -283,14 +283,14 @@ _Ld8ffae46_84:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _Ld8ffae46_85
+	jmpc eq, _La0c4b417_85
 	ld r0, 0
-	jmp _Ld8ffae46_86
-_Ld8ffae46_85:
+	jmp _La0c4b417_86
+_La0c4b417_85:
 	ld r0, 1
-_Ld8ffae46_86:
+_La0c4b417_86:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_87
+	jmpc eq, _La0c4b417_87
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-4)
@@ -299,52 +299,52 @@ _Ld8ffae46_86:
 	add r1, r0
 	ld r0, r1
 	st r0, (bp+-2)
-	jmp _Ld8ffae46_82
-_Ld8ffae46_87:
-_Ld8ffae46_81:
+	jmp _La0c4b417_82
+_La0c4b417_87:
+_La0c4b417_81:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _Ld8ffae46_80
-_Ld8ffae46_82:
+	jmp _La0c4b417_80
+_La0c4b417_82:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _Ld8ffae46_88
+	jmpc eq, _La0c4b417_88
 	ld r0, 0
-	jmp _Ld8ffae46_89
-_Ld8ffae46_88:
+	jmp _La0c4b417_89
+_La0c4b417_88:
 	ld r0, 1
-_Ld8ffae46_89:
+_La0c4b417_89:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_90
+	jmpc eq, _La0c4b417_90
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_Ld8ffae46_90:
+_La0c4b417_90:
 	ld r0, 0
 	st r0, (bp+-4)
-_Ld8ffae46_91:
+_La0c4b417_91:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Ld8ffae46_94
+	jmpc lt, _La0c4b417_94
 	ld r0, 0
-	jmp _Ld8ffae46_95
-_Ld8ffae46_94:
+	jmp _La0c4b417_95
+_La0c4b417_94:
 	ld r0, 1
-_Ld8ffae46_95:
+_La0c4b417_95:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_93
+	jmpc eq, _La0c4b417_93
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, r1
@@ -358,14 +358,14 @@ _Ld8ffae46_95:
 	ld r0, 0
 	pop r1
 	st r0, (r1)
-_Ld8ffae46_92:
+_La0c4b417_92:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _Ld8ffae46_91
-_Ld8ffae46_93:
+	jmp _La0c4b417_91
+_La0c4b417_93:
 	ld r0, (bp+-2)
 	ld r1, r0
 	push r1
@@ -447,6 +447,18 @@ _f_die:
 	pop r1
 	st r0, (r1+2)
 	call _f_sched
+	ld r0, (_g_up)
+	cmp r0, 0
+	jmpc eq, _La0c4b417_99
+	ld r0, 0
+	jmp _La0c4b417_100
+_La0c4b417_99:
+	ld r0, 1
+_La0c4b417_100:
+	cmp r0, 0
+	jmpc eq, _La0c4b417_101
+	call _f_halt
+_La0c4b417_101:
 	ld r0, 0
 	ld sp, bp
 	pop bp
@@ -460,21 +472,21 @@ _f_kill:
 	sub sp, 4
 	ld r0, 0
 	st r0, (bp+-2)
-_Ld8ffae46_108:
+_La0c4b417_114:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Ld8ffae46_111
+	jmpc lt, _La0c4b417_117
 	ld r0, 0
-	jmp _Ld8ffae46_112
-_Ld8ffae46_111:
+	jmp _La0c4b417_118
+_La0c4b417_117:
 	ld r0, 1
-_Ld8ffae46_112:
+_La0c4b417_118:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_110
+	jmpc eq, _La0c4b417_116
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -491,14 +503,14 @@ _Ld8ffae46_112:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _Ld8ffae46_115
+	jmpc eq, _La0c4b417_121
 	ld r0, 0
-	jmp _Ld8ffae46_116
-_Ld8ffae46_115:
+	jmp _La0c4b417_122
+_La0c4b417_121:
 	ld r0, 1
-_Ld8ffae46_116:
+_La0c4b417_122:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_114
+	jmpc eq, _La0c4b417_120
 	ld r0, (bp+-4)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -507,21 +519,21 @@ _Ld8ffae46_116:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _Ld8ffae46_117
+	jmpc ne, _La0c4b417_123
 	ld r0, 0
-	jmp _Ld8ffae46_118
-_Ld8ffae46_117:
+	jmp _La0c4b417_124
+_La0c4b417_123:
 	ld r0, 1
-_Ld8ffae46_118:
+_La0c4b417_124:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_114
+	jmpc eq, _La0c4b417_120
 	ld r0, 1
-	jmp _Ld8ffae46_113
-_Ld8ffae46_114:
+	jmp _La0c4b417_119
+_La0c4b417_120:
 	ld r0, 0
-_Ld8ffae46_113:
+_La0c4b417_119:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_119
+	jmpc eq, _La0c4b417_125
 	ld r0, (bp+-4)
 	ld r1, r0
 	push r1
@@ -532,15 +544,15 @@ _Ld8ffae46_113:
 	ld sp, bp
 	pop bp
 	ret
-_Ld8ffae46_119:
-_Ld8ffae46_109:
+_La0c4b417_125:
+_La0c4b417_115:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _Ld8ffae46_108
-_Ld8ffae46_110:
+	jmp _La0c4b417_114
+_La0c4b417_116:
 	ld r0, 1
 	xor r0, -1
 	add r0, 1
@@ -559,14 +571,14 @@ _f_sys_killproc:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _Ld8ffae46_130
+	jmpc eq, _La0c4b417_136
 	ld r0, 0
-	jmp _Ld8ffae46_131
-_Ld8ffae46_130:
+	jmp _La0c4b417_137
+_La0c4b417_136:
 	ld r0, 1
-_Ld8ffae46_131:
+_La0c4b417_137:
 	cmp r0, 0
-	jmpc ne, _Ld8ffae46_129
+	jmpc ne, _La0c4b417_135
 	ld r0, (bp+4)
 	push r0
 	ld r0, (_g_up)
@@ -575,27 +587,27 @@ _Ld8ffae46_131:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _Ld8ffae46_132
+	jmpc eq, _La0c4b417_138
 	ld r0, 0
-	jmp _Ld8ffae46_133
-_Ld8ffae46_132:
+	jmp _La0c4b417_139
+_La0c4b417_138:
 	ld r0, 1
-_Ld8ffae46_133:
+_La0c4b417_139:
 	cmp r0, 0
-	jmpc ne, _Ld8ffae46_129
+	jmpc ne, _La0c4b417_135
 	ld r0, 0
-	jmp _Ld8ffae46_128
-_Ld8ffae46_129:
+	jmp _La0c4b417_134
+_La0c4b417_135:
 	ld r0, 1
-_Ld8ffae46_128:
+_La0c4b417_134:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_134
+	jmpc eq, _La0c4b417_140
 	call _f_die
 	ld sp, bp
 	pop bp
 	ret
-	jmp _Ld8ffae46_135
-_Ld8ffae46_134:
+	jmp _La0c4b417_141
+_La0c4b417_140:
 	ld r0, (bp+4)
 	push r0
 	call _f_kill
@@ -603,7 +615,7 @@ _Ld8ffae46_134:
 	ld sp, bp
 	pop bp
 	ret
-_Ld8ffae46_135:
+_La0c4b417_141:
 	ld sp, bp
 	pop bp
 	ret
@@ -617,21 +629,21 @@ _f_procinit:
 	st r0, (_g_up)
 	ld r0, 0
 	st r0, (bp+-2)
-_Ld8ffae46_141:
+_La0c4b417_147:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Ld8ffae46_144
+	jmpc lt, _La0c4b417_150
 	ld r0, 0
-	jmp _Ld8ffae46_145
-_Ld8ffae46_144:
+	jmp _La0c4b417_151
+_La0c4b417_150:
 	ld r0, 1
-_Ld8ffae46_145:
+_La0c4b417_151:
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_143
+	jmpc eq, _La0c4b417_149
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -642,14 +654,14 @@ _Ld8ffae46_145:
 	ld r0, 0
 	pop r1
 	st r0, (r1+2)
-_Ld8ffae46_142:
+_La0c4b417_148:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _Ld8ffae46_141
-_Ld8ffae46_143:
+	jmp _La0c4b417_147
+_La0c4b417_149:
 	ld r0, _f_init
 	push r0
 	call _f_sys_newproc
@@ -669,11 +681,11 @@ _f_filho:
 	push bp
 	ld bp, sp
 	sub sp, 4
-	ld r0, _strd8ffae46_1
+	ld r0, _stra0c4b417_1
 	st r0, (bp+-2)
 	ld r0, (bp+-2)
 	st r0, (bp+-4)
-_Ld8ffae46_148:
+_La0c4b417_154:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
@@ -686,9 +698,9 @@ _Ld8ffae46_148:
 	call _f_write
 	add sp, 2
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_149
-	jmp _Ld8ffae46_148
-_Ld8ffae46_149:
+	jmpc eq, _La0c4b417_155
+	jmp _La0c4b417_154
+_La0c4b417_155:
 	ld r0, 0
 	push r0
 	call _f_killproc
@@ -700,11 +712,11 @@ _f_init:
 	push bp
 	ld bp, sp
 	sub sp, 4
-	ld r0, _strd8ffae46_3
+	ld r0, _stra0c4b417_3
 	st r0, (bp+-2)
 	ld r0, (bp+-2)
 	st r0, (bp+-4)
-_Ld8ffae46_152:
+_La0c4b417_158:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
@@ -717,9 +729,9 @@ _Ld8ffae46_152:
 	call _f_write
 	add sp, 2
 	cmp r0, 0
-	jmpc eq, _Ld8ffae46_153
-	jmp _Ld8ffae46_152
-_Ld8ffae46_153:
+	jmpc eq, _La0c4b417_159
+	jmp _La0c4b417_158
+_La0c4b417_159:
 	ld r0, _f_filho
 	push r0
 	call _f_newproc
@@ -2054,11 +2066,11 @@ _g_nextpid:
 	.db 0
 
 ; ----- literais de string -----
-_strd8ffae46_0:
+_stra0c4b417_0:
 	.db 80, 114, 111, 99, 101, 115, 115, 111, 32, 102, 105, 108, 104, 111, 10, 0
-_strd8ffae46_1:
+_stra0c4b417_1:
 	.db 80, 114, 111, 99, 101, 115, 115, 111, 32, 102, 105, 108, 104, 111, 10, 0
-_strd8ffae46_2:
+_stra0c4b417_2:
 	.db 66, 101, 109, 45, 118, 105, 110, 100, 111, 32, 97, 111, 32, 107, 101, 114, 110, 101, 108, 10, 0
-_strd8ffae46_3:
+_stra0c4b417_3:
 	.db 66, 101, 109, 45, 118, 105, 110, 100, 111, 32, 97, 111, 32, 107, 101, 114, 110, 101, 108, 10, 0

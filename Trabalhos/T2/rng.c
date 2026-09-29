@@ -8,12 +8,14 @@ int rand(void);
 void
 rng_main(void)
 {
-  int s;
-  s = read();
+  puts("Insira uma semente:");
+  int s = read_int();
   srand(s);
-
-  write('0' + (rand() % 10));
-  write('\n');
+  print_int(s);
+  putchar('\n');
+  
+  print_int(rand());
+  putchar('\n');
   killproc(0);
 }
 

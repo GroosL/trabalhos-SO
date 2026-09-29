@@ -4,33 +4,31 @@ _f_rng_main:
 	push bp
 	ld bp, sp
 	sub sp, 2
-	call _f_read
+	ld r0, _strf4e1e79b_1
+	push r0
+	call _f_puts
+	add sp, 2
+	call _f_read_int
 	st r0, (bp+-2)
 	ld r0, (bp+-2)
 	push r0
 	call _f_srand
 	add sp, 2
-	ld r0, 48
+	ld r0, (bp+-2)
 	push r0
-	call _f_rand
-	push r0
-	ld r0, 10
-	ld r1, r0
-	pop r0
-	ld r2, r0
-	div r0, r1
-	mul r0, r1
-	sub r2, r0
-	ld r0, r2
-	ld r1, r0
-	pop r0
-	add r0, r1
-	push r0
-	call _f_write
+	call _f_print_int
 	add sp, 2
 	ld r0, 10
 	push r0
-	call _f_write
+	call _f_putchar
+	add sp, 2
+	call _f_rand
+	push r0
+	call _f_print_int
+	add sp, 2
+	ld r0, 10
+	push r0
+	call _f_putchar
 	add sp, 2
 	ld r0, 0
 	push r0
@@ -80,3 +78,7 @@ _g_next:
 	.dw 1
 
 ; ----- literais de string -----
+_strf4e1e79b_0:
+	.db 73, 110, 115, 105, 114, 97, 32, 117, 109, 97, 32, 115, 101, 109, 101, 110, 116, 101, 58, 0
+_strf4e1e79b_1:
+	.db 73, 110, 115, 105, 114, 97, 32, 117, 109, 97, 32, 115, 101, 109, 101, 110, 116, 101, 58, 0

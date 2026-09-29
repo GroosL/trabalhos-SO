@@ -20,6 +20,6 @@ multitarefa_c.mob: $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm
 	$(MONTADOR) $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm -o multitarefa_c.mob
 
 clean:
-	rm -f kernel.asm libc.asm init.asm multitarefa_c.mob
+	rm -f kernel.asm libc.asm init.asm rng.asm multitarefa_c.mob
 
 .PHONY: all clean

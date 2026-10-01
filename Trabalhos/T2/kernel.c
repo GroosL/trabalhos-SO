@@ -2,6 +2,7 @@
 #define NPROC 8
 #define TAM_PILHA 64
 #define TAM_QUADRO 16
+#define TAM_BUF 16
 
 // Estados
 #define DEAD 0
@@ -24,6 +25,7 @@ struct Proc {
   int quadro[TAM_QUADRO];
   int pilha[TAM_PILHA]; // Talvez mover para um vetor de pilhas?
   int waitpid;
+  int wait_io;
 };
 #define Proc struct Proc
 
@@ -31,6 +33,11 @@ struct Proc {
 Proc procs[NPROC];
 Proc *up; // Processo atual
 int nextpid;
+
+int kbd_buf[TAM_BUF];
+int kbd_head = 0;
+int kbd_tail = 0;
+int kbd_count = 0;
 
 // Definicao das funcoes
 
@@ -51,6 +58,10 @@ int kill(int pid);
 void procinit(void);
 void halt(void);
 void init(void);
+
+// 
+void received_key(int c);
+void espera_interrupcao(void);
 
 Proc*
 pfind(int pid)
@@ -131,6 +142,20 @@ sched(void) {
     }
   }
   up = prox;
+
+  while (up == 0) {
+    int alive = 0;
+    for (i = 0; i < NPROC; i++) {
+      if (procs[i].state != DEAD) alive = 1;
+      if (procs[i].state == READY) {
+        up = &procs[i];
+        break;
+      }
+    }
+    if (!alive) return;
+    if (!up) espera_interrupcao();
+  }
+
   if (up != 0) {
     up->state = RUNNING;
     restauraContexto();
@@ -163,6 +188,7 @@ sys_newproc(void (*entry)(void))
   
   p->state = READY;
   p->waitpid = 0;
+  p->wait_io = 0;
 
   return p;
 }
@@ -209,6 +235,7 @@ procinit(void)
   for (i = 0; i < NPROC; i++) {
     procs[i].state = DEAD;
     procs[i].waitpid = 0;
+    procs[i].wait_io = 0;
   }
 
   up = sys_newproc(init);
@@ -233,4 +260,46 @@ sys_wait(int pid)
   sched();
 
   return QUADRO_SISTEMA[0];
+}
+
+void
+received_key(int c)
+{
+  int i;
+  Proc* p = 0;
+  
+  for (i = 0; i < NPROC; i++) {
+    if (procs[i].state == BLOCKED && procs[i].wait_io == 1) {
+      p = &procs[i];
+      break;
+    }
+  }
+
+  if (p != 0) {
+    p->quadro[0] = c;
+    p->wait_io = 0;
+    p->state = READY;
+  }
+  else if (kbd_count < TAM_BUF) {
+    kbd_buf[kbd_tail] = c;
+    kbd_tail = (kbd_tail + 1) % TAM_BUF;
+    kbd_count++;
+  }
+}
+
+int
+sys_read(void)
+{
+  if (kbd_count > 0) {
+    int c = kbd_buf[kbd_head];
+    kbd_head = (kbd_head + 1 ) % TAM_BUF;
+    kbd_count--;
+    return c;
+  }
+  else {
+    up->state = BLOCKED;
+    up->wait_io = 1;
+    sched();
+    return QUADRO_SISTEMA[0];
+  }
 }

@@ -5,10 +5,10 @@ void rng_main(void);
 void
 filho(void)
 {
-  char *msg = "Processo filho\n";
-  char *p = msg;
-  while (write(*p++));
-
+  while (1) {
+    puts("Filho rodando");
+    for (int i = 0; i < 500; i++);
+  }
   killproc(0);
 }
 
@@ -16,10 +16,10 @@ void
 init(void)
 {
   puts("Bem-vindo ao kernel\n");
-  
-  int rng = newproc(rng_main);
 
-  int f = newproc(filho);
+  int rng = newproc(rng_main);
+  //
+  // int f = newproc(filho);
 
   killproc(0);
 }

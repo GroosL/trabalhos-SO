@@ -54,22 +54,10 @@ _f_wait:
 ; Syscalls
 
 ; SO_LE 0
-sys_le_handler:
-  call  bios_console_disponivel
-  cmp   r0, 0
-  jmpc  ne, .le_bios
-
-.espera:
-  inb   r0, (2)
-  and   r0, 2
-  cmp   r0, 0
-  jmpc  eq, .espera
-  inb   r0, (1)
-  and   r0, 255
-  ret
-
-.le_bios:
-  call  bios_console_le
+_trampolim_read:
+  push  r1
+  call  _f_sys_read
+  add sp, 2
   ret
 
 ; SO_ESCREVE 1
@@ -111,6 +99,25 @@ _trampolim_wait:
   add   sp, 2
   ret
 
+trampolim_console:
+.loop:
+  inb   r0, (2)
+  and   r0, 2
+  cmp   r0, 0
+  jmpc  eq, .end
+  
+  inb   r0, (1)
+  and   r0, 255
+
+  push  r0
+  call  _f_received_key
+  add   sp, 2
+
+  jmp   .loop
+
+.end:
+  rete
+
 ; Kernel
 
 _kernel_inicio:
@@ -126,7 +133,7 @@ _kernel_inicio:
   outb  r0, (0x30) ; Habilita interrupcoes
 
 ; Tabela syscalls
-  ld    r0, sys_le_handler
+  ld    r0, _trampolim_read
   st    r0, (tabela_syscalls)
   ld    r0, sys_escreve_handler
   st    r0, (tabela_syscalls+2)
@@ -137,6 +144,9 @@ _kernel_inicio:
   ld    r0, _trampolim_wait
   st    r0, (tabela_syscalls+8)
   
+  ld    r0, trampolim_console
+  st    r0, (64)
+
   ; instala a ponte pro escalonador em C -- a partir daqui, todo
   ; estouro do relógio vai chamá-la em vez do comportamento padrão
   ; da BIOS
@@ -153,6 +163,10 @@ _kernel_inicio:
   ld    sp, pilha_sistema
   add   sp, -32
   rete
+
+_f_espera_interrupcao:
+  ei
+  ret
 
 trampolim_escalonador:
   call    _f_sched

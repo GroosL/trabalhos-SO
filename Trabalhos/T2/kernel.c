@@ -1,3 +1,8 @@
+// Schedulers
+#define SCHED_RR 0
+#define SCHED_PRIO 1
+#define SCHEDULER SCHED_PRIO
+
 // Limites
 #define NPROC 8
 #define TAM_PILHA 64
@@ -28,8 +33,9 @@ struct Proc {
   int pilha[TAM_PILHA]; // Talvez mover para um vetor de pilhas?
   int waitpid;
   int wait_io;
+  int priority; // Escala de 1000
 
-  struct Proc* qnext;
+  struct Proc* qnext; // Lista encadeada porque o N eh muito pequeno para se importar com a performance, entao foquei na simplicidade
 };
 #define Proc struct Proc
 
@@ -56,10 +62,12 @@ void restauraContexto(void);
 void sched(void);
 int sys_wait(int pid);
 void runq_put(Proc* p);
+void runq_put_prio(Proc* p);
 Proc* runq_get(void);
 void ready(Proc* p);
 void yield(void);
 void timerTick(void);
+void updatePriority(void);
 
 // Processos
 Proc* sys_newproc(void (*entry)(void));
@@ -138,6 +146,14 @@ void
 sched(void) {
   salvaContexto();
   
+  if (up != 0) {
+    if (up->state != DEAD)
+      updatePriority();
+
+    if (up->state == RUNNING)
+      ready(up);
+  }
+
   up = runq_get();
   
   int i, alive;
@@ -186,6 +202,7 @@ sys_newproc(void (*entry)(void))
   
   p->waitpid = 0;
   p->wait_io = 0;
+  p->priority = 500;
   ready(p);
 
   return p;
@@ -347,14 +364,17 @@ ready(Proc* p)
     return;
 
   p->state = READY;
-  runq_put(p);
+  
+  if (SCHEDULER == SCHED_RR)
+    runq_put(p);
+  else
+    runq_put_prio(p);
 }
 
 void
 yield(void)
 {
   if (up != 0 && up->state == RUNNING) {
-    ready(up);
     sched();
   }
 }
@@ -368,4 +388,40 @@ timerTick(void)
   quantumRestante--;
   if (quantumRestante <= 0)
     yield();
+}
+
+void
+updatePriority(void)
+{
+  int texec = QUANTUM - quantumRestante;
+  int f = (texec * 1000) / QUANTUM;
+  up->priority = (up->priority + f) / 2;
+}
+
+void
+runq_put_prio(Proc* p)
+{
+  if (runq_tail == 0) {
+    runq_head = p;
+    runq_tail = p;
+    p->qnext = 0;
+  }
+  else if (p->priority < runq_head->priority) {
+    p->qnext = runq_head;
+    runq_head = p;
+  }
+  else {
+    Proc* curr = runq_head;
+
+    while (curr != 0) {
+      if (curr->qnext == 0 || curr->qnext->priority > p->priority) {
+        p->qnext = curr->qnext;
+        curr->qnext = p;
+        if (p->qnext == 0)
+          runq_tail = p;
+        break;
+      }
+      curr = curr->qnext;
+    }
+  }
 }

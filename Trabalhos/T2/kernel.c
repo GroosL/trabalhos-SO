@@ -16,6 +16,7 @@
 #define SO_CRIA_PROC 2
 #define SO_MATA_PROC 3
 #define SO_ESPERA_PROC 4
+#define SO_GET_PID 5
 
 #define QUADRO_SISTEMA ((int*)0xEFE0)
 
@@ -53,6 +54,8 @@ int sys_killproc(int pid);
 
 int die(void);
 int kill(int pid);
+
+int sys_getpid(void);
 
 // Inicializacao
 void procinit(void);
@@ -302,4 +305,10 @@ sys_read(void)
     sched();
     return QUADRO_SISTEMA[0];
   }
+}
+
+int
+sys_getpid(void)
+{
+  return up->pid;
 }

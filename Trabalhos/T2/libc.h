@@ -7,6 +7,7 @@ int read(void);
 int newproc(void (*entry)(void));
 int killproc(int pid);
 int wait(int pid);
+int getpid(void);
 
 // Funcoes
 

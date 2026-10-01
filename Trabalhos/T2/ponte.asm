@@ -51,6 +51,15 @@ _f_wait:
   pop   bp
   ret
 
+_f_getpid:
+  push  bp
+  ld    bp, sp
+  ld    r0, 5
+  trap  7
+  ld    sp, bp
+  pop   bp
+  ret
+
 ; Syscalls
 
 ; SO_LE 0
@@ -99,6 +108,13 @@ _trampolim_wait:
   add   sp, 2
   ret
 
+; SO_GET_PID 5
+_trampolim_getpid:
+  push  r1
+  call  _f_sys_getpid
+  add   sp, 2
+  ret
+
 trampolim_console:
 .loop:
   inb   r0, (2)
@@ -143,6 +159,8 @@ _kernel_inicio:
   st    r0, (tabela_syscalls+6)
   ld    r0, _trampolim_wait
   st    r0, (tabela_syscalls+8)
+  ld    r0, _trampolim_getpid
+  st    r0, (tabela_syscalls+10)
   
   ld    r0, trampolim_console
   st    r0, (64)

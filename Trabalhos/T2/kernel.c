@@ -9,6 +9,7 @@
 #define TAM_QUADRO 16
 #define TAM_BUF 16
 #define QUANTUM 4
+#define MAXMETRICS 64
 
 // Estados
 #define DEAD 0
@@ -26,6 +27,22 @@
 
 #define QUADRO_SISTEMA ((int*)0xEFE0)
 
+struct ProcMetrics {
+  int pid;
+  int tCreated;
+  int tEnded;
+  int numPreemptions;
+  int numChanges;
+  int numSyscalls;
+  int numState[4];
+  int tTotalState[4];
+  int tStateChange;
+  int tUnblock;
+  int sumResponses;
+  int numResponses;
+};
+#define ProcMetrics struct ProcMetrics
+
 struct Proc {
   int pid;
   int state;
@@ -36,6 +53,8 @@ struct Proc {
   int priority; // Escala de 1000
 
   struct Proc* qnext; // Lista encadeada porque o N eh muito pequeno para se importar com a performance, entao foquei na simplicidade
+
+  ProcMetrics metr;
 };
 #define Proc struct Proc
 
@@ -44,6 +63,9 @@ Proc* p_idle;
 Proc procs[NPROC];
 Proc* up; // Processo atual
 int nextpid;
+
+ProcMetrics metrics[MAXMETRICS];
+int numMetrics = 0;
 
 int quantumRestante = QUANTUM;
 
@@ -54,6 +76,15 @@ int kbd_buf[TAM_BUF];
 int kbd_head = 0;
 int kbd_tail = 0;
 int kbd_count = 0;
+
+// Metricas
+int clockTicks = 0;
+int metr_createdProcs = 0;
+int metr_idleTime = 0;
+int metr_totalPreempt = 0;
+int metr_intClock = 0;
+int metr_intKey = 0;
+int metr_syscalls = 0;
 
 // Definicao das funcoes
 
@@ -69,6 +100,8 @@ void ready(Proc* p);
 void yield(void);
 void timerTick(void);
 void updatePriority(void);
+void changeState(Proc* p, int newState);
+void countSyscall(void);
 
 // Processos
 Proc* sys_newproc(void (*entry)(void));
@@ -146,6 +179,7 @@ restauraContexto(void)
   }
 }
 
+
 void
 sched(void) {
   salvaContexto();
@@ -156,6 +190,9 @@ sched(void) {
 
     if (up->state == RUNNING)
       ready(up);
+  }
+  else if (up == p_idle && up->state == RUNNING) {
+    changeState(p_idle, BLOCKED);
   }
 
   up = runq_get();
@@ -173,7 +210,7 @@ sched(void) {
     if (!alive) return;
     up = p_idle;
   }
-  up->state = RUNNING;
+  changeState(up, RUNNING);
   quantumRestante = QUANTUM;
   restauraContexto();
 }
@@ -181,6 +218,7 @@ sched(void) {
 Proc* 
 sys_newproc(void (*entry)(void))
 {
+  countSyscall();
   Proc* p = 0;
   int i;
   for (i = 0; i < NPROC; i++) {
@@ -205,6 +243,24 @@ sys_newproc(void (*entry)(void))
   p->waitpid = 0;
   p->wait_io = 0;
   p->priority = 500;
+
+  // Metricas
+  p->metr.pid = p->pid;
+  p->metr.tCreated = clockTicks;
+  p->metr.tEnded = 0;
+  p->metr.numPreemptions = 0;
+  p->metr.numChanges = 0;
+  p->metr.numSyscalls = 0;
+  p->metr.tStateChange = clockTicks;
+  p->metr.tUnblock = clockTicks;
+  p->metr.sumResponses = 0;
+  p->metr.numResponses = 0;
+  for (i = 0; i < 4; i++) {
+    p->metr.numState[i] = 0;
+    p->metr.tTotalState[i] = 0;
+  }
+  metr_createdProcs++;
+
   ready(p);
 
   return p;
@@ -213,7 +269,12 @@ sys_newproc(void (*entry)(void))
 int
 die(void)
 {
-  up->state = DEAD;
+  changeState(up, DEAD);
+  up->metr.tEnded = clockTicks;
+  if (numMetrics < MAXMETRICS && up != p_idle) {
+    metrics[numMetrics] = up->metr;
+    numMetrics++;
+  }
   pwake(up->pid);
   sched();
   if (!up) halt();
@@ -226,7 +287,12 @@ kill(int pid)
   Proc* p = pfind(pid);
 
   if (p) {
-    p->state = DEAD;
+    changeState(p, DEAD);
+    p->metr.tEnded = clockTicks;
+    if (numMetrics < MAXMETRICS && p != p_idle) {
+      metrics[numMetrics] = p->metr;
+      numMetrics++;
+    }
     pwake(pid);
     return 0;
   }
@@ -236,6 +302,7 @@ kill(int pid)
 int
 sys_killproc(int pid)
 {
+  countSyscall();
   if (pid == 0 || pid == up->pid)
     return die();
   else
@@ -264,13 +331,14 @@ procinit(void)
 
   sys_newproc(init);
   up = runq_get();
-  up->state = RUNNING;
+  changeState(up, RUNNING);
   restauraContexto();
 }
 
 int
 sys_wait(int pid)
 {
+  countSyscall();
   if (pid <= 0 || pid == up->pid || pid >= nextpid)
     return -1;
   
@@ -279,7 +347,8 @@ sys_wait(int pid)
   if (!p) 
     return 0;
   
-  up->state = BLOCKED;
+  up->metr.numChanges++;
+  changeState(up, BLOCKED);
   up->waitpid = pid;
   QUADRO_SISTEMA[0] = 0;
   sched();
@@ -290,6 +359,7 @@ sys_wait(int pid)
 void
 received_key(int c)
 {
+  metr_intKey++;
   int i;
   Proc* p = 0;
   
@@ -317,6 +387,7 @@ received_key(int c)
 int
 sys_read(void)
 {
+  countSyscall();
   if (kbd_count > 0) {
     int c = kbd_buf[kbd_head];
     kbd_head = (kbd_head + 1) % TAM_BUF;
@@ -324,7 +395,8 @@ sys_read(void)
     return c;
   }
   else {
-    up->state = BLOCKED;
+    up->metr.numChanges++;
+    changeState(up, BLOCKED);
     up->wait_io = 1;
     sched();
     return QUADRO_SISTEMA[0];
@@ -334,6 +406,7 @@ sys_read(void)
 int
 sys_write(int c)
 {
+  countSyscall();
   if (c == '\0') return 0;
   write_char(c);
   return 1;
@@ -342,6 +415,7 @@ sys_write(int c)
 int
 sys_getpid(void)
 {
+  countSyscall();
   return up->pid;
 }
 
@@ -380,7 +454,7 @@ ready(Proc* p)
   if (p == 0)
     return;
 
-  p->state = READY;
+  changeState(p, READY);
   
   if (SCHEDULER == SCHED_RR)
     runq_put(p);
@@ -399,12 +473,22 @@ yield(void)
 void
 timerTick(void)
 {
+  clockTicks++;
+  metr_intClock++;
+
+  if (up == p_idle) {
+    metr_idleTime++;
+    return;
+  }
+
   if (up == 0 || up->state != RUNNING)
     return;
 
-  quantumRestante--;
-  if (quantumRestante <= 0)
+  if (--quantumRestante <= 0) {
+    metr_totalPreempt++;
+    up->metr.numPreemptions++;
     yield();
+  }
 }
 
 void
@@ -448,4 +532,37 @@ idle(void)
 {
   while(1)
     espera_interrupcao();
+}
+
+void
+countSyscall(void)
+{
+  metr_syscalls++;
+  if (up != 0)
+    up->metr.numSyscalls++;
+}
+
+void
+changeState(Proc* p, int newState)
+{
+  if (p == 0 || p->state == newState)
+    return;
+
+  int delta = clockTicks - p->metr.tStateChange;
+  p->metr.tTotalState[p->state] = p->metr.tTotalState[p->state] + delta;
+
+  if (p->state == BLOCKED && newState == READY) {
+    p->metr.tUnblock = clockTicks;
+  }
+  else if (p->state == READY && newState == RUNNING) {
+    if (p->metr.tUnblock >= 0) {
+      p->metr.sumResponses = p->metr.sumResponses + (clockTicks - p->metr.tUnblock);
+      p->metr.numResponses++;
+      p->metr.tUnblock = -1;
+    }
+  }
+
+  p->state = newState;
+  p->metr.numState[newState]++;
+  p->metr.tStateChange = clockTicks;
 }

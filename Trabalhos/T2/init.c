@@ -14,10 +14,8 @@ printaPid(void)
 void
 filho(void)
 {
-  while (1) {
+  for (int i = 0; i < 500; i++)
     puts("Filho rodando");
-    for (int i = 0; i < 500; i++);
-  }
   killproc(0);
 }
 

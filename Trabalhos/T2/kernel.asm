@@ -6,25 +6,25 @@ _f_pfind:
 	sub sp, 4
 	ld r0, 0
 	st r0, (bp+-2)
-_L10a062_11:
+_L39babe60_11:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_14
+	jmpc lt, _L39babe60_14
 	ld r0, 0
-	jmp _L10a062_15
-_L10a062_14:
+	jmp _L39babe60_15
+_L39babe60_14:
 	ld r0, 1
-_L10a062_15:
+_L39babe60_15:
 	cmp r0, 0
-	jmpc eq, _L10a062_13
+	jmpc eq, _L39babe60_13
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, r1
@@ -37,14 +37,14 @@ _L10a062_15:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_16
+	jmpc eq, _L39babe60_16
 	ld r0, 0
-	jmp _L10a062_17
-_L10a062_16:
+	jmp _L39babe60_17
+_L39babe60_16:
 	ld r0, 1
-_L10a062_17:
+_L39babe60_17:
 	cmp r0, 0
-	jmpc eq, _L10a062_18
+	jmpc eq, _L39babe60_18
 	ld r0, (bp+-4)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -53,32 +53,32 @@ _L10a062_17:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_19
+	jmpc ne, _L39babe60_19
 	ld r0, 0
-	jmp _L10a062_20
-_L10a062_19:
+	jmp _L39babe60_20
+_L39babe60_19:
 	ld r0, 1
-_L10a062_20:
+_L39babe60_20:
 	cmp r0, 0
-	jmpc eq, _L10a062_21
+	jmpc eq, _L39babe60_21
 	ld r0, (bp+-4)
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_21:
+_L39babe60_21:
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_18:
-_L10a062_12:
+_L39babe60_18:
+_L39babe60_12:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L10a062_11
-_L10a062_13:
+	jmp _L39babe60_11
+_L39babe60_13:
 	ld r0, 0
 	ld sp, bp
 	pop bp
@@ -92,25 +92,25 @@ _f_pwake:
 	sub sp, 4
 	ld r0, 0
 	st r0, (bp+-2)
-_L10a062_34:
+_L39babe60_34:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_37
+	jmpc lt, _L39babe60_37
 	ld r0, 0
-	jmp _L10a062_38
-_L10a062_37:
+	jmp _L39babe60_38
+_L39babe60_37:
 	ld r0, 1
-_L10a062_38:
+_L39babe60_38:
 	cmp r0, 0
-	jmpc eq, _L10a062_36
+	jmpc eq, _L39babe60_36
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, r1
@@ -123,14 +123,14 @@ _L10a062_38:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_41
+	jmpc eq, _L39babe60_41
 	ld r0, 0
-	jmp _L10a062_42
-_L10a062_41:
+	jmp _L39babe60_42
+_L39babe60_41:
 	ld r0, 1
-_L10a062_42:
+_L39babe60_42:
 	cmp r0, 0
-	jmpc eq, _L10a062_40
+	jmpc eq, _L39babe60_40
 	ld r0, (bp+-4)
 	ld r1, r0
 	ld r0, (r1+164)
@@ -139,21 +139,21 @@ _L10a062_42:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_43
+	jmpc eq, _L39babe60_43
 	ld r0, 0
-	jmp _L10a062_44
-_L10a062_43:
+	jmp _L39babe60_44
+_L39babe60_43:
 	ld r0, 1
-_L10a062_44:
+_L39babe60_44:
 	cmp r0, 0
-	jmpc eq, _L10a062_40
+	jmpc eq, _L39babe60_40
 	ld r0, 1
-	jmp _L10a062_39
-_L10a062_40:
+	jmp _L39babe60_39
+_L39babe60_40:
 	ld r0, 0
-_L10a062_39:
+_L39babe60_39:
 	cmp r0, 0
-	jmpc eq, _L10a062_45
+	jmpc eq, _L39babe60_45
 	ld r0, (bp+-4)
 	ld r1, r0
 	push r1
@@ -164,15 +164,15 @@ _L10a062_39:
 	push r0
 	call _f_ready
 	add sp, 2
-_L10a062_45:
-_L10a062_35:
+_L39babe60_45:
+_L39babe60_35:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L10a062_34
-_L10a062_36:
+	jmp _L39babe60_34
+_L39babe60_36:
 	ld sp, bp
 	pop bp
 	ret
@@ -182,35 +182,35 @@ _f_salvaContexto:
 	sub sp, 2
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _L10a062_54
+	jmpc eq, _L39babe60_54
 	ld r0, 0
-	jmp _L10a062_55
-_L10a062_54:
+	jmp _L39babe60_55
+_L39babe60_54:
 	ld r0, 1
-_L10a062_55:
+_L39babe60_55:
 	cmp r0, 0
-	jmpc eq, _L10a062_56
+	jmpc eq, _L39babe60_56
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_56:
+_L39babe60_56:
 	ld r0, 0
 	st r0, (bp+-2)
-_L10a062_57:
+_L39babe60_57:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_60
+	jmpc lt, _L39babe60_60
 	ld r0, 0
-	jmp _L10a062_61
-_L10a062_60:
+	jmp _L39babe60_61
+_L39babe60_60:
 	ld r0, 1
-_L10a062_61:
+_L39babe60_61:
 	cmp r0, 0
-	jmpc eq, _L10a062_59
+	jmpc eq, _L39babe60_59
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, r1
@@ -230,14 +230,14 @@ _L10a062_61:
 	ld r0, (r1)
 	pop r1
 	st r0, (r1)
-_L10a062_58:
+_L39babe60_58:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L10a062_57
-_L10a062_59:
+	jmp _L39babe60_57
+_L39babe60_59:
 	ld sp, bp
 	pop bp
 	ret
@@ -247,35 +247,35 @@ _f_restauraContexto:
 	sub sp, 2
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _L10a062_70
+	jmpc eq, _L39babe60_70
 	ld r0, 0
-	jmp _L10a062_71
-_L10a062_70:
+	jmp _L39babe60_71
+_L39babe60_70:
 	ld r0, 1
-_L10a062_71:
+_L39babe60_71:
 	cmp r0, 0
-	jmpc eq, _L10a062_72
+	jmpc eq, _L39babe60_72
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_72:
+_L39babe60_72:
 	ld r0, 0
 	st r0, (bp+-2)
-_L10a062_73:
+_L39babe60_73:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_76
+	jmpc lt, _L39babe60_76
 	ld r0, 0
-	jmp _L10a062_77
-_L10a062_76:
+	jmp _L39babe60_77
+_L39babe60_76:
 	ld r0, 1
-_L10a062_77:
+_L39babe60_77:
 	cmp r0, 0
-	jmpc eq, _L10a062_75
+	jmpc eq, _L39babe60_75
 	ld r0, 61408
 	push r0
 	ld r0, (bp+-2)
@@ -295,14 +295,14 @@ _L10a062_77:
 	ld r0, (r1)
 	pop r1
 	st r0, (r1)
-_L10a062_74:
+_L39babe60_74:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L10a062_73
-_L10a062_75:
+	jmp _L39babe60_73
+_L39babe60_75:
 	ld sp, bp
 	pop bp
 	ret
@@ -317,35 +317,35 @@ _f_sched:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_111
+	jmpc ne, _L39babe60_119
 	ld r0, 0
-	jmp _L10a062_112
-_L10a062_111:
+	jmp _L39babe60_120
+_L39babe60_119:
 	ld r0, 1
-_L10a062_112:
+_L39babe60_120:
 	cmp r0, 0
-	jmpc eq, _L10a062_110
+	jmpc eq, _L39babe60_118
 	ld r0, (_g_up)
 	push r0
 	ld r0, (_g_p_idle)
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_113
+	jmpc ne, _L39babe60_121
 	ld r0, 0
-	jmp _L10a062_114
-_L10a062_113:
+	jmp _L39babe60_122
+_L39babe60_121:
 	ld r0, 1
-_L10a062_114:
+_L39babe60_122:
 	cmp r0, 0
-	jmpc eq, _L10a062_110
+	jmpc eq, _L39babe60_118
 	ld r0, 1
-	jmp _L10a062_109
-_L10a062_110:
+	jmp _L39babe60_117
+_L39babe60_118:
 	ld r0, 0
-_L10a062_109:
+_L39babe60_117:
 	cmp r0, 0
-	jmpc eq, _L10a062_115
+	jmpc eq, _L39babe60_123
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -354,16 +354,16 @@ _L10a062_109:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_116
+	jmpc ne, _L39babe60_124
 	ld r0, 0
-	jmp _L10a062_117
-_L10a062_116:
+	jmp _L39babe60_125
+_L39babe60_124:
 	ld r0, 1
-_L10a062_117:
+_L39babe60_125:
 	cmp r0, 0
-	jmpc eq, _L10a062_118
+	jmpc eq, _L39babe60_126
 	call _f_updatePriority
-_L10a062_118:
+_L39babe60_126:
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -372,20 +372,66 @@ _L10a062_118:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_119
+	jmpc eq, _L39babe60_127
 	ld r0, 0
-	jmp _L10a062_120
-_L10a062_119:
+	jmp _L39babe60_128
+_L39babe60_127:
 	ld r0, 1
-_L10a062_120:
+_L39babe60_128:
 	cmp r0, 0
-	jmpc eq, _L10a062_121
+	jmpc eq, _L39babe60_129
 	ld r0, (_g_up)
 	push r0
 	call _f_ready
 	add sp, 2
-_L10a062_121:
-_L10a062_115:
+_L39babe60_129:
+	jmp _L39babe60_130
+_L39babe60_123:
+	ld r0, (_g_up)
+	push r0
+	ld r0, (_g_p_idle)
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_133
+	ld r0, 0
+	jmp _L39babe60_134
+_L39babe60_133:
+	ld r0, 1
+_L39babe60_134:
+	cmp r0, 0
+	jmpc eq, _L39babe60_132
+	ld r0, (_g_up)
+	ld r1, r0
+	ld r0, (r1+2)
+	push r0
+	ld r0, 2
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_135
+	ld r0, 0
+	jmp _L39babe60_136
+_L39babe60_135:
+	ld r0, 1
+_L39babe60_136:
+	cmp r0, 0
+	jmpc eq, _L39babe60_132
+	ld r0, 1
+	jmp _L39babe60_131
+_L39babe60_132:
+	ld r0, 0
+_L39babe60_131:
+	cmp r0, 0
+	jmpc eq, _L39babe60_137
+	ld r0, 3
+	push r0
+	ld r0, (_g_p_idle)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
+_L39babe60_137:
+_L39babe60_130:
 	call _f_runq_get
 	st r0, (_g_up)
 	ld r0, 0
@@ -396,35 +442,35 @@ _L10a062_115:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_122
+	jmpc eq, _L39babe60_138
 	ld r0, 0
-	jmp _L10a062_123
-_L10a062_122:
+	jmp _L39babe60_139
+_L39babe60_138:
 	ld r0, 1
-_L10a062_123:
+_L39babe60_139:
 	cmp r0, 0
-	jmpc eq, _L10a062_124
+	jmpc eq, _L39babe60_140
 	ld r0, 0
 	st r0, (bp+-2)
-_L10a062_125:
+_L39babe60_141:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_128
+	jmpc lt, _L39babe60_144
 	ld r0, 0
-	jmp _L10a062_129
-_L10a062_128:
+	jmp _L39babe60_145
+_L39babe60_144:
 	ld r0, 1
-_L10a062_129:
+_L39babe60_145:
 	cmp r0, 0
-	jmpc eq, _L10a062_127
+	jmpc eq, _L39babe60_143
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, r1
@@ -437,70 +483,70 @@ _L10a062_129:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_132
+	jmpc ne, _L39babe60_148
 	ld r0, 0
-	jmp _L10a062_133
-_L10a062_132:
+	jmp _L39babe60_149
+_L39babe60_148:
 	ld r0, 1
-_L10a062_133:
+_L39babe60_149:
 	cmp r0, 0
-	jmpc eq, _L10a062_131
+	jmpc eq, _L39babe60_147
 	ld r0, (bp+-6)
 	push r0
 	ld r0, (_g_p_idle)
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_134
+	jmpc ne, _L39babe60_150
 	ld r0, 0
-	jmp _L10a062_135
-_L10a062_134:
+	jmp _L39babe60_151
+_L39babe60_150:
 	ld r0, 1
-_L10a062_135:
+_L39babe60_151:
 	cmp r0, 0
-	jmpc eq, _L10a062_131
+	jmpc eq, _L39babe60_147
 	ld r0, 1
-	jmp _L10a062_130
-_L10a062_131:
+	jmp _L39babe60_146
+_L39babe60_147:
 	ld r0, 0
-_L10a062_130:
+_L39babe60_146:
 	cmp r0, 0
-	jmpc eq, _L10a062_136
+	jmpc eq, _L39babe60_152
 	ld r0, 1
 	st r0, (bp+-4)
-	jmp _L10a062_127
-_L10a062_136:
-_L10a062_126:
+	jmp _L39babe60_143
+_L39babe60_152:
+_L39babe60_142:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L10a062_125
-_L10a062_127:
+	jmp _L39babe60_141
+_L39babe60_143:
 	ld r0, (bp+-4)
 	cmp r0, 0
-	jmpc eq, _L10a062_137
+	jmpc eq, _L39babe60_153
 	ld r0, 0
-	jmp _L10a062_138
-_L10a062_137:
+	jmp _L39babe60_154
+_L39babe60_153:
 	ld r0, 1
-_L10a062_138:
+_L39babe60_154:
 	cmp r0, 0
-	jmpc eq, _L10a062_139
+	jmpc eq, _L39babe60_155
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_139:
+_L39babe60_155:
 	ld r0, (_g_p_idle)
 	st r0, (_g_up)
-_L10a062_124:
-	ld r0, (_g_up)
-	ld r1, r0
-	push r1
+_L39babe60_140:
 	ld r0, 2
-	pop r1
-	st r0, (r1+2)
+	push r0
+	ld r0, (_g_up)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
 	ld r0, 4
 	st r0, (_g_quantumRestante)
 	call _f_restauraContexto
@@ -511,29 +557,30 @@ _f_sys_newproc:
 	push bp
 	ld bp, sp
 	sub sp, 4
+	call _f_contaSyscall
 	ld r0, 0
 	st r0, (bp+-2)
 	ld r0, 0
 	st r0, (bp+-4)
-_L10a062_156:
+_L39babe60_177:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_159
+	jmpc lt, _L39babe60_180
 	ld r0, 0
-	jmp _L10a062_160
-_L10a062_159:
+	jmp _L39babe60_181
+_L39babe60_180:
 	ld r0, 1
-_L10a062_160:
+_L39babe60_181:
 	cmp r0, 0
-	jmpc eq, _L10a062_158
+	jmpc eq, _L39babe60_179
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-4)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, (r1+2)
@@ -542,68 +589,68 @@ _L10a062_160:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_161
+	jmpc eq, _L39babe60_182
 	ld r0, 0
-	jmp _L10a062_162
-_L10a062_161:
+	jmp _L39babe60_183
+_L39babe60_182:
 	ld r0, 1
-_L10a062_162:
+_L39babe60_183:
 	cmp r0, 0
-	jmpc eq, _L10a062_163
+	jmpc eq, _L39babe60_184
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-4)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, r1
 	st r0, (bp+-2)
-	jmp _L10a062_158
-_L10a062_163:
-_L10a062_157:
+	jmp _L39babe60_179
+_L39babe60_184:
+_L39babe60_178:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _L10a062_156
-_L10a062_158:
+	jmp _L39babe60_177
+_L39babe60_179:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_164
+	jmpc eq, _L39babe60_185
 	ld r0, 0
-	jmp _L10a062_165
-_L10a062_164:
+	jmp _L39babe60_186
+_L39babe60_185:
 	ld r0, 1
-_L10a062_165:
+_L39babe60_186:
 	cmp r0, 0
-	jmpc eq, _L10a062_166
+	jmpc eq, _L39babe60_187
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_166:
+_L39babe60_187:
 	ld r0, 0
 	st r0, (bp+-4)
-_L10a062_167:
+_L39babe60_188:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_170
+	jmpc lt, _L39babe60_191
 	ld r0, 0
-	jmp _L10a062_171
-_L10a062_170:
+	jmp _L39babe60_192
+_L39babe60_191:
 	ld r0, 1
-_L10a062_171:
+_L39babe60_192:
 	cmp r0, 0
-	jmpc eq, _L10a062_169
+	jmpc eq, _L39babe60_190
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, r1
@@ -617,14 +664,14 @@ _L10a062_171:
 	ld r0, 0
 	pop r1
 	st r0, (r1)
-_L10a062_168:
+_L39babe60_189:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _L10a062_167
-_L10a062_169:
+	jmp _L39babe60_188
+_L39babe60_190:
 	ld r0, (bp+-2)
 	ld r1, r0
 	push r1
@@ -702,6 +749,124 @@ _L10a062_169:
 	pop r1
 	st r0, (r1+168)
 	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, (bp+-2)
+	ld r1, r0
+	ld r0, (r1)
+	pop r1
+	st r0, (r1+172)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, (_g_clockTicks)
+	pop r1
+	st r0, (r1+174)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1+176)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1+178)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1+180)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1+182)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, (_g_clockTicks)
+	pop r1
+	st r0, (r1+200)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, (_g_clockTicks)
+	pop r1
+	st r0, (r1+202)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1+204)
+	ld r0, (bp+-2)
+	ld r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1+206)
+	ld r0, 0
+	st r0, (bp+-4)
+_L39babe60_193:
+	ld r0, (bp+-4)
+	push r0
+	ld r0, 4
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc lt, _L39babe60_196
+	ld r0, 0
+	jmp _L39babe60_197
+_L39babe60_196:
+	ld r0, 1
+_L39babe60_197:
+	cmp r0, 0
+	jmpc eq, _L39babe60_195
+	ld r0, (bp+-2)
+	ld r1, r0
+	ld r0, r1
+	add r0, 184
+	push r0
+	ld r0, (bp+-4)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1)
+	ld r0, (bp+-2)
+	ld r1, r0
+	ld r0, r1
+	add r0, 192
+	push r0
+	ld r0, (bp+-4)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	st r0, (r1)
+_L39babe60_194:
+	ld r0, (bp+-4)
+	push r0
+	add r0, 1
+	st r0, (bp+-4)
+	pop r0
+	jmp _L39babe60_193
+_L39babe60_195:
+	ld r0, (_g_metr_createdProcs)
+	push r0
+	add r0, 1
+	st r0, (_g_metr_createdProcs)
+	pop r0
+	ld r0, (bp+-2)
 	push r0
 	call _f_ready
 	add sp, 2
@@ -715,12 +880,83 @@ _L10a062_169:
 _f_die:
 	push bp
 	ld bp, sp
+	ld r0, 0
+	push r0
+	ld r0, (_g_up)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
-	ld r0, 0
+	ld r0, (_g_clockTicks)
 	pop r1
-	st r0, (r1+2)
+	st r0, (r1+176)
+	ld r0, (_g_numMetrics)
+	push r0
+	ld r0, 64
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc lt, _L39babe60_212
+	ld r0, 0
+	jmp _L39babe60_213
+_L39babe60_212:
+	ld r0, 1
+_L39babe60_213:
+	cmp r0, 0
+	jmpc eq, _L39babe60_211
+	ld r0, (_g_up)
+	push r0
+	ld r0, (_g_p_idle)
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc ne, _L39babe60_214
+	ld r0, 0
+	jmp _L39babe60_215
+_L39babe60_214:
+	ld r0, 1
+_L39babe60_215:
+	cmp r0, 0
+	jmpc eq, _L39babe60_211
+	ld r0, 1
+	jmp _L39babe60_210
+_L39babe60_211:
+	ld r0, 0
+_L39babe60_210:
+	cmp r0, 0
+	jmpc eq, _L39babe60_216
+	ld r0, _g_metrics
+	push r0
+	ld r0, (_g_numMetrics)
+	mul r0, 36
+	pop r1
+	add r1, r0
+	ld r0, r1
+	push r0
+	ld r0, (_g_up)
+	ld r1, r0
+	ld r0, r1
+	add r0, 172
+	pop r1
+	ld r3, r0
+	ld r4, r1
+	ld r2, 0
+_L39babe60_217:
+	cmp r2, 36
+	jmpc ge, _L39babe60_218
+	ldb r1, (r3+)
+	stb r1, (r4+)
+	add r2, 1
+	jmp _L39babe60_217
+_L39babe60_218:
+	ld r0, (_g_numMetrics)
+	push r0
+	add r0, 1
+	st r0, (_g_numMetrics)
+	pop r0
+_L39babe60_216:
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1)
@@ -730,16 +966,16 @@ _f_die:
 	call _f_sched
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _L10a062_175
+	jmpc eq, _L39babe60_219
 	ld r0, 0
-	jmp _L10a062_176
-_L10a062_175:
+	jmp _L39babe60_220
+_L39babe60_219:
 	ld r0, 1
-_L10a062_176:
+_L39babe60_220:
 	cmp r0, 0
-	jmpc eq, _L10a062_177
+	jmpc eq, _L39babe60_221
 	call _f_halt
-_L10a062_177:
+_L39babe60_221:
 	ld r0, 0
 	ld sp, bp
 	pop bp
@@ -758,13 +994,84 @@ _f_kill:
 	st r0, (bp+-2)
 	ld r0, (bp+-2)
 	cmp r0, 0
-	jmpc eq, _L10a062_179
+	jmpc eq, _L39babe60_232
+	ld r0, 0
+	push r0
+	ld r0, (bp+-2)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
 	ld r0, (bp+-2)
 	ld r1, r0
 	push r1
-	ld r0, 0
+	ld r0, (_g_clockTicks)
 	pop r1
-	st r0, (r1+2)
+	st r0, (r1+176)
+	ld r0, (_g_numMetrics)
+	push r0
+	ld r0, 64
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc lt, _L39babe60_235
+	ld r0, 0
+	jmp _L39babe60_236
+_L39babe60_235:
+	ld r0, 1
+_L39babe60_236:
+	cmp r0, 0
+	jmpc eq, _L39babe60_234
+	ld r0, (bp+-2)
+	push r0
+	ld r0, (_g_p_idle)
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc ne, _L39babe60_237
+	ld r0, 0
+	jmp _L39babe60_238
+_L39babe60_237:
+	ld r0, 1
+_L39babe60_238:
+	cmp r0, 0
+	jmpc eq, _L39babe60_234
+	ld r0, 1
+	jmp _L39babe60_233
+_L39babe60_234:
+	ld r0, 0
+_L39babe60_233:
+	cmp r0, 0
+	jmpc eq, _L39babe60_239
+	ld r0, _g_metrics
+	push r0
+	ld r0, (_g_numMetrics)
+	mul r0, 36
+	pop r1
+	add r1, r0
+	ld r0, r1
+	push r0
+	ld r0, (bp+-2)
+	ld r1, r0
+	ld r0, r1
+	add r0, 172
+	pop r1
+	ld r3, r0
+	ld r4, r1
+	ld r2, 0
+_L39babe60_240:
+	cmp r2, 36
+	jmpc ge, _L39babe60_241
+	ldb r1, (r3+)
+	stb r1, (r4+)
+	add r2, 1
+	jmp _L39babe60_240
+_L39babe60_241:
+	ld r0, (_g_numMetrics)
+	push r0
+	add r0, 1
+	st r0, (_g_numMetrics)
+	pop r0
+_L39babe60_239:
 	ld r0, (bp+4)
 	push r0
 	call _f_pwake
@@ -773,7 +1080,7 @@ _f_kill:
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_179:
+_L39babe60_232:
 	ld r0, 1
 	xor r0, -1
 	add r0, 1
@@ -786,20 +1093,21 @@ _L10a062_179:
 _f_sys_killproc:
 	push bp
 	ld bp, sp
+	call _f_contaSyscall
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_190
+	jmpc eq, _L39babe60_252
 	ld r0, 0
-	jmp _L10a062_191
-_L10a062_190:
+	jmp _L39babe60_253
+_L39babe60_252:
 	ld r0, 1
-_L10a062_191:
+_L39babe60_253:
 	cmp r0, 0
-	jmpc ne, _L10a062_189
+	jmpc ne, _L39babe60_251
 	ld r0, (bp+4)
 	push r0
 	ld r0, (_g_up)
@@ -808,27 +1116,27 @@ _L10a062_191:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_192
+	jmpc eq, _L39babe60_254
 	ld r0, 0
-	jmp _L10a062_193
-_L10a062_192:
+	jmp _L39babe60_255
+_L39babe60_254:
 	ld r0, 1
-_L10a062_193:
+_L39babe60_255:
 	cmp r0, 0
-	jmpc ne, _L10a062_189
+	jmpc ne, _L39babe60_251
 	ld r0, 0
-	jmp _L10a062_188
-_L10a062_189:
+	jmp _L39babe60_250
+_L39babe60_251:
 	ld r0, 1
-_L10a062_188:
+_L39babe60_250:
 	cmp r0, 0
-	jmpc eq, _L10a062_194
+	jmpc eq, _L39babe60_256
 	call _f_die
 	ld sp, bp
 	pop bp
 	ret
-	jmp _L10a062_195
-_L10a062_194:
+	jmp _L39babe60_257
+_L39babe60_256:
 	ld r0, (bp+4)
 	push r0
 	call _f_kill
@@ -836,7 +1144,7 @@ _L10a062_194:
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_195:
+_L39babe60_257:
 	ld sp, bp
 	pop bp
 	ret
@@ -854,25 +1162,25 @@ _f_procinit:
 	st r0, (_g_runq_tail)
 	ld r0, 0
 	st r0, (bp+-2)
-_L10a062_201:
+_L39babe60_263:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_204
+	jmpc lt, _L39babe60_266
 	ld r0, 0
-	jmp _L10a062_205
-_L10a062_204:
+	jmp _L39babe60_267
+_L39babe60_266:
 	ld r0, 1
-_L10a062_205:
+_L39babe60_267:
 	cmp r0, 0
-	jmpc eq, _L10a062_203
+	jmpc eq, _L39babe60_265
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	push r1
@@ -882,7 +1190,7 @@ _L10a062_205:
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	push r1
@@ -892,21 +1200,21 @@ _L10a062_205:
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	push r1
 	ld r0, 0
 	pop r1
 	st r0, (r1+166)
-_L10a062_202:
+_L39babe60_264:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L10a062_201
-_L10a062_203:
+	jmp _L39babe60_263
+_L39babe60_265:
 	ld r0, _f_idle
 	push r0
 	call _f_sys_newproc
@@ -938,12 +1246,12 @@ _L10a062_203:
 	add sp, 2
 	call _f_runq_get
 	st r0, (_g_up)
-	ld r0, (_g_up)
-	ld r1, r0
-	push r1
 	ld r0, 2
-	pop r1
-	st r0, (r1+2)
+	push r0
+	ld r0, (_g_up)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
 	call _f_restauraContexto
 	ld sp, bp
 	pop bp
@@ -952,20 +1260,21 @@ _f_sys_wait:
 	push bp
 	ld bp, sp
 	sub sp, 2
+	call _f_contaSyscall
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc le, _L10a062_224
+	jmpc le, _L39babe60_286
 	ld r0, 0
-	jmp _L10a062_225
-_L10a062_224:
+	jmp _L39babe60_287
+_L39babe60_286:
 	ld r0, 1
-_L10a062_225:
+_L39babe60_287:
 	cmp r0, 0
-	jmpc ne, _L10a062_223
+	jmpc ne, _L39babe60_285
 	ld r0, (bp+4)
 	push r0
 	ld r0, (_g_up)
@@ -974,49 +1283,49 @@ _L10a062_225:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_226
+	jmpc eq, _L39babe60_288
 	ld r0, 0
-	jmp _L10a062_227
-_L10a062_226:
+	jmp _L39babe60_289
+_L39babe60_288:
 	ld r0, 1
-_L10a062_227:
+_L39babe60_289:
 	cmp r0, 0
-	jmpc ne, _L10a062_223
+	jmpc ne, _L39babe60_285
 	ld r0, 0
-	jmp _L10a062_222
-_L10a062_223:
+	jmp _L39babe60_284
+_L39babe60_285:
 	ld r0, 1
-_L10a062_222:
+_L39babe60_284:
 	cmp r0, 0
-	jmpc ne, _L10a062_221
+	jmpc ne, _L39babe60_283
 	ld r0, (bp+4)
 	push r0
 	ld r0, (_g_nextpid)
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ge, _L10a062_228
+	jmpc ge, _L39babe60_290
 	ld r0, 0
-	jmp _L10a062_229
-_L10a062_228:
+	jmp _L39babe60_291
+_L39babe60_290:
 	ld r0, 1
-_L10a062_229:
+_L39babe60_291:
 	cmp r0, 0
-	jmpc ne, _L10a062_221
+	jmpc ne, _L39babe60_283
 	ld r0, 0
-	jmp _L10a062_220
-_L10a062_221:
+	jmp _L39babe60_282
+_L39babe60_283:
 	ld r0, 1
-_L10a062_220:
+_L39babe60_282:
 	cmp r0, 0
-	jmpc eq, _L10a062_230
+	jmpc eq, _L39babe60_292
 	ld r0, 1
 	xor r0, -1
 	add r0, 1
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_230:
+_L39babe60_292:
 	ld r0, (bp+4)
 	push r0
 	call _f_pfind
@@ -1024,25 +1333,32 @@ _L10a062_230:
 	st r0, (bp+-2)
 	ld r0, (bp+-2)
 	cmp r0, 0
-	jmpc eq, _L10a062_231
+	jmpc eq, _L39babe60_293
 	ld r0, 0
-	jmp _L10a062_232
-_L10a062_231:
+	jmp _L39babe60_294
+_L39babe60_293:
 	ld r0, 1
-_L10a062_232:
+_L39babe60_294:
 	cmp r0, 0
-	jmpc eq, _L10a062_233
+	jmpc eq, _L39babe60_295
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_233:
+_L39babe60_295:
 	ld r0, (_g_up)
 	ld r1, r0
-	push r1
+	ld r0, (r1+180)
+	push r0
+	add r0, 1
+	st r0, (r1+180)
+	pop r0
 	ld r0, 3
-	pop r1
-	st r0, (r1+2)
+	push r0
+	ld r0, (_g_up)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
@@ -1077,29 +1393,34 @@ _f_received_key:
 	push bp
 	ld bp, sp
 	sub sp, 4
+	ld r0, (_g_metr_intKey)
+	push r0
+	add r0, 1
+	st r0, (_g_metr_intKey)
+	pop r0
 	ld r0, 0
 	st r0, (bp+-4)
 	ld r0, 0
 	st r0, (bp+-2)
-_L10a062_256:
+_L39babe60_318:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_259
+	jmpc lt, _L39babe60_321
 	ld r0, 0
-	jmp _L10a062_260
-_L10a062_259:
+	jmp _L39babe60_322
+_L39babe60_321:
 	ld r0, 1
-_L10a062_260:
+_L39babe60_322:
 	cmp r0, 0
-	jmpc eq, _L10a062_258
+	jmpc eq, _L39babe60_320
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, (r1+2)
@@ -1108,18 +1429,18 @@ _L10a062_260:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_263
+	jmpc eq, _L39babe60_325
 	ld r0, 0
-	jmp _L10a062_264
-_L10a062_263:
+	jmp _L39babe60_326
+_L39babe60_325:
 	ld r0, 1
-_L10a062_264:
+_L39babe60_326:
 	cmp r0, 0
-	jmpc eq, _L10a062_262
+	jmpc eq, _L39babe60_324
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, (r1+166)
@@ -1128,53 +1449,53 @@ _L10a062_264:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_265
+	jmpc eq, _L39babe60_327
 	ld r0, 0
-	jmp _L10a062_266
-_L10a062_265:
+	jmp _L39babe60_328
+_L39babe60_327:
 	ld r0, 1
-_L10a062_266:
+_L39babe60_328:
 	cmp r0, 0
-	jmpc eq, _L10a062_262
+	jmpc eq, _L39babe60_324
 	ld r0, 1
-	jmp _L10a062_261
-_L10a062_262:
+	jmp _L39babe60_323
+_L39babe60_324:
 	ld r0, 0
-_L10a062_261:
+_L39babe60_323:
 	cmp r0, 0
-	jmpc eq, _L10a062_267
+	jmpc eq, _L39babe60_329
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
-	mul r0, 172
+	mul r0, 208
 	pop r1
 	add r1, r0
 	ld r0, r1
 	st r0, (bp+-4)
-	jmp _L10a062_258
-_L10a062_267:
-_L10a062_257:
+	jmp _L39babe60_320
+_L39babe60_329:
+_L39babe60_319:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L10a062_256
-_L10a062_258:
+	jmp _L39babe60_318
+_L39babe60_320:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_268
+	jmpc ne, _L39babe60_330
 	ld r0, 0
-	jmp _L10a062_269
-_L10a062_268:
+	jmp _L39babe60_331
+_L39babe60_330:
 	ld r0, 1
-_L10a062_269:
+_L39babe60_331:
 	cmp r0, 0
-	jmpc eq, _L10a062_270
+	jmpc eq, _L39babe60_332
 	ld r0, (bp+-4)
 	ld r1, r0
 	ld r0, r1
@@ -1204,32 +1525,32 @@ _L10a062_269:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_271
+	jmpc eq, _L39babe60_333
 	ld r0, 0
-	jmp _L10a062_272
-_L10a062_271:
+	jmp _L39babe60_334
+_L39babe60_333:
 	ld r0, 1
-_L10a062_272:
+_L39babe60_334:
 	cmp r0, 0
-	jmpc eq, _L10a062_273
+	jmpc eq, _L39babe60_335
 	call _f_sched
-_L10a062_273:
-	jmp _L10a062_274
-_L10a062_270:
+_L39babe60_335:
+	jmp _L39babe60_336
+_L39babe60_332:
 	ld r0, (_g_kbd_count)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_275
+	jmpc lt, _L39babe60_337
 	ld r0, 0
-	jmp _L10a062_276
-_L10a062_275:
+	jmp _L39babe60_338
+_L39babe60_337:
 	ld r0, 1
-_L10a062_276:
+_L39babe60_338:
 	cmp r0, 0
-	jmpc eq, _L10a062_277
+	jmpc eq, _L39babe60_339
 	ld r0, _g_kbd_buf
 	push r0
 	ld r0, (_g_kbd_tail)
@@ -1261,8 +1582,8 @@ _L10a062_276:
 	add r0, 1
 	st r0, (_g_kbd_count)
 	pop r0
-_L10a062_277:
-_L10a062_274:
+_L39babe60_339:
+_L39babe60_336:
 	ld sp, bp
 	pop bp
 	ret
@@ -1270,20 +1591,21 @@ _f_sys_read:
 	push bp
 	ld bp, sp
 	sub sp, 2
+	call _f_contaSyscall
 	ld r0, (_g_kbd_count)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L10a062_282
+	jmpc gt, _L39babe60_344
 	ld r0, 0
-	jmp _L10a062_283
-_L10a062_282:
+	jmp _L39babe60_345
+_L39babe60_344:
 	ld r0, 1
-_L10a062_283:
+_L39babe60_345:
 	cmp r0, 0
-	jmpc eq, _L10a062_284
+	jmpc eq, _L39babe60_346
 	ld r0, _g_kbd_buf
 	push r0
 	ld r0, (_g_kbd_head)
@@ -1317,14 +1639,21 @@ _L10a062_283:
 	ld sp, bp
 	pop bp
 	ret
-	jmp _L10a062_285
-_L10a062_284:
+	jmp _L39babe60_347
+_L39babe60_346:
 	ld r0, (_g_up)
 	ld r1, r0
-	push r1
+	ld r0, (r1+180)
+	push r0
+	add r0, 1
+	st r0, (r1+180)
+	pop r0
 	ld r0, 3
-	pop r1
-	st r0, (r1+2)
+	push r0
+	ld r0, (_g_up)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
@@ -1342,32 +1671,33 @@ _L10a062_284:
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_285:
+_L39babe60_347:
 	ld sp, bp
 	pop bp
 	ret
 _f_sys_write:
 	push bp
 	ld bp, sp
+	call _f_contaSyscall
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_289
+	jmpc eq, _L39babe60_351
 	ld r0, 0
-	jmp _L10a062_290
-_L10a062_289:
+	jmp _L39babe60_352
+_L39babe60_351:
 	ld r0, 1
-_L10a062_290:
+_L39babe60_352:
 	cmp r0, 0
-	jmpc eq, _L10a062_291
+	jmpc eq, _L39babe60_353
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_291:
+_L39babe60_353:
 	ld r0, (bp+4)
 	push r0
 	call _f_write_char
@@ -1382,6 +1712,7 @@ _L10a062_291:
 _f_sys_getpid:
 	push bp
 	ld bp, sp
+	call _f_contaSyscall
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1)
@@ -1406,20 +1737,20 @@ _f_runq_put:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_296
+	jmpc eq, _L39babe60_358
 	ld r0, 0
-	jmp _L10a062_297
-_L10a062_296:
+	jmp _L39babe60_359
+_L39babe60_358:
 	ld r0, 1
-_L10a062_297:
+_L39babe60_359:
 	cmp r0, 0
-	jmpc eq, _L10a062_298
+	jmpc eq, _L39babe60_360
 	ld r0, (bp+4)
 	st r0, (_g_runq_head)
 	ld r0, (bp+4)
 	st r0, (_g_runq_tail)
-	jmp _L10a062_299
-_L10a062_298:
+	jmp _L39babe60_361
+_L39babe60_360:
 	ld r0, (_g_runq_tail)
 	ld r1, r0
 	push r1
@@ -1428,7 +1759,7 @@ _L10a062_298:
 	st r0, (r1+170)
 	ld r0, (bp+4)
 	st r0, (_g_runq_tail)
-_L10a062_299:
+_L39babe60_361:
 	ld sp, bp
 	pop bp
 	ret
@@ -1444,14 +1775,14 @@ _f_runq_get:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_306
+	jmpc ne, _L39babe60_368
 	ld r0, 0
-	jmp _L10a062_307
-_L10a062_306:
+	jmp _L39babe60_369
+_L39babe60_368:
 	ld r0, 1
-_L10a062_307:
+_L39babe60_369:
 	cmp r0, 0
-	jmpc eq, _L10a062_308
+	jmpc eq, _L39babe60_370
 	ld r0, (_g_runq_head)
 	ld r1, r0
 	ld r0, (r1+170)
@@ -1468,18 +1799,18 @@ _L10a062_307:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_309
+	jmpc eq, _L39babe60_371
 	ld r0, 0
-	jmp _L10a062_310
-_L10a062_309:
+	jmp _L39babe60_372
+_L39babe60_371:
 	ld r0, 1
-_L10a062_310:
+_L39babe60_372:
 	cmp r0, 0
-	jmpc eq, _L10a062_311
+	jmpc eq, _L39babe60_373
 	ld r0, 0
 	st r0, (_g_runq_tail)
-_L10a062_311:
-_L10a062_308:
+_L39babe60_373:
+_L39babe60_370:
 	ld r0, (bp+-2)
 	ld sp, bp
 	pop bp
@@ -1496,49 +1827,49 @@ _f_ready:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_319
+	jmpc eq, _L39babe60_381
 	ld r0, 0
-	jmp _L10a062_320
-_L10a062_319:
+	jmp _L39babe60_382
+_L39babe60_381:
 	ld r0, 1
-_L10a062_320:
+_L39babe60_382:
 	cmp r0, 0
-	jmpc eq, _L10a062_321
+	jmpc eq, _L39babe60_383
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_321:
-	ld r0, (bp+4)
-	ld r1, r0
-	push r1
+_L39babe60_383:
 	ld r0, 1
-	pop r1
-	st r0, (r1+2)
+	push r0
+	ld r0, (bp+4)
+	push r0
+	call _f_mudaEstado
+	add sp, 4
 	ld r0, 1
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_322
+	jmpc eq, _L39babe60_384
 	ld r0, 0
-	jmp _L10a062_323
-_L10a062_322:
+	jmp _L39babe60_385
+_L39babe60_384:
 	ld r0, 1
-_L10a062_323:
+_L39babe60_385:
 	cmp r0, 0
-	jmpc eq, _L10a062_324
+	jmpc eq, _L39babe60_386
 	ld r0, (bp+4)
 	push r0
 	call _f_runq_put
 	add sp, 2
-	jmp _L10a062_325
-_L10a062_324:
+	jmp _L39babe60_387
+_L39babe60_386:
 	ld r0, (bp+4)
 	push r0
 	call _f_runq_put_prio
 	add sp, 2
-_L10a062_325:
+_L39babe60_387:
 	ld sp, bp
 	pop bp
 	ret
@@ -1551,14 +1882,14 @@ _f_yield:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_335
+	jmpc ne, _L39babe60_397
 	ld r0, 0
-	jmp _L10a062_336
-_L10a062_335:
+	jmp _L39babe60_398
+_L39babe60_397:
 	ld r0, 1
-_L10a062_336:
+_L39babe60_398:
 	cmp r0, 0
-	jmpc eq, _L10a062_334
+	jmpc eq, _L39babe60_396
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -1567,43 +1898,76 @@ _L10a062_336:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_337
+	jmpc eq, _L39babe60_399
 	ld r0, 0
-	jmp _L10a062_338
-_L10a062_337:
+	jmp _L39babe60_400
+_L39babe60_399:
 	ld r0, 1
-_L10a062_338:
+_L39babe60_400:
 	cmp r0, 0
-	jmpc eq, _L10a062_334
+	jmpc eq, _L39babe60_396
 	ld r0, 1
-	jmp _L10a062_333
-_L10a062_334:
+	jmp _L39babe60_395
+_L39babe60_396:
 	ld r0, 0
-_L10a062_333:
+_L39babe60_395:
 	cmp r0, 0
-	jmpc eq, _L10a062_339
+	jmpc eq, _L39babe60_401
 	call _f_sched
-_L10a062_339:
+_L39babe60_401:
 	ld sp, bp
 	pop bp
 	ret
 _f_timerTick:
 	push bp
 	ld bp, sp
+	ld r0, (_g_clockTicks)
+	push r0
+	add r0, 1
+	st r0, (_g_clockTicks)
+	pop r0
+	ld r0, (_g_metr_intClock)
+	push r0
+	add r0, 1
+	st r0, (_g_metr_intClock)
+	pop r0
+	ld r0, (_g_up)
+	push r0
+	ld r0, (_g_p_idle)
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_415
+	ld r0, 0
+	jmp _L39babe60_416
+_L39babe60_415:
+	ld r0, 1
+_L39babe60_416:
+	cmp r0, 0
+	jmpc eq, _L39babe60_417
+	ld r0, (_g_metr_idleTime)
+	push r0
+	add r0, 1
+	st r0, (_g_metr_idleTime)
+	pop r0
+	ld sp, bp
+	pop bp
+	ret
+_L39babe60_417:
 	ld r0, (_g_up)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_352
+	jmpc eq, _L39babe60_420
 	ld r0, 0
-	jmp _L10a062_353
-_L10a062_352:
+	jmp _L39babe60_421
+_L39babe60_420:
 	ld r0, 1
-_L10a062_353:
+_L39babe60_421:
 	cmp r0, 0
-	jmpc ne, _L10a062_351
+	jmpc ne, _L39babe60_419
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -1612,25 +1976,25 @@ _L10a062_353:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_354
+	jmpc ne, _L39babe60_422
 	ld r0, 0
-	jmp _L10a062_355
-_L10a062_354:
+	jmp _L39babe60_423
+_L39babe60_422:
 	ld r0, 1
-_L10a062_355:
+_L39babe60_423:
 	cmp r0, 0
-	jmpc ne, _L10a062_351
+	jmpc ne, _L39babe60_419
 	ld r0, 0
-	jmp _L10a062_350
-_L10a062_351:
+	jmp _L39babe60_418
+_L39babe60_419:
 	ld r0, 1
-_L10a062_350:
+_L39babe60_418:
 	cmp r0, 0
-	jmpc eq, _L10a062_356
+	jmpc eq, _L39babe60_424
 	ld sp, bp
 	pop bp
 	ret
-_L10a062_356:
+_L39babe60_424:
 	ld r0, (_g_quantumRestante)
 	push r0
 	add r0, -1
@@ -1642,16 +2006,28 @@ _L10a062_356:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc le, _L10a062_357
+	jmpc le, _L39babe60_425
 	ld r0, 0
-	jmp _L10a062_358
-_L10a062_357:
+	jmp _L39babe60_426
+_L39babe60_425:
 	ld r0, 1
-_L10a062_358:
+_L39babe60_426:
 	cmp r0, 0
-	jmpc eq, _L10a062_359
+	jmpc eq, _L39babe60_427
+	ld r0, (_g_metr_totalPreempt)
+	push r0
+	add r0, 1
+	st r0, (_g_metr_totalPreempt)
+	pop r0
+	ld r0, (_g_up)
+	ld r1, r0
+	ld r0, (r1+178)
+	push r0
+	add r0, 1
+	st r0, (r1+178)
+	pop r0
 	call _f_yield
-_L10a062_359:
+_L39babe60_427:
 	ld sp, bp
 	pop bp
 	ret
@@ -1709,14 +2085,14 @@ _f_runq_put_prio:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_382
+	jmpc eq, _L39babe60_450
 	ld r0, 0
-	jmp _L10a062_383
-_L10a062_382:
+	jmp _L39babe60_451
+_L39babe60_450:
 	ld r0, 1
-_L10a062_383:
+_L39babe60_451:
 	cmp r0, 0
-	jmpc eq, _L10a062_384
+	jmpc eq, _L39babe60_452
 	ld r0, (bp+4)
 	st r0, (_g_runq_head)
 	ld r0, (bp+4)
@@ -1727,8 +2103,8 @@ _L10a062_383:
 	ld r0, 0
 	pop r1
 	st r0, (r1+170)
-	jmp _L10a062_385
-_L10a062_384:
+	jmp _L39babe60_453
+_L39babe60_452:
 	ld r0, (bp+4)
 	ld r1, r0
 	ld r0, (r1+168)
@@ -1739,14 +2115,14 @@ _L10a062_384:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L10a062_386
+	jmpc lt, _L39babe60_454
 	ld r0, 0
-	jmp _L10a062_387
-_L10a062_386:
+	jmp _L39babe60_455
+_L39babe60_454:
 	ld r0, 1
-_L10a062_387:
+_L39babe60_455:
 	cmp r0, 0
-	jmpc eq, _L10a062_388
+	jmpc eq, _L39babe60_456
 	ld r0, (bp+4)
 	ld r1, r0
 	push r1
@@ -1755,25 +2131,25 @@ _L10a062_387:
 	st r0, (r1+170)
 	ld r0, (bp+4)
 	st r0, (_g_runq_head)
-	jmp _L10a062_389
-_L10a062_388:
+	jmp _L39babe60_457
+_L39babe60_456:
 	ld r0, (_g_runq_head)
 	st r0, (bp+-2)
-_L10a062_390:
+_L39babe60_458:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L10a062_392
+	jmpc ne, _L39babe60_460
 	ld r0, 0
-	jmp _L10a062_393
-_L10a062_392:
+	jmp _L39babe60_461
+_L39babe60_460:
 	ld r0, 1
-_L10a062_393:
+_L39babe60_461:
 	cmp r0, 0
-	jmpc eq, _L10a062_391
+	jmpc eq, _L39babe60_459
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, (r1+170)
@@ -1782,14 +2158,14 @@ _L10a062_393:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_396
+	jmpc eq, _L39babe60_464
 	ld r0, 0
-	jmp _L10a062_397
-_L10a062_396:
+	jmp _L39babe60_465
+_L39babe60_464:
 	ld r0, 1
-_L10a062_397:
+_L39babe60_465:
 	cmp r0, 0
-	jmpc ne, _L10a062_395
+	jmpc ne, _L39babe60_463
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, (r1+170)
@@ -1802,21 +2178,21 @@ _L10a062_397:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L10a062_398
+	jmpc gt, _L39babe60_466
 	ld r0, 0
-	jmp _L10a062_399
-_L10a062_398:
+	jmp _L39babe60_467
+_L39babe60_466:
 	ld r0, 1
-_L10a062_399:
+_L39babe60_467:
 	cmp r0, 0
-	jmpc ne, _L10a062_395
+	jmpc ne, _L39babe60_463
 	ld r0, 0
-	jmp _L10a062_394
-_L10a062_395:
+	jmp _L39babe60_462
+_L39babe60_463:
 	ld r0, 1
-_L10a062_394:
+_L39babe60_462:
 	cmp r0, 0
-	jmpc eq, _L10a062_400
+	jmpc eq, _L39babe60_468
 	ld r0, (bp+4)
 	ld r1, r0
 	push r1
@@ -1839,40 +2215,323 @@ _L10a062_394:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L10a062_401
+	jmpc eq, _L39babe60_469
 	ld r0, 0
-	jmp _L10a062_402
-_L10a062_401:
+	jmp _L39babe60_470
+_L39babe60_469:
 	ld r0, 1
-_L10a062_402:
+_L39babe60_470:
 	cmp r0, 0
-	jmpc eq, _L10a062_403
+	jmpc eq, _L39babe60_471
 	ld r0, (bp+4)
 	st r0, (_g_runq_tail)
-_L10a062_403:
-	jmp _L10a062_391
-_L10a062_400:
+_L39babe60_471:
+	jmp _L39babe60_459
+_L39babe60_468:
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, (r1+170)
 	st r0, (bp+-2)
-	jmp _L10a062_390
-_L10a062_391:
-_L10a062_389:
-_L10a062_385:
+	jmp _L39babe60_458
+_L39babe60_459:
+_L39babe60_457:
+_L39babe60_453:
 	ld sp, bp
 	pop bp
 	ret
 _f_idle:
 	push bp
 	ld bp, sp
-_L10a062_406:
+_L39babe60_474:
 	ld r0, 1
 	cmp r0, 0
-	jmpc eq, _L10a062_407
+	jmpc eq, _L39babe60_475
 	call _f_espera_interrupcao
-	jmp _L10a062_406
-_L10a062_407:
+	jmp _L39babe60_474
+_L39babe60_475:
+	ld sp, bp
+	pop bp
+	ret
+_f_contaSyscall:
+	push bp
+	ld bp, sp
+	ld r0, (_g_metr_syscalls)
+	push r0
+	add r0, 1
+	st r0, (_g_metr_syscalls)
+	pop r0
+	ld r0, (_g_up)
+	push r0
+	ld r0, 0
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc ne, _L39babe60_479
+	ld r0, 0
+	jmp _L39babe60_480
+_L39babe60_479:
+	ld r0, 1
+_L39babe60_480:
+	cmp r0, 0
+	jmpc eq, _L39babe60_481
+	ld r0, (_g_up)
+	ld r1, r0
+	ld r0, (r1+182)
+	push r0
+	add r0, 1
+	st r0, (r1+182)
+	pop r0
+_L39babe60_481:
+	ld sp, bp
+	pop bp
+	ret
+_f_mudaEstado:
+	push bp
+	ld bp, sp
+	sub sp, 2
+	ld r0, (bp+4)
+	push r0
+	ld r0, 0
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_509
+	ld r0, 0
+	jmp _L39babe60_510
+_L39babe60_509:
+	ld r0, 1
+_L39babe60_510:
+	cmp r0, 0
+	jmpc ne, _L39babe60_508
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+2)
+	push r0
+	ld r0, (bp+6)
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_511
+	ld r0, 0
+	jmp _L39babe60_512
+_L39babe60_511:
+	ld r0, 1
+_L39babe60_512:
+	cmp r0, 0
+	jmpc ne, _L39babe60_508
+	ld r0, 0
+	jmp _L39babe60_507
+_L39babe60_508:
+	ld r0, 1
+_L39babe60_507:
+	cmp r0, 0
+	jmpc eq, _L39babe60_513
+	ld sp, bp
+	pop bp
+	ret
+_L39babe60_513:
+	ld r0, (_g_clockTicks)
+	push r0
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+200)
+	ld r1, r0
+	pop r0
+	sub r0, r1
+	st r0, (bp+-2)
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, r1
+	add r0, 192
+	push r0
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+2)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	push r1
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, r1
+	add r0, 192
+	push r0
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+2)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	ld r0, (r1)
+	push r0
+	ld r0, (bp+-2)
+	ld r1, r0
+	pop r0
+	add r0, r1
+	pop r1
+	st r0, (r1)
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+2)
+	push r0
+	ld r0, 3
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_516
+	ld r0, 0
+	jmp _L39babe60_517
+_L39babe60_516:
+	ld r0, 1
+_L39babe60_517:
+	cmp r0, 0
+	jmpc eq, _L39babe60_515
+	ld r0, (bp+6)
+	push r0
+	ld r0, 1
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_518
+	ld r0, 0
+	jmp _L39babe60_519
+_L39babe60_518:
+	ld r0, 1
+_L39babe60_519:
+	cmp r0, 0
+	jmpc eq, _L39babe60_515
+	ld r0, 1
+	jmp _L39babe60_514
+_L39babe60_515:
+	ld r0, 0
+_L39babe60_514:
+	cmp r0, 0
+	jmpc eq, _L39babe60_520
+	ld r0, (bp+4)
+	ld r1, r0
+	push r1
+	ld r0, (_g_clockTicks)
+	pop r1
+	st r0, (r1+202)
+	jmp _L39babe60_521
+_L39babe60_520:
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+2)
+	push r0
+	ld r0, 1
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_524
+	ld r0, 0
+	jmp _L39babe60_525
+_L39babe60_524:
+	ld r0, 1
+_L39babe60_525:
+	cmp r0, 0
+	jmpc eq, _L39babe60_523
+	ld r0, (bp+6)
+	push r0
+	ld r0, 2
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L39babe60_526
+	ld r0, 0
+	jmp _L39babe60_527
+_L39babe60_526:
+	ld r0, 1
+_L39babe60_527:
+	cmp r0, 0
+	jmpc eq, _L39babe60_523
+	ld r0, 1
+	jmp _L39babe60_522
+_L39babe60_523:
+	ld r0, 0
+_L39babe60_522:
+	cmp r0, 0
+	jmpc eq, _L39babe60_528
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+202)
+	push r0
+	ld r0, 0
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc ge, _L39babe60_529
+	ld r0, 0
+	jmp _L39babe60_530
+_L39babe60_529:
+	ld r0, 1
+_L39babe60_530:
+	cmp r0, 0
+	jmpc eq, _L39babe60_531
+	ld r0, (bp+4)
+	ld r1, r0
+	push r1
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+204)
+	push r0
+	ld r0, (_g_clockTicks)
+	push r0
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+202)
+	ld r1, r0
+	pop r0
+	sub r0, r1
+	ld r1, r0
+	pop r0
+	add r0, r1
+	pop r1
+	st r0, (r1+204)
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, (r1+206)
+	push r0
+	add r0, 1
+	st r0, (r1+206)
+	pop r0
+	ld r0, (bp+4)
+	ld r1, r0
+	push r1
+	ld r0, 1
+	xor r0, -1
+	add r0, 1
+	pop r1
+	st r0, (r1+202)
+_L39babe60_531:
+_L39babe60_528:
+_L39babe60_521:
+	ld r0, (bp+4)
+	ld r1, r0
+	push r1
+	ld r0, (bp+6)
+	pop r1
+	st r0, (r1+2)
+	ld r0, (bp+4)
+	ld r1, r0
+	ld r0, r1
+	add r0, 184
+	push r0
+	ld r0, (bp+6)
+	mul r0, 2
+	pop r1
+	add r1, r0
+	ld r0, (r1)
+	push r0
+	add r0, 1
+	st r0, (r1)
+	pop r0
+	ld r0, (bp+4)
+	ld r1, r0
+	push r1
+	ld r0, (_g_clockTicks)
+	pop r1
+	st r0, (r1+200)
 	ld sp, bp
 	pop bp
 	ret
@@ -3258,12 +3917,2607 @@ _g_procs:
 	.db 0
 	.db 0
 	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
 _g_up:
 	.db 0
 	.db 0
 _g_nextpid:
 	.db 0
 	.db 0
+_g_metrics:
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+	.db 0
+_g_numMetrics:
+	.dw 0
 _g_quantumRestante:
 	.dw 4
 _g_runq_head:
@@ -3310,6 +6564,20 @@ _g_kbd_head:
 _g_kbd_tail:
 	.dw 0
 _g_kbd_count:
+	.dw 0
+_g_clockTicks:
+	.dw 0
+_g_metr_createdProcs:
+	.dw 0
+_g_metr_idleTime:
+	.dw 0
+_g_metr_totalPreempt:
+	.dw 0
+_g_metr_intClock:
+	.dw 0
+_g_metr_intKey:
+	.dw 0
+_g_metr_syscalls:
 	.dw 0
 
 ; ----- literais de string -----

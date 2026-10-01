@@ -187,7 +187,7 @@ _f_espera_interrupcao:
   ret
 
 trampolim_escalonador:
-  call    _f_sched
+  call    _f_timerTick
   rete
 
 _f_halt:

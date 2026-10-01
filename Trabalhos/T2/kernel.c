@@ -3,6 +3,7 @@
 #define TAM_PILHA 64
 #define TAM_QUADRO 16
 #define TAM_BUF 16
+#define QUANTUM 4
 
 // Estados
 #define DEAD 0
@@ -27,6 +28,8 @@ struct Proc {
   int pilha[TAM_PILHA]; // Talvez mover para um vetor de pilhas?
   int waitpid;
   int wait_io;
+
+  struct Proc* qnext;
 };
 #define Proc struct Proc
 
@@ -34,6 +37,11 @@ struct Proc {
 Proc procs[NPROC];
 Proc *up; // Processo atual
 int nextpid;
+
+int quantumRestante = QUANTUM;
+
+Proc* runq_head;
+Proc* runq_tail;
 
 int kbd_buf[TAM_BUF];
 int kbd_head = 0;
@@ -47,6 +55,11 @@ void salvaContexto(void);
 void restauraContexto(void);
 void sched(void);
 int sys_wait(int pid);
+void runq_put(Proc* p);
+Proc* runq_get(void);
+void ready(Proc* p);
+void yield(void);
+void timerTick(void);
 
 // Processos
 Proc* sys_newproc(void (*entry)(void));
@@ -91,8 +104,8 @@ pwake(int pid)
   for (i = 0; i < NPROC; i++) {
     p = &procs[i];
     if (p->state == BLOCKED && p->waitpid == pid) {
-      p->state = READY;
       p->waitpid = 0;
+      ready(p);
     }
   }
 }
@@ -124,45 +137,27 @@ restauraContexto(void)
 void
 sched(void) {
   salvaContexto();
-
-  if (up != 0 && up->state == RUNNING)
-    up->state = READY;
   
-  int i, currPid;
-
-  if (up != 0)
-    currPid = up - procs;
-  else
-    currPid = -1;
+  up = runq_get();
   
-  Proc* p, *prox;
-  prox = 0;
-  for (i = 1; i <= NPROC; i++) {
-    p = &procs[(currPid + i) % NPROC];
-    if (p->state == READY) {
-      prox = p;
-      break;
-    }
-  }
-  up = prox;
-
+  int i, alive;
+  Proc* p;
   while (up == 0) {
-    int alive = 0;
+    alive = 0;
+    up = runq_get();
     for (i = 0; i < NPROC; i++) {
-      if (procs[i].state != DEAD) alive = 1;
-      if (procs[i].state == READY) {
-        up = &procs[i];
+      p = &procs[i];
+      if (p->state != DEAD) {
+        alive = 1;
         break;
       }
     }
     if (!alive) return;
     if (!up) espera_interrupcao();
   }
-
-  if (up != 0) {
-    up->state = RUNNING;
-    restauraContexto();
-  }
+  up->state = RUNNING;
+  quantumRestante = QUANTUM;
+  restauraContexto();
 }
 
 Proc* 
@@ -189,9 +184,9 @@ sys_newproc(void (*entry)(void))
   p->quadro[7] = (int)entry; // ip
   p->quadro[8] = 0; // sr (S = 0 ; I = 0 ; D = 0)
   
-  p->state = READY;
   p->waitpid = 0;
   p->wait_io = 0;
+  ready(p);
 
   return p;
 }
@@ -233,6 +228,8 @@ procinit(void)
 {
   nextpid = 1;
   up = 0;
+  runq_head = 0;
+  runq_tail = 0;
 
   int i;
   for (i = 0; i < NPROC; i++) {
@@ -241,7 +238,8 @@ procinit(void)
     procs[i].wait_io = 0;
   }
 
-  up = sys_newproc(init);
+  sys_newproc(init);
+  up = runq_get();
   up->state = RUNNING;
   restauraContexto();
 }
@@ -281,7 +279,7 @@ received_key(int c)
   if (p != 0) {
     p->quadro[0] = c;
     p->wait_io = 0;
-    p->state = READY;
+    ready(p);
   }
   else if (kbd_count < TAM_BUF) {
     kbd_buf[kbd_tail] = c;
@@ -311,4 +309,63 @@ int
 sys_getpid(void)
 {
   return up->pid;
+}
+
+void
+runq_put(Proc* p)
+{
+  p->qnext = 0;
+
+  if (runq_tail == 0) {
+    runq_head = p;
+    runq_tail = p;
+  }
+  else {
+    runq_tail->qnext = p;
+    runq_tail = p;
+  }
+}
+
+Proc*
+runq_get(void)
+{
+  Proc* p = runq_head;
+  if (p != 0) {
+    runq_head = runq_head->qnext;
+    p->qnext = 0;
+    if (runq_head == 0)
+      runq_tail = 0;
+  }
+
+  return p;
+}
+
+void
+ready(Proc* p)
+{
+  if (p == 0)
+    return;
+
+  p->state = READY;
+  runq_put(p);
+}
+
+void
+yield(void)
+{
+  if (up != 0 && up->state == RUNNING) {
+    ready(up);
+    sched();
+  }
+}
+
+void
+timerTick(void)
+{
+  if (up == 0 || up->state != RUNNING)
+    return;
+
+  quantumRestante--;
+  if (quantumRestante <= 0)
+    yield();
 }

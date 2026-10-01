@@ -1,18 +1,18 @@
 ; ===== código gerado por mcc =====
 .text
-_f_nothing:
+_f_printaPid:
 	push bp
 	ld bp, sp
-_Lf43056a9_2:
+_Lbf326dee_2:
 	ld r0, 1
 	cmp r0, 0
-	jmpc eq, _Lf43056a9_3
+	jmpc eq, _Lbf326dee_3
 	call _f_getpid
 	push r0
 	call _f_print_int
 	add sp, 2
-	jmp _Lf43056a9_2
-_Lf43056a9_3:
+	jmp _Lbf326dee_2
+_Lbf326dee_3:
 	ld r0, 0
 	push r0
 	call _f_killproc
@@ -24,41 +24,41 @@ _f_filho:
 	push bp
 	ld bp, sp
 	sub sp, 2
-_Lf43056a9_11:
+_Lbf326dee_11:
 	ld r0, 1
 	cmp r0, 0
-	jmpc eq, _Lf43056a9_12
-	ld r0, _strf43056a9_1
+	jmpc eq, _Lbf326dee_12
+	ld r0, _strbf326dee_1
 	push r0
 	call _f_puts
 	add sp, 2
 	ld r0, 0
 	st r0, (bp+-2)
-_Lf43056a9_13:
+_Lbf326dee_13:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 500
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Lf43056a9_16
+	jmpc lt, _Lbf326dee_16
 	ld r0, 0
-	jmp _Lf43056a9_17
-_Lf43056a9_16:
+	jmp _Lbf326dee_17
+_Lbf326dee_16:
 	ld r0, 1
-_Lf43056a9_17:
+_Lbf326dee_17:
 	cmp r0, 0
-	jmpc eq, _Lf43056a9_15
-_Lf43056a9_14:
+	jmpc eq, _Lbf326dee_15
+_Lbf326dee_14:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _Lf43056a9_13
-_Lf43056a9_15:
-	jmp _Lf43056a9_11
-_Lf43056a9_12:
+	jmp _Lbf326dee_13
+_Lbf326dee_15:
+	jmp _Lbf326dee_11
+_Lbf326dee_12:
 	ld r0, 0
 	push r0
 	call _f_killproc
@@ -70,39 +70,39 @@ _f_init:
 	push bp
 	ld bp, sp
 	sub sp, 2
-	ld r0, _strf43056a9_3
+	ld r0, _strbf326dee_3
 	push r0
 	call _f_puts
 	add sp, 2
 	ld r0, 0
 	st r0, (bp+-2)
-_Lf43056a9_23:
+_Lbf326dee_23:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 15
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Lf43056a9_26
+	jmpc lt, _Lbf326dee_26
 	ld r0, 0
-	jmp _Lf43056a9_27
-_Lf43056a9_26:
+	jmp _Lbf326dee_27
+_Lbf326dee_26:
 	ld r0, 1
-_Lf43056a9_27:
+_Lbf326dee_27:
 	cmp r0, 0
-	jmpc eq, _Lf43056a9_25
-	ld r0, _f_nothing
+	jmpc eq, _Lbf326dee_25
+	ld r0, _f_printaPid
 	push r0
 	call _f_newproc
 	add sp, 2
-_Lf43056a9_24:
+_Lbf326dee_24:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _Lf43056a9_23
-_Lf43056a9_25:
+	jmp _Lbf326dee_23
+_Lbf326dee_25:
 	ld r0, 0
 	push r0
 	call _f_killproc
@@ -114,11 +114,11 @@ _Lf43056a9_25:
 .data
 
 ; ----- literais de string -----
-_strf43056a9_0:
+_strbf326dee_0:
 	.db 70, 105, 108, 104, 111, 32, 114, 111, 100, 97, 110, 100, 111, 0
-_strf43056a9_1:
+_strbf326dee_1:
 	.db 70, 105, 108, 104, 111, 32, 114, 111, 100, 97, 110, 100, 111, 0
-_strf43056a9_2:
+_strbf326dee_2:
 	.db 66, 101, 109, 45, 118, 105, 110, 100, 111, 32, 97, 111, 32, 107, 101, 114, 110, 101, 108, 10, 0
-_strf43056a9_3:
+_strbf326dee_3:
 	.db 66, 101, 109, 45, 118, 105, 110, 100, 111, 32, 97, 111, 32, 107, 101, 114, 110, 101, 108, 10, 0

@@ -66,19 +66,14 @@ _f_getpid:
 _trampolim_read:
   push  r1
   call  _f_sys_read
-  add sp, 2
+  add   sp, 2
   ret
 
 ; SO_ESCREVE 1
-sys_escreve_handler:
-  ld    r0, r1
-  cmp   r0, 0
-  jmpc  eq, .fim
-  call  bios_putc
-  ld    r0, 1
-  ret
-.fim:
-  ld    r0, 0
+_trampolim_write:
+  push  r1
+  call  _f_sys_write
+  add   sp, 2
   ret
 
 ; SO_CRIA_PROC 2
@@ -151,7 +146,7 @@ _kernel_inicio:
 ; Tabela syscalls
   ld    r0, _trampolim_read
   st    r0, (tabela_syscalls)
-  ld    r0, sys_escreve_handler
+  ld    r0, _trampolim_write
   st    r0, (tabela_syscalls+2)
   ld    r0, _trampolim_newproc
   st    r0, (tabela_syscalls+4)
@@ -189,6 +184,15 @@ _f_espera_interrupcao:
 trampolim_escalonador:
   call    _f_timerTick
   rete
+
+_f_write_char:
+  push  bp
+  ld    bp, sp
+  ld    r0, (bp+4)
+  outb  r0, (1)
+  ld    sp, bp
+  pop bp
+  ret
 
 _f_halt:
   halt

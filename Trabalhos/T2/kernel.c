@@ -88,6 +88,7 @@ void init(void);
 
 // 
 void received_key(int c);
+void write_char(int c);
 void espera_interrupcao(void);
 
 Proc*
@@ -244,7 +245,7 @@ sys_killproc(int pid)
 void
 procinit(void)
 {
-  nextpid = 1;
+  nextpid = 0; // pid 0 eh o processo idle
   up = 0;
   runq_head = 0;
   runq_tail = 0;
@@ -328,6 +329,14 @@ sys_read(void)
     sched();
     return QUADRO_SISTEMA[0];
   }
+}
+
+int
+sys_write(int c)
+{
+  if (c == '\0') return 0;
+  write_char(c);
+  return 1;
 }
 
 int

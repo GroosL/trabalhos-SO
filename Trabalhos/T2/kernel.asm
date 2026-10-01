@@ -6,21 +6,21 @@ _f_pfind:
 	sub sp, 4
 	ld r0, 0
 	st r0, (bp+-2)
-_La6b37a3_11:
+_L2ae480b_11:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_14
+	jmpc lt, _L2ae480b_14
 	ld r0, 0
-	jmp _La6b37a3_15
-_La6b37a3_14:
+	jmp _L2ae480b_15
+_L2ae480b_14:
 	ld r0, 1
-_La6b37a3_15:
+_L2ae480b_15:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_13
+	jmpc eq, _L2ae480b_13
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -37,14 +37,14 @@ _La6b37a3_15:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_16
+	jmpc eq, _L2ae480b_16
 	ld r0, 0
-	jmp _La6b37a3_17
-_La6b37a3_16:
+	jmp _L2ae480b_17
+_L2ae480b_16:
 	ld r0, 1
-_La6b37a3_17:
+_L2ae480b_17:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_18
+	jmpc eq, _L2ae480b_18
 	ld r0, (bp+-4)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -53,32 +53,32 @@ _La6b37a3_17:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _La6b37a3_19
+	jmpc ne, _L2ae480b_19
 	ld r0, 0
-	jmp _La6b37a3_20
-_La6b37a3_19:
+	jmp _L2ae480b_20
+_L2ae480b_19:
 	ld r0, 1
-_La6b37a3_20:
+_L2ae480b_20:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_21
+	jmpc eq, _L2ae480b_21
 	ld r0, (bp+-4)
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_21:
+_L2ae480b_21:
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_18:
-_La6b37a3_12:
+_L2ae480b_18:
+_L2ae480b_12:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_11
-_La6b37a3_13:
+	jmp _L2ae480b_11
+_L2ae480b_13:
 	ld r0, 0
 	ld sp, bp
 	pop bp
@@ -92,21 +92,21 @@ _f_pwake:
 	sub sp, 4
 	ld r0, 0
 	st r0, (bp+-2)
-_La6b37a3_34:
+_L2ae480b_34:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_37
+	jmpc lt, _L2ae480b_37
 	ld r0, 0
-	jmp _La6b37a3_38
-_La6b37a3_37:
+	jmp _L2ae480b_38
+_L2ae480b_37:
 	ld r0, 1
-_La6b37a3_38:
+_L2ae480b_38:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_36
+	jmpc eq, _L2ae480b_36
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -123,14 +123,14 @@ _La6b37a3_38:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_41
+	jmpc eq, _L2ae480b_41
 	ld r0, 0
-	jmp _La6b37a3_42
-_La6b37a3_41:
+	jmp _L2ae480b_42
+_L2ae480b_41:
 	ld r0, 1
-_La6b37a3_42:
+_L2ae480b_42:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_40
+	jmpc eq, _L2ae480b_40
 	ld r0, (bp+-4)
 	ld r1, r0
 	ld r0, (r1+164)
@@ -139,21 +139,21 @@ _La6b37a3_42:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_43
+	jmpc eq, _L2ae480b_43
 	ld r0, 0
-	jmp _La6b37a3_44
-_La6b37a3_43:
+	jmp _L2ae480b_44
+_L2ae480b_43:
 	ld r0, 1
-_La6b37a3_44:
+_L2ae480b_44:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_40
+	jmpc eq, _L2ae480b_40
 	ld r0, 1
-	jmp _La6b37a3_39
-_La6b37a3_40:
+	jmp _L2ae480b_39
+_L2ae480b_40:
 	ld r0, 0
-_La6b37a3_39:
+_L2ae480b_39:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_45
+	jmpc eq, _L2ae480b_45
 	ld r0, (bp+-4)
 	ld r1, r0
 	push r1
@@ -166,15 +166,15 @@ _La6b37a3_39:
 	ld r0, 0
 	pop r1
 	st r0, (r1+164)
-_La6b37a3_45:
-_La6b37a3_35:
+_L2ae480b_45:
+_L2ae480b_35:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_34
-_La6b37a3_36:
+	jmp _L2ae480b_34
+_L2ae480b_36:
 	ld sp, bp
 	pop bp
 	ret
@@ -184,35 +184,35 @@ _f_salvaContexto:
 	sub sp, 2
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _La6b37a3_54
+	jmpc eq, _L2ae480b_54
 	ld r0, 0
-	jmp _La6b37a3_55
-_La6b37a3_54:
+	jmp _L2ae480b_55
+_L2ae480b_54:
 	ld r0, 1
-_La6b37a3_55:
+_L2ae480b_55:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_56
+	jmpc eq, _L2ae480b_56
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_56:
+_L2ae480b_56:
 	ld r0, 0
 	st r0, (bp+-2)
-_La6b37a3_57:
+_L2ae480b_57:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_60
+	jmpc lt, _L2ae480b_60
 	ld r0, 0
-	jmp _La6b37a3_61
-_La6b37a3_60:
+	jmp _L2ae480b_61
+_L2ae480b_60:
 	ld r0, 1
-_La6b37a3_61:
+_L2ae480b_61:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_59
+	jmpc eq, _L2ae480b_59
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, r1
@@ -232,14 +232,14 @@ _La6b37a3_61:
 	ld r0, (r1)
 	pop r1
 	st r0, (r1)
-_La6b37a3_58:
+_L2ae480b_58:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_57
-_La6b37a3_59:
+	jmp _L2ae480b_57
+_L2ae480b_59:
 	ld sp, bp
 	pop bp
 	ret
@@ -249,35 +249,35 @@ _f_restauraContexto:
 	sub sp, 2
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _La6b37a3_70
+	jmpc eq, _L2ae480b_70
 	ld r0, 0
-	jmp _La6b37a3_71
-_La6b37a3_70:
+	jmp _L2ae480b_71
+_L2ae480b_70:
 	ld r0, 1
-_La6b37a3_71:
+_L2ae480b_71:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_72
+	jmpc eq, _L2ae480b_72
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_72:
+_L2ae480b_72:
 	ld r0, 0
 	st r0, (bp+-2)
-_La6b37a3_73:
+_L2ae480b_73:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_76
+	jmpc lt, _L2ae480b_76
 	ld r0, 0
-	jmp _La6b37a3_77
-_La6b37a3_76:
+	jmp _L2ae480b_77
+_L2ae480b_76:
 	ld r0, 1
-_La6b37a3_77:
+_L2ae480b_77:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_75
+	jmpc eq, _L2ae480b_75
 	ld r0, 61408
 	push r0
 	ld r0, (bp+-2)
@@ -297,14 +297,14 @@ _La6b37a3_77:
 	ld r0, (r1)
 	pop r1
 	st r0, (r1)
-_La6b37a3_74:
+_L2ae480b_74:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_73
-_La6b37a3_75:
+	jmp _L2ae480b_73
+_L2ae480b_75:
 	ld sp, bp
 	pop bp
 	ret
@@ -319,14 +319,14 @@ _f_sched:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _La6b37a3_123
+	jmpc ne, _L2ae480b_123
 	ld r0, 0
-	jmp _La6b37a3_124
-_La6b37a3_123:
+	jmp _L2ae480b_124
+_L2ae480b_123:
 	ld r0, 1
-_La6b37a3_124:
+_L2ae480b_124:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_122
+	jmpc eq, _L2ae480b_122
 	ld r0, (_g_up)
 	ld r1, r0
 	ld r0, (r1+2)
@@ -335,42 +335,42 @@ _La6b37a3_124:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_125
+	jmpc eq, _L2ae480b_125
 	ld r0, 0
-	jmp _La6b37a3_126
-_La6b37a3_125:
+	jmp _L2ae480b_126
+_L2ae480b_125:
 	ld r0, 1
-_La6b37a3_126:
+_L2ae480b_126:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_122
+	jmpc eq, _L2ae480b_122
 	ld r0, 1
-	jmp _La6b37a3_121
-_La6b37a3_122:
+	jmp _L2ae480b_121
+_L2ae480b_122:
 	ld r0, 0
-_La6b37a3_121:
+_L2ae480b_121:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_127
+	jmpc eq, _L2ae480b_127
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
 	ld r0, 1
 	pop r1
 	st r0, (r1+2)
-_La6b37a3_127:
+_L2ae480b_127:
 	ld r0, (_g_up)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _La6b37a3_128
+	jmpc ne, _L2ae480b_128
 	ld r0, 0
-	jmp _La6b37a3_129
-_La6b37a3_128:
+	jmp _L2ae480b_129
+_L2ae480b_128:
 	ld r0, 1
-_La6b37a3_129:
+_L2ae480b_129:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_130
+	jmpc eq, _L2ae480b_130
 	ld r0, (_g_up)
 	push r0
 	ld r0, _g_procs
@@ -379,32 +379,32 @@ _La6b37a3_129:
 	sub r0, r1
 	div r0, 168
 	st r0, (bp+-4)
-	jmp _La6b37a3_131
-_La6b37a3_130:
+	jmp _L2ae480b_131
+_L2ae480b_130:
 	ld r0, 1
 	xor r0, -1
 	add r0, 1
 	st r0, (bp+-4)
-_La6b37a3_131:
+_L2ae480b_131:
 	ld r0, 0
 	st r0, (bp+-8)
 	ld r0, 1
 	st r0, (bp+-2)
-_La6b37a3_132:
+_L2ae480b_132:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc le, _La6b37a3_135
+	jmpc le, _L2ae480b_135
 	ld r0, 0
-	jmp _La6b37a3_136
-_La6b37a3_135:
+	jmp _L2ae480b_136
+_L2ae480b_135:
 	ld r0, 1
-_La6b37a3_136:
+_L2ae480b_136:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_134
+	jmpc eq, _L2ae480b_134
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-4)
@@ -435,62 +435,62 @@ _La6b37a3_136:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_137
+	jmpc eq, _L2ae480b_137
 	ld r0, 0
-	jmp _La6b37a3_138
-_La6b37a3_137:
+	jmp _L2ae480b_138
+_L2ae480b_137:
 	ld r0, 1
-_La6b37a3_138:
+_L2ae480b_138:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_139
+	jmpc eq, _L2ae480b_139
 	ld r0, (bp+-6)
 	st r0, (bp+-8)
-	jmp _La6b37a3_134
-_La6b37a3_139:
-_La6b37a3_133:
+	jmp _L2ae480b_134
+_L2ae480b_139:
+_L2ae480b_133:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_132
-_La6b37a3_134:
+	jmp _L2ae480b_132
+_L2ae480b_134:
 	ld r0, (bp+-8)
 	st r0, (_g_up)
-_La6b37a3_140:
+_L2ae480b_140:
 	ld r0, (_g_up)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_142
+	jmpc eq, _L2ae480b_142
 	ld r0, 0
-	jmp _La6b37a3_143
-_La6b37a3_142:
+	jmp _L2ae480b_143
+_L2ae480b_142:
 	ld r0, 1
-_La6b37a3_143:
+_L2ae480b_143:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_141
+	jmpc eq, _L2ae480b_141
 	ld r0, 0
 	st r0, (bp+-10)
 	ld r0, 0
 	st r0, (bp+-2)
-_La6b37a3_144:
+_L2ae480b_144:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_147
+	jmpc lt, _L2ae480b_147
 	ld r0, 0
-	jmp _La6b37a3_148
-_La6b37a3_147:
+	jmp _L2ae480b_148
+_L2ae480b_147:
 	ld r0, 1
-_La6b37a3_148:
+_L2ae480b_148:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_146
+	jmpc eq, _L2ae480b_146
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -503,17 +503,17 @@ _La6b37a3_148:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _La6b37a3_149
+	jmpc ne, _L2ae480b_149
 	ld r0, 0
-	jmp _La6b37a3_150
-_La6b37a3_149:
+	jmp _L2ae480b_150
+_L2ae480b_149:
 	ld r0, 1
-_La6b37a3_150:
+_L2ae480b_150:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_151
+	jmpc eq, _L2ae480b_151
 	ld r0, 1
 	st r0, (bp+-10)
-_La6b37a3_151:
+_L2ae480b_151:
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -526,14 +526,14 @@ _La6b37a3_151:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_152
+	jmpc eq, _L2ae480b_152
 	ld r0, 0
-	jmp _La6b37a3_153
-_La6b37a3_152:
+	jmp _L2ae480b_153
+_L2ae480b_152:
 	ld r0, 1
-_La6b37a3_153:
+_L2ae480b_153:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_154
+	jmpc eq, _L2ae480b_154
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -542,58 +542,58 @@ _La6b37a3_153:
 	add r1, r0
 	ld r0, r1
 	st r0, (_g_up)
-	jmp _La6b37a3_146
-_La6b37a3_154:
-_La6b37a3_145:
+	jmp _L2ae480b_146
+_L2ae480b_154:
+_L2ae480b_145:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_144
-_La6b37a3_146:
+	jmp _L2ae480b_144
+_L2ae480b_146:
 	ld r0, (bp+-10)
 	cmp r0, 0
-	jmpc eq, _La6b37a3_155
+	jmpc eq, _L2ae480b_155
 	ld r0, 0
-	jmp _La6b37a3_156
-_La6b37a3_155:
+	jmp _L2ae480b_156
+_L2ae480b_155:
 	ld r0, 1
-_La6b37a3_156:
+_L2ae480b_156:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_157
+	jmpc eq, _L2ae480b_157
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_157:
+_L2ae480b_157:
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _La6b37a3_158
+	jmpc eq, _L2ae480b_158
 	ld r0, 0
-	jmp _La6b37a3_159
-_La6b37a3_158:
+	jmp _L2ae480b_159
+_L2ae480b_158:
 	ld r0, 1
-_La6b37a3_159:
+_L2ae480b_159:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_160
+	jmpc eq, _L2ae480b_160
 	call _f_espera_interrupcao
-_La6b37a3_160:
-	jmp _La6b37a3_140
-_La6b37a3_141:
+_L2ae480b_160:
+	jmp _L2ae480b_140
+_L2ae480b_141:
 	ld r0, (_g_up)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _La6b37a3_161
+	jmpc ne, _L2ae480b_161
 	ld r0, 0
-	jmp _La6b37a3_162
-_La6b37a3_161:
+	jmp _L2ae480b_162
+_L2ae480b_161:
 	ld r0, 1
-_La6b37a3_162:
+_L2ae480b_162:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_163
+	jmpc eq, _L2ae480b_163
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
@@ -601,7 +601,7 @@ _La6b37a3_162:
 	pop r1
 	st r0, (r1+2)
 	call _f_restauraContexto
-_La6b37a3_163:
+_L2ae480b_163:
 	ld sp, bp
 	pop bp
 	ret
@@ -613,21 +613,21 @@ _f_sys_newproc:
 	st r0, (bp+-2)
 	ld r0, 0
 	st r0, (bp+-4)
-_La6b37a3_180:
+_L2ae480b_180:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_183
+	jmpc lt, _L2ae480b_183
 	ld r0, 0
-	jmp _La6b37a3_184
-_La6b37a3_183:
+	jmp _L2ae480b_184
+_L2ae480b_183:
 	ld r0, 1
-_La6b37a3_184:
+_L2ae480b_184:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_182
+	jmpc eq, _L2ae480b_182
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-4)
@@ -640,14 +640,14 @@ _La6b37a3_184:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_185
+	jmpc eq, _L2ae480b_185
 	ld r0, 0
-	jmp _La6b37a3_186
-_La6b37a3_185:
+	jmp _L2ae480b_186
+_L2ae480b_185:
 	ld r0, 1
-_La6b37a3_186:
+_L2ae480b_186:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_187
+	jmpc eq, _L2ae480b_187
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-4)
@@ -656,52 +656,52 @@ _La6b37a3_186:
 	add r1, r0
 	ld r0, r1
 	st r0, (bp+-2)
-	jmp _La6b37a3_182
-_La6b37a3_187:
-_La6b37a3_181:
+	jmp _L2ae480b_182
+_L2ae480b_187:
+_L2ae480b_181:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _La6b37a3_180
-_La6b37a3_182:
+	jmp _L2ae480b_180
+_L2ae480b_182:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_188
+	jmpc eq, _L2ae480b_188
 	ld r0, 0
-	jmp _La6b37a3_189
-_La6b37a3_188:
+	jmp _L2ae480b_189
+_L2ae480b_188:
 	ld r0, 1
-_La6b37a3_189:
+_L2ae480b_189:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_190
+	jmpc eq, _L2ae480b_190
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_190:
+_L2ae480b_190:
 	ld r0, 0
 	st r0, (bp+-4)
-_La6b37a3_191:
+_L2ae480b_191:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_194
+	jmpc lt, _L2ae480b_194
 	ld r0, 0
-	jmp _La6b37a3_195
-_La6b37a3_194:
+	jmp _L2ae480b_195
+_L2ae480b_194:
 	ld r0, 1
-_La6b37a3_195:
+_L2ae480b_195:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_193
+	jmpc eq, _L2ae480b_193
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, r1
@@ -715,14 +715,14 @@ _La6b37a3_195:
 	ld r0, 0
 	pop r1
 	st r0, (r1)
-_La6b37a3_192:
+_L2ae480b_192:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _La6b37a3_191
-_La6b37a3_193:
+	jmp _L2ae480b_191
+_L2ae480b_193:
 	ld r0, (bp+-2)
 	ld r1, r0
 	push r1
@@ -824,16 +824,16 @@ _f_die:
 	call _f_sched
 	ld r0, (_g_up)
 	cmp r0, 0
-	jmpc eq, _La6b37a3_199
+	jmpc eq, _L2ae480b_199
 	ld r0, 0
-	jmp _La6b37a3_200
-_La6b37a3_199:
+	jmp _L2ae480b_200
+_L2ae480b_199:
 	ld r0, 1
-_La6b37a3_200:
+_L2ae480b_200:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_201
+	jmpc eq, _L2ae480b_201
 	call _f_halt
-_La6b37a3_201:
+_L2ae480b_201:
 	ld r0, 0
 	ld sp, bp
 	pop bp
@@ -852,7 +852,7 @@ _f_kill:
 	st r0, (bp+-2)
 	ld r0, (bp+-2)
 	cmp r0, 0
-	jmpc eq, _La6b37a3_203
+	jmpc eq, _L2ae480b_203
 	ld r0, (bp+-2)
 	ld r1, r0
 	push r1
@@ -867,7 +867,7 @@ _f_kill:
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_203:
+_L2ae480b_203:
 	ld r0, 1
 	xor r0, -1
 	add r0, 1
@@ -886,14 +886,14 @@ _f_sys_killproc:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_214
+	jmpc eq, _L2ae480b_214
 	ld r0, 0
-	jmp _La6b37a3_215
-_La6b37a3_214:
+	jmp _L2ae480b_215
+_L2ae480b_214:
 	ld r0, 1
-_La6b37a3_215:
+_L2ae480b_215:
 	cmp r0, 0
-	jmpc ne, _La6b37a3_213
+	jmpc ne, _L2ae480b_213
 	ld r0, (bp+4)
 	push r0
 	ld r0, (_g_up)
@@ -902,27 +902,27 @@ _La6b37a3_215:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_216
+	jmpc eq, _L2ae480b_216
 	ld r0, 0
-	jmp _La6b37a3_217
-_La6b37a3_216:
+	jmp _L2ae480b_217
+_L2ae480b_216:
 	ld r0, 1
-_La6b37a3_217:
+_L2ae480b_217:
 	cmp r0, 0
-	jmpc ne, _La6b37a3_213
+	jmpc ne, _L2ae480b_213
 	ld r0, 0
-	jmp _La6b37a3_212
-_La6b37a3_213:
+	jmp _L2ae480b_212
+_L2ae480b_213:
 	ld r0, 1
-_La6b37a3_212:
+_L2ae480b_212:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_218
+	jmpc eq, _L2ae480b_218
 	call _f_die
 	ld sp, bp
 	pop bp
 	ret
-	jmp _La6b37a3_219
-_La6b37a3_218:
+	jmp _L2ae480b_219
+_L2ae480b_218:
 	ld r0, (bp+4)
 	push r0
 	call _f_kill
@@ -930,7 +930,7 @@ _La6b37a3_218:
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_219:
+_L2ae480b_219:
 	ld sp, bp
 	pop bp
 	ret
@@ -944,21 +944,21 @@ _f_procinit:
 	st r0, (_g_up)
 	ld r0, 0
 	st r0, (bp+-2)
-_La6b37a3_225:
+_L2ae480b_225:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_228
+	jmpc lt, _L2ae480b_228
 	ld r0, 0
-	jmp _La6b37a3_229
-_La6b37a3_228:
+	jmp _L2ae480b_229
+_L2ae480b_228:
 	ld r0, 1
-_La6b37a3_229:
+_L2ae480b_229:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_227
+	jmpc eq, _L2ae480b_227
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -989,14 +989,14 @@ _La6b37a3_229:
 	ld r0, 0
 	pop r1
 	st r0, (r1+166)
-_La6b37a3_226:
+_L2ae480b_226:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_225
-_La6b37a3_227:
+	jmp _L2ae480b_225
+_L2ae480b_227:
 	ld r0, _f_init
 	push r0
 	call _f_sys_newproc
@@ -1022,14 +1022,14 @@ _f_sys_wait:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc le, _La6b37a3_248
+	jmpc le, _L2ae480b_248
 	ld r0, 0
-	jmp _La6b37a3_249
-_La6b37a3_248:
+	jmp _L2ae480b_249
+_L2ae480b_248:
 	ld r0, 1
-_La6b37a3_249:
+_L2ae480b_249:
 	cmp r0, 0
-	jmpc ne, _La6b37a3_247
+	jmpc ne, _L2ae480b_247
 	ld r0, (bp+4)
 	push r0
 	ld r0, (_g_up)
@@ -1038,49 +1038,49 @@ _La6b37a3_249:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_250
+	jmpc eq, _L2ae480b_250
 	ld r0, 0
-	jmp _La6b37a3_251
-_La6b37a3_250:
+	jmp _L2ae480b_251
+_L2ae480b_250:
 	ld r0, 1
-_La6b37a3_251:
+_L2ae480b_251:
 	cmp r0, 0
-	jmpc ne, _La6b37a3_247
+	jmpc ne, _L2ae480b_247
 	ld r0, 0
-	jmp _La6b37a3_246
-_La6b37a3_247:
+	jmp _L2ae480b_246
+_L2ae480b_247:
 	ld r0, 1
-_La6b37a3_246:
+_L2ae480b_246:
 	cmp r0, 0
-	jmpc ne, _La6b37a3_245
+	jmpc ne, _L2ae480b_245
 	ld r0, (bp+4)
 	push r0
 	ld r0, (_g_nextpid)
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ge, _La6b37a3_252
+	jmpc ge, _L2ae480b_252
 	ld r0, 0
-	jmp _La6b37a3_253
-_La6b37a3_252:
+	jmp _L2ae480b_253
+_L2ae480b_252:
 	ld r0, 1
-_La6b37a3_253:
+_L2ae480b_253:
 	cmp r0, 0
-	jmpc ne, _La6b37a3_245
+	jmpc ne, _L2ae480b_245
 	ld r0, 0
-	jmp _La6b37a3_244
-_La6b37a3_245:
+	jmp _L2ae480b_244
+_L2ae480b_245:
 	ld r0, 1
-_La6b37a3_244:
+_L2ae480b_244:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_254
+	jmpc eq, _L2ae480b_254
 	ld r0, 1
 	xor r0, -1
 	add r0, 1
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_254:
+_L2ae480b_254:
 	ld r0, (bp+4)
 	push r0
 	call _f_pfind
@@ -1088,19 +1088,19 @@ _La6b37a3_254:
 	st r0, (bp+-2)
 	ld r0, (bp+-2)
 	cmp r0, 0
-	jmpc eq, _La6b37a3_255
+	jmpc eq, _L2ae480b_255
 	ld r0, 0
-	jmp _La6b37a3_256
-_La6b37a3_255:
+	jmp _L2ae480b_256
+_L2ae480b_255:
 	ld r0, 1
-_La6b37a3_256:
+_L2ae480b_256:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_257
+	jmpc eq, _L2ae480b_257
 	ld r0, 0
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_257:
+_L2ae480b_257:
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
@@ -1145,21 +1145,21 @@ _f_received_key:
 	st r0, (bp+-4)
 	ld r0, 0
 	st r0, (bp+-2)
-_La6b37a3_277:
+_L2ae480b_277:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 8
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_280
+	jmpc lt, _L2ae480b_280
 	ld r0, 0
-	jmp _La6b37a3_281
-_La6b37a3_280:
+	jmp _L2ae480b_281
+_L2ae480b_280:
 	ld r0, 1
-_La6b37a3_281:
+_L2ae480b_281:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_279
+	jmpc eq, _L2ae480b_279
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -1172,14 +1172,14 @@ _La6b37a3_281:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_284
+	jmpc eq, _L2ae480b_284
 	ld r0, 0
-	jmp _La6b37a3_285
-_La6b37a3_284:
+	jmp _L2ae480b_285
+_L2ae480b_284:
 	ld r0, 1
-_La6b37a3_285:
+_L2ae480b_285:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_283
+	jmpc eq, _L2ae480b_283
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -1192,21 +1192,21 @@ _La6b37a3_285:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _La6b37a3_286
+	jmpc eq, _L2ae480b_286
 	ld r0, 0
-	jmp _La6b37a3_287
-_La6b37a3_286:
+	jmp _L2ae480b_287
+_L2ae480b_286:
 	ld r0, 1
-_La6b37a3_287:
+_L2ae480b_287:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_283
+	jmpc eq, _L2ae480b_283
 	ld r0, 1
-	jmp _La6b37a3_282
-_La6b37a3_283:
+	jmp _L2ae480b_282
+_L2ae480b_283:
 	ld r0, 0
-_La6b37a3_282:
+_L2ae480b_282:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_288
+	jmpc eq, _L2ae480b_288
 	ld r0, _g_procs
 	push r0
 	ld r0, (bp+-2)
@@ -1215,30 +1215,30 @@ _La6b37a3_282:
 	add r1, r0
 	ld r0, r1
 	st r0, (bp+-4)
-	jmp _La6b37a3_279
-_La6b37a3_288:
-_La6b37a3_278:
+	jmp _L2ae480b_279
+_L2ae480b_288:
+_L2ae480b_278:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _La6b37a3_277
-_La6b37a3_279:
+	jmp _L2ae480b_277
+_L2ae480b_279:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _La6b37a3_289
+	jmpc ne, _L2ae480b_289
 	ld r0, 0
-	jmp _La6b37a3_290
-_La6b37a3_289:
+	jmp _L2ae480b_290
+_L2ae480b_289:
 	ld r0, 1
-_La6b37a3_290:
+_L2ae480b_290:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_291
+	jmpc eq, _L2ae480b_291
 	ld r0, (bp+-4)
 	ld r1, r0
 	ld r0, r1
@@ -1264,22 +1264,22 @@ _La6b37a3_290:
 	ld r0, 1
 	pop r1
 	st r0, (r1+2)
-	jmp _La6b37a3_292
-_La6b37a3_291:
+	jmp _L2ae480b_292
+_L2ae480b_291:
 	ld r0, (_g_kbd_count)
 	push r0
 	ld r0, 16
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _La6b37a3_293
+	jmpc lt, _L2ae480b_293
 	ld r0, 0
-	jmp _La6b37a3_294
-_La6b37a3_293:
+	jmp _L2ae480b_294
+_L2ae480b_293:
 	ld r0, 1
-_La6b37a3_294:
+_L2ae480b_294:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_295
+	jmpc eq, _L2ae480b_295
 	ld r0, _g_kbd_buf
 	push r0
 	ld r0, (_g_kbd_tail)
@@ -1311,8 +1311,8 @@ _La6b37a3_294:
 	add r0, 1
 	st r0, (_g_kbd_count)
 	pop r0
-_La6b37a3_295:
-_La6b37a3_292:
+_L2ae480b_295:
+_L2ae480b_292:
 	ld sp, bp
 	pop bp
 	ret
@@ -1326,14 +1326,14 @@ _f_sys_read:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _La6b37a3_300
+	jmpc gt, _L2ae480b_300
 	ld r0, 0
-	jmp _La6b37a3_301
-_La6b37a3_300:
+	jmp _L2ae480b_301
+_L2ae480b_300:
 	ld r0, 1
-_La6b37a3_301:
+_L2ae480b_301:
 	cmp r0, 0
-	jmpc eq, _La6b37a3_302
+	jmpc eq, _L2ae480b_302
 	ld r0, _g_kbd_buf
 	push r0
 	ld r0, (_g_kbd_head)
@@ -1367,8 +1367,8 @@ _La6b37a3_301:
 	ld sp, bp
 	pop bp
 	ret
-	jmp _La6b37a3_303
-_La6b37a3_302:
+	jmp _L2ae480b_303
+_L2ae480b_302:
 	ld r0, (_g_up)
 	ld r1, r0
 	push r1
@@ -1392,7 +1392,7 @@ _La6b37a3_302:
 	ld sp, bp
 	pop bp
 	ret
-_La6b37a3_303:
+_L2ae480b_303:
 	ld sp, bp
 	pop bp
 	ret

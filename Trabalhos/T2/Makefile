@@ -2,7 +2,7 @@ MCC = ../../compilador_c/bin/mcc
 MONTADOR = ../../simulador_completo/bin/montador
 BIOS = ../../bios_mancha/src/bios.asm
 
-all: multitarefa_c.mob
+all: os.mob
 
 kernel.asm: kernel.c
 	$(MCC) kernel.c -o kernel.asm
@@ -16,10 +16,10 @@ init.asm: init.c
 rng.asm: rng.c
 	$(MCC) rng.c -o rng.asm
 
-multitarefa_c.mob: $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm
-	$(MONTADOR) $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm -o multitarefa_c.mob
+os.mob: $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm
+	$(MONTADOR) $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm -o os.mob
 
 clean:
-	rm -f kernel.asm libc.asm init.asm rng.asm multitarefa_c.mob
+	rm -f kernel.asm libc.asm init.asm rng.asm os.mob
 
 .PHONY: all clean

@@ -26,13 +26,12 @@ init(void)
 {
   puts("Bem-vindo ao kernel\n");
 
-  // int rng = newproc(rng_main);
-  //
-  // int f = newproc(filho);
+  int rng = newproc(rng_main);
+  int f = newproc(filho);
   
-  int i;
-  for (i = 0; i < 15; i++)
-    newproc(printaPid);
+  // int i;
+  // for (i = 0; i < 15; i++)
+  //   newproc(printaPid);
 
   killproc(0);
 }

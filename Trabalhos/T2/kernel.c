@@ -40,8 +40,9 @@ struct Proc {
 #define Proc struct Proc
 
 // Variaveis globais
+Proc* p_idle;
 Proc procs[NPROC];
-Proc *up; // Processo atual
+Proc* up; // Processo atual
 int nextpid;
 
 int quantumRestante = QUANTUM;
@@ -77,6 +78,8 @@ int die(void);
 int kill(int pid);
 
 int sys_getpid(void);
+
+void idle(void);
 
 // Inicializacao
 void procinit(void);
@@ -146,7 +149,7 @@ void
 sched(void) {
   salvaContexto();
   
-  if (up != 0) {
+  if (up != 0 && up != p_idle) {
     if (up->state != DEAD)
       updatePriority();
 
@@ -156,20 +159,18 @@ sched(void) {
 
   up = runq_get();
   
-  int i, alive;
-  Proc* p;
-  while (up == 0) {
-    alive = 0;
-    up = runq_get();
+  int i, alive = 0;
+  if (up == 0) {
+    Proc* p;
     for (i = 0; i < NPROC; i++) {
       p = &procs[i];
-      if (p->state != DEAD) {
+      if (p->state != DEAD && p != p_idle) {
         alive = 1;
         break;
       }
     }
     if (!alive) return;
-    if (!up) espera_interrupcao();
+    up = p_idle;
   }
   up->state = RUNNING;
   quantumRestante = QUANTUM;
@@ -254,6 +255,11 @@ procinit(void)
     procs[i].waitpid = 0;
     procs[i].wait_io = 0;
   }
+  
+  p_idle = sys_newproc(idle);
+  runq_get();
+  p_idle->state = BLOCKED;
+  p_idle->quadro[8] = 0x8000;
 
   sys_newproc(init);
   up = runq_get();
@@ -297,6 +303,8 @@ received_key(int c)
     p->quadro[0] = c;
     p->wait_io = 0;
     ready(p);
+    if (up == p_idle) 
+      sched();
   }
   else if (kbd_count < TAM_BUF) {
     kbd_buf[kbd_tail] = c;
@@ -310,7 +318,7 @@ sys_read(void)
 {
   if (kbd_count > 0) {
     int c = kbd_buf[kbd_head];
-    kbd_head = (kbd_head + 1 ) % TAM_BUF;
+    kbd_head = (kbd_head + 1) % TAM_BUF;
     kbd_count--;
     return c;
   }
@@ -424,4 +432,11 @@ runq_put_prio(Proc* p)
       curr = curr->qnext;
     }
   }
+}
+
+void
+idle(void)
+{
+  while(1)
+    espera_interrupcao();
 }

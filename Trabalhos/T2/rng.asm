@@ -4,7 +4,7 @@ _f_rng_main:
 	push bp
 	ld bp, sp
 	sub sp, 2
-	ld r0, _str5dd48027_1
+	ld r0, _str222fddd3_1
 	push r0
 	call _f_puts
 	add sp, 2
@@ -78,7 +78,7 @@ _g_next:
 	.dw 1
 
 ; ----- literais de string -----
-_str5dd48027_0:
+_str222fddd3_0:
 	.db 73, 110, 115, 105, 114, 97, 32, 117, 109, 97, 32, 115, 101, 109, 101, 110, 116, 101, 58, 0
-_str5dd48027_1:
+_str222fddd3_1:
 	.db 73, 110, 115, 105, 114, 97, 32, 117, 109, 97, 32, 115, 101, 109, 101, 110, 116, 101, 58, 0

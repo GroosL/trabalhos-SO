@@ -119,10 +119,17 @@ void procinit(void);
 void halt(void);
 void init(void);
 
+// Metricas
+void printMetrics(void);
+
 // 
 void received_key(int c);
 void write_char(int c);
 void espera_interrupcao(void);
+
+// Funcoes do kernel 
+void kputs(char *s);
+void kprint_int(int v);
 
 Proc*
 pfind(int pid)
@@ -277,7 +284,10 @@ die(void)
   }
   pwake(up->pid);
   sched();
-  if (!up) halt();
+  if (!up) {
+    printMetrics();
+    halt();
+  }
   return 0;
 }
 
@@ -478,6 +488,7 @@ timerTick(void)
 
   if (up == p_idle) {
     metr_idleTime++;
+    if (runq_head != 0) sched();
     return;
   }
 
@@ -565,4 +576,69 @@ changeState(Proc* p, int newState)
   p->state = newState;
   p->metr.numState[newState]++;
   p->metr.tStateChange = clockTicks;
+}
+
+void
+kputs(char *s)
+{
+  char *p = s;
+  while (*p != '\0') 
+    write_char(*p++);
+}
+
+void
+kprint_int(int v)
+{
+  char buf[8];
+  int i = 0;
+
+  if (v < 0) {
+    write_char('-');
+    v = -v;
+  }
+  
+  if (v == 0) {
+    buf[0] = '0';
+    i = 1;
+  }
+
+  while (v > 0) {
+    buf[i++] = (v % 10) + '0';
+    v /= 10;
+  }
+
+  while (i--)
+    write_char(buf[i]);
+}
+
+void
+printMetrics(void)
+{
+  kputs("Num de processos criados: ");
+  kprint_int(metr_createdProcs);
+  write_char('\n');
+
+  kputs("Tempo total de execucao: ");
+  kprint_int(clockTicks);
+  write_char('\n');
+
+  kputs("Tempo idle: ");
+  kprint_int(metr_idleTime);
+  write_char('\n');
+
+  kputs("Num de interrupcoes de clock: ");
+  kprint_int(metr_intClock);
+  write_char('\n');
+
+  kputs("Num de interrupcoes de teclado: ");
+  kprint_int(metr_intKey);
+  write_char('\n');
+
+  kputs("Num de preempcoes: ");
+  kprint_int(metr_totalPreempt);
+  write_char('\n');
+
+  kputs("Num de syscalls: ");
+  kprint_int(metr_syscalls);
+  write_char('\n');
 }

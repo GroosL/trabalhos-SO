@@ -32,7 +32,7 @@ _f_puts:
 	sub sp, 2
 	ld r0, (bp+4)
 	st r0, (bp+-2)
-_L2231ddd3_2:
+_L66ae0ea2_2:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
@@ -45,9 +45,9 @@ _L2231ddd3_2:
 	call _f_putchar
 	add sp, 2
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_3
-	jmp _L2231ddd3_2
-_L2231ddd3_3:
+	jmpc eq, _L66ae0ea2_3
+	jmp _L66ae0ea2_2
+_L66ae0ea2_3:
 	ld sp, bp
 	pop bp
 	ret
@@ -63,14 +63,14 @@ _f_print_int:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L2231ddd3_16
+	jmpc lt, _L66ae0ea2_16
 	ld r0, 0
-	jmp _L2231ddd3_17
-_L2231ddd3_16:
+	jmp _L66ae0ea2_17
+_L66ae0ea2_16:
 	ld r0, 1
-_L2231ddd3_17:
+_L66ae0ea2_17:
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_18
+	jmpc eq, _L66ae0ea2_18
 	ld r0, 45
 	push r0
 	call _f_putchar
@@ -79,21 +79,21 @@ _L2231ddd3_17:
 	xor r0, -1
 	add r0, 1
 	st r0, (bp+4)
-_L2231ddd3_18:
+_L66ae0ea2_18:
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L2231ddd3_19
+	jmpc eq, _L66ae0ea2_19
 	ld r0, 0
-	jmp _L2231ddd3_20
-_L2231ddd3_19:
+	jmp _L66ae0ea2_20
+_L66ae0ea2_19:
 	ld r0, 1
-_L2231ddd3_20:
+_L66ae0ea2_20:
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_21
+	jmpc eq, _L66ae0ea2_21
 	ld r0, bp
 	add r0, -8
 	push r0
@@ -107,22 +107,22 @@ _L2231ddd3_20:
 	stb r0, (r1)
 	ld r0, 1
 	st r0, (bp+-10)
-_L2231ddd3_21:
-_L2231ddd3_22:
+_L66ae0ea2_21:
+_L66ae0ea2_22:
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L2231ddd3_24
+	jmpc gt, _L66ae0ea2_24
 	ld r0, 0
-	jmp _L2231ddd3_25
-_L2231ddd3_24:
+	jmp _L66ae0ea2_25
+_L66ae0ea2_24:
 	ld r0, 1
-_L2231ddd3_25:
+_L66ae0ea2_25:
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_23
+	jmpc eq, _L66ae0ea2_23
 	ld r0, bp
 	add r0, -8
 	push r0
@@ -158,16 +158,16 @@ _L2231ddd3_25:
 	pop r1
 	div r0, r1
 	st r0, (bp+4)
-	jmp _L2231ddd3_22
-_L2231ddd3_23:
-_L2231ddd3_26:
+	jmp _L66ae0ea2_22
+_L66ae0ea2_23:
+_L66ae0ea2_26:
 	ld r0, (bp+-10)
 	push r0
 	add r0, -1
 	st r0, (bp+-10)
 	pop r0
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_27
+	jmpc eq, _L66ae0ea2_27
 	ld r0, bp
 	add r0, -8
 	push r0
@@ -180,8 +180,8 @@ _L2231ddd3_26:
 	push r0
 	call _f_putchar
 	add sp, 2
-	jmp _L2231ddd3_26
-_L2231ddd3_27:
+	jmp _L66ae0ea2_26
+_L66ae0ea2_27:
 	ld sp, bp
 	pop bp
 	ret
@@ -201,55 +201,55 @@ _f_read_int:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L2231ddd3_41
+	jmpc eq, _L66ae0ea2_41
 	ld r0, 0
-	jmp _L2231ddd3_42
-_L2231ddd3_41:
+	jmp _L66ae0ea2_42
+_L66ae0ea2_41:
 	ld r0, 1
-_L2231ddd3_42:
+_L66ae0ea2_42:
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_43
+	jmpc eq, _L66ae0ea2_43
 	ld r0, 1
 	st r0, (bp+-4)
 	call _f_getchar
 	st r0, (bp+-2)
-_L2231ddd3_43:
-_L2231ddd3_44:
+_L66ae0ea2_43:
+_L66ae0ea2_44:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 48
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ge, _L2231ddd3_48
+	jmpc ge, _L66ae0ea2_48
 	ld r0, 0
-	jmp _L2231ddd3_49
-_L2231ddd3_48:
+	jmp _L66ae0ea2_49
+_L66ae0ea2_48:
 	ld r0, 1
-_L2231ddd3_49:
+_L66ae0ea2_49:
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_47
+	jmpc eq, _L66ae0ea2_47
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 57
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc le, _L2231ddd3_50
+	jmpc le, _L66ae0ea2_50
 	ld r0, 0
-	jmp _L2231ddd3_51
-_L2231ddd3_50:
+	jmp _L66ae0ea2_51
+_L66ae0ea2_50:
 	ld r0, 1
-_L2231ddd3_51:
+_L66ae0ea2_51:
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_47
+	jmpc eq, _L66ae0ea2_47
 	ld r0, 1
-	jmp _L2231ddd3_46
-_L2231ddd3_47:
+	jmp _L66ae0ea2_46
+_L66ae0ea2_47:
 	ld r0, 0
-_L2231ddd3_46:
+_L66ae0ea2_46:
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_45
+	jmpc eq, _L66ae0ea2_45
 	ld r0, (bp+-6)
 	push r0
 	ld r0, 10
@@ -269,18 +269,184 @@ _L2231ddd3_46:
 	st r0, (bp+-6)
 	call _f_getchar
 	st r0, (bp+-2)
-	jmp _L2231ddd3_44
-_L2231ddd3_45:
+	jmp _L66ae0ea2_44
+_L66ae0ea2_45:
 	ld r0, (bp+-4)
 	cmp r0, 0
-	jmpc eq, _L2231ddd3_52
+	jmpc eq, _L66ae0ea2_52
 	ld r0, (bp+-6)
 	xor r0, -1
 	add r0, 1
-	jmp _L2231ddd3_53
-_L2231ddd3_52:
+	jmp _L66ae0ea2_53
+_L66ae0ea2_52:
 	ld r0, (bp+-6)
-_L2231ddd3_53:
+_L66ae0ea2_53:
+	ld sp, bp
+	pop bp
+	ret
+	ld sp, bp
+	pop bp
+	ret
+_f_readline:
+	push bp
+	ld bp, sp
+	sub sp, 4
+	ld r0, 0
+	st r0, (bp+-2)
+_L66ae0ea2_65:
+	ld r0, (bp+-2)
+	push r0
+	ld r0, (bp+6)
+	push r0
+	ld r0, 1
+	ld r1, r0
+	pop r0
+	sub r0, r1
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc lt, _L66ae0ea2_67
+	ld r0, 0
+	jmp _L66ae0ea2_68
+_L66ae0ea2_67:
+	ld r0, 1
+_L66ae0ea2_68:
+	cmp r0, 0
+	jmpc eq, _L66ae0ea2_66
+	call _f_getchar
+	st r0, (bp+-4)
+	ld r0, (bp+-4)
+	push r0
+	ld r0, 10
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L66ae0ea2_71
+	ld r0, 0
+	jmp _L66ae0ea2_72
+_L66ae0ea2_71:
+	ld r0, 1
+_L66ae0ea2_72:
+	cmp r0, 0
+	jmpc ne, _L66ae0ea2_70
+	ld r0, (bp+-4)
+	push r0
+	ld r0, 13
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L66ae0ea2_73
+	ld r0, 0
+	jmp _L66ae0ea2_74
+_L66ae0ea2_73:
+	ld r0, 1
+_L66ae0ea2_74:
+	cmp r0, 0
+	jmpc ne, _L66ae0ea2_70
+	ld r0, 0
+	jmp _L66ae0ea2_69
+_L66ae0ea2_70:
+	ld r0, 1
+_L66ae0ea2_69:
+	cmp r0, 0
+	jmpc eq, _L66ae0ea2_75
+	jmp _L66ae0ea2_66
+_L66ae0ea2_75:
+	ld r0, (bp+4)
+	push r0
+	ld r0, (bp+-2)
+	push r0
+	add r0, 1
+	st r0, (bp+-2)
+	pop r0
+	mul r0, 1
+	pop r1
+	add r1, r0
+	push r1
+	ld r0, (bp+-4)
+	pop r1
+	stb r0, (r1)
+	jmp _L66ae0ea2_65
+_L66ae0ea2_66:
+	ld r0, (bp+4)
+	push r0
+	ld r0, (bp+-2)
+	mul r0, 1
+	pop r1
+	add r1, r0
+	push r1
+	ld r0, 0
+	pop r1
+	stb r0, (r1)
+	ld r0, (bp+-2)
+	ld sp, bp
+	pop bp
+	ret
+	ld sp, bp
+	pop bp
+	ret
+_f_strcmp:
+	push bp
+	ld bp, sp
+_L66ae0ea2_83:
+	ld r0, (bp+4)
+	ld r1, r0
+	ldb r0, (r1)
+	and r0, 255
+	push r0
+	ld r0, (bp+6)
+	ld r1, r0
+	ldb r0, (r1)
+	and r0, 255
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L66ae0ea2_88
+	ld r0, 0
+	jmp _L66ae0ea2_89
+_L66ae0ea2_88:
+	ld r0, 1
+_L66ae0ea2_89:
+	cmp r0, 0
+	jmpc eq, _L66ae0ea2_87
+	ld r0, (bp+4)
+	ld r1, r0
+	ldb r0, (r1)
+	and r0, 255
+	cmp r0, 0
+	jmpc eq, _L66ae0ea2_87
+	ld r0, 1
+	jmp _L66ae0ea2_86
+_L66ae0ea2_87:
+	ld r0, 0
+_L66ae0ea2_86:
+	cmp r0, 0
+	jmpc eq, _L66ae0ea2_85
+	ld r0, (bp+6)
+	push r0
+	add r0, 1
+	st r0, (bp+6)
+	pop r0
+_L66ae0ea2_84:
+	ld r0, (bp+4)
+	push r0
+	add r0, 1
+	st r0, (bp+4)
+	pop r0
+	jmp _L66ae0ea2_83
+_L66ae0ea2_85:
+	ld r0, (bp+4)
+	ld r1, r0
+	ldb r0, (r1)
+	and r0, 255
+	push r0
+	ld r0, (bp+6)
+	ld r1, r0
+	ldb r0, (r1)
+	and r0, 255
+	ld r1, r0
+	pop r0
+	sub r0, r1
 	ld sp, bp
 	pop bp
 	ret

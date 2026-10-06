@@ -13,13 +13,16 @@ libc.asm: libc.c
 init.asm: init.c 
 	$(MCC) init.c -o init.asm
 
+shell.asm: shell.c
+	$(MCC) shell.c -o shell.asm
+
 rng.asm: rng.c
 	$(MCC) rng.c -o rng.asm
 
-os.mob: $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm
-	$(MONTADOR) $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm -o os.mob
+os.mob: $(BIOS) ponte.asm kernel.asm libc.asm init.asm shell.asm rng.asm
+	$(MONTADOR) $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm shell.asm -o os.mob
 
 clean:
-	rm -f kernel.asm libc.asm init.asm rng.asm os.mob
+	rm -f kernel.asm libc.asm init.asm rng.asm shell.asm os.mob
 
 .PHONY: all clean

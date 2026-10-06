@@ -62,3 +62,27 @@ read_int(void)
 
   return (neg ? -v : v);
 }
+
+int
+readline(char *buf, int max)
+{
+  int i = 0, c;
+
+  while (i < max - 1) {
+    c = getchar();
+
+    if (c == '\n' || c == '\r') {
+      break;
+    }
+    buf[i++] = c;   
+  }
+  buf[i] = '\0';
+  return i;
+}
+
+int
+strcmp(char* l, char* r) // Implementacao do musl
+{
+  for (; *l==*r && *l; l++) r++;
+	return *l - *r;
+}

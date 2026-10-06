@@ -1,7 +1,5 @@
 #include "libc.h"
-
-void rng_main();
-void filho();
+#include "apps.h"
 
 void 
 shell_main(void)
@@ -25,6 +23,10 @@ shell_main(void)
     else if (strcmp(cmd, "filho") == 0) {
       int pid = newproc(filho);
       wait(pid);
+    }
+    else if (strcmp(cmd, "primos") == 0) {
+      int pd = newproc(primos);
+      // Roda em plano de fundo!
     }
     else if (strcmp(cmd, "exit") == 0) {
       break;

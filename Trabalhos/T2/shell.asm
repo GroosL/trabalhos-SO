@@ -3,12 +3,12 @@
 _f_shell_main:
 	push bp
 	ld bp, sp
-	sub sp, 36
-_L7c200f09_17:
+	sub sp, 38
+_L1f0b383f_21:
 	ld r0, 1
 	cmp r0, 0
-	jmpc eq, _L7c200f09_18
-	ld r0, _str7c200f09_5
+	jmpc eq, _L1f0b383f_22
+	ld r0, _str1f0b383f_6
 	push r0
 	call _f_puts
 	add sp, 2
@@ -42,17 +42,17 @@ _L7c200f09_17:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L7c200f09_19
+	jmpc eq, _L1f0b383f_23
 	ld r0, 0
-	jmp _L7c200f09_20
-_L7c200f09_19:
+	jmp _L1f0b383f_24
+_L1f0b383f_23:
 	ld r0, 1
-_L7c200f09_20:
+_L1f0b383f_24:
 	cmp r0, 0
-	jmpc eq, _L7c200f09_21
-	jmp _L7c200f09_17
-_L7c200f09_21:
-	ld r0, _str7c200f09_6
+	jmpc eq, _L1f0b383f_25
+	jmp _L1f0b383f_21
+_L1f0b383f_25:
+	ld r0, _str1f0b383f_7
 	push r0
 	ld r0, bp
 	add r0, -32
@@ -64,14 +64,14 @@ _L7c200f09_21:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L7c200f09_22
+	jmpc eq, _L1f0b383f_26
 	ld r0, 0
-	jmp _L7c200f09_23
-_L7c200f09_22:
+	jmp _L1f0b383f_27
+_L1f0b383f_26:
 	ld r0, 1
-_L7c200f09_23:
+_L1f0b383f_27:
 	cmp r0, 0
-	jmpc eq, _L7c200f09_24
+	jmpc eq, _L1f0b383f_28
 	ld r0, _f_rng_main
 	push r0
 	call _f_newproc
@@ -81,9 +81,9 @@ _L7c200f09_23:
 	push r0
 	call _f_wait
 	add sp, 2
-	jmp _L7c200f09_25
-_L7c200f09_24:
-	ld r0, _str7c200f09_7
+	jmp _L1f0b383f_29
+_L1f0b383f_28:
+	ld r0, _str1f0b383f_8
 	push r0
 	ld r0, bp
 	add r0, -32
@@ -95,14 +95,14 @@ _L7c200f09_24:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L7c200f09_26
+	jmpc eq, _L1f0b383f_30
 	ld r0, 0
-	jmp _L7c200f09_27
-_L7c200f09_26:
+	jmp _L1f0b383f_31
+_L1f0b383f_30:
 	ld r0, 1
-_L7c200f09_27:
+_L1f0b383f_31:
 	cmp r0, 0
-	jmpc eq, _L7c200f09_28
+	jmpc eq, _L1f0b383f_32
 	ld r0, _f_filho
 	push r0
 	call _f_newproc
@@ -112,9 +112,9 @@ _L7c200f09_27:
 	push r0
 	call _f_wait
 	add sp, 2
-	jmp _L7c200f09_29
-_L7c200f09_28:
-	ld r0, _str7c200f09_8
+	jmp _L1f0b383f_33
+_L1f0b383f_32:
+	ld r0, _str1f0b383f_9
 	push r0
 	ld r0, bp
 	add r0, -32
@@ -126,18 +126,45 @@ _L7c200f09_28:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L7c200f09_30
+	jmpc eq, _L1f0b383f_34
 	ld r0, 0
-	jmp _L7c200f09_31
-_L7c200f09_30:
+	jmp _L1f0b383f_35
+_L1f0b383f_34:
 	ld r0, 1
-_L7c200f09_31:
+_L1f0b383f_35:
 	cmp r0, 0
-	jmpc eq, _L7c200f09_32
-	jmp _L7c200f09_18
-	jmp _L7c200f09_33
-_L7c200f09_32:
-	ld r0, _str7c200f09_9
+	jmpc eq, _L1f0b383f_36
+	ld r0, _f_primos
+	push r0
+	call _f_newproc
+	add sp, 2
+	st r0, (bp+-38)
+	jmp _L1f0b383f_37
+_L1f0b383f_36:
+	ld r0, _str1f0b383f_10
+	push r0
+	ld r0, bp
+	add r0, -32
+	push r0
+	call _f_strcmp
+	add sp, 4
+	push r0
+	ld r0, 0
+	ld r1, r0
+	pop r0
+	cmp r0, r1
+	jmpc eq, _L1f0b383f_38
+	ld r0, 0
+	jmp _L1f0b383f_39
+_L1f0b383f_38:
+	ld r0, 1
+_L1f0b383f_39:
+	cmp r0, 0
+	jmpc eq, _L1f0b383f_40
+	jmp _L1f0b383f_22
+	jmp _L1f0b383f_41
+_L1f0b383f_40:
+	ld r0, _str1f0b383f_11
 	push r0
 	call _f_puts
 	add sp, 2
@@ -150,11 +177,12 @@ _L7c200f09_32:
 	push r0
 	call _f_putchar
 	add sp, 2
-_L7c200f09_33:
-_L7c200f09_29:
-_L7c200f09_25:
-	jmp _L7c200f09_17
-_L7c200f09_18:
+_L1f0b383f_41:
+_L1f0b383f_37:
+_L1f0b383f_33:
+_L1f0b383f_29:
+	jmp _L1f0b383f_21
+_L1f0b383f_22:
 	ld r0, 0
 	push r0
 	call _f_killproc
@@ -166,23 +194,27 @@ _L7c200f09_18:
 .data
 
 ; ----- literais de string -----
-_str7c200f09_0:
+_str1f0b383f_0:
 	.db 10, 36, 32, 0
-_str7c200f09_1:
+_str1f0b383f_1:
 	.db 114, 110, 103, 0
-_str7c200f09_2:
+_str1f0b383f_2:
 	.db 102, 105, 108, 104, 111, 0
-_str7c200f09_3:
+_str1f0b383f_3:
+	.db 112, 114, 105, 109, 111, 115, 0
+_str1f0b383f_4:
 	.db 101, 120, 105, 116, 0
-_str7c200f09_4:
+_str1f0b383f_5:
 	.db 67, 111, 109, 97, 110, 100, 111, 32, 105, 110, 118, 97, 108, 105, 100, 111, 58, 32, 0
-_str7c200f09_5:
+_str1f0b383f_6:
 	.db 10, 36, 32, 0
-_str7c200f09_6:
+_str1f0b383f_7:
 	.db 114, 110, 103, 0
-_str7c200f09_7:
+_str1f0b383f_8:
 	.db 102, 105, 108, 104, 111, 0
-_str7c200f09_8:
+_str1f0b383f_9:
+	.db 112, 114, 105, 109, 111, 115, 0
+_str1f0b383f_10:
 	.db 101, 120, 105, 116, 0
-_str7c200f09_9:
+_str1f0b383f_11:
 	.db 67, 111, 109, 97, 110, 100, 111, 32, 105, 110, 118, 97, 108, 105, 100, 111, 58, 32, 0

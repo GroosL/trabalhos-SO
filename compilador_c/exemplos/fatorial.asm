@@ -9,19 +9,19 @@ _f_fatorial:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc le, _Lf5b095fc_3
+	jmpc le, _L7a8a038a_3
 	ld r0, 0
-	jmp _Lf5b095fc_4
-_Lf5b095fc_3:
+	jmp _L7a8a038a_4
+_L7a8a038a_3:
 	ld r0, 1
-_Lf5b095fc_4:
+_L7a8a038a_4:
 	cmp r0, 0
-	jmpc eq, _Lf5b095fc_5
+	jmpc eq, _L7a8a038a_5
 	ld r0, 1
 	ld sp, bp
 	pop bp
 	ret
-_Lf5b095fc_5:
+_L7a8a038a_5:
 	ld r0, (bp+4)
 	push r0
 	ld r0, (bp+4)
@@ -51,19 +51,19 @@ _f_fibonacci:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Lf5b095fc_9
+	jmpc lt, _L7a8a038a_9
 	ld r0, 0
-	jmp _Lf5b095fc_10
-_Lf5b095fc_9:
+	jmp _L7a8a038a_10
+_L7a8a038a_9:
 	ld r0, 1
-_Lf5b095fc_10:
+_L7a8a038a_10:
 	cmp r0, 0
-	jmpc eq, _Lf5b095fc_11
+	jmpc eq, _L7a8a038a_11
 	ld r0, (bp+4)
 	ld sp, bp
 	pop bp
 	ret
-_Lf5b095fc_11:
+_L7a8a038a_11:
 	ld r0, (bp+4)
 	push r0
 	ld r0, 1
@@ -98,21 +98,21 @@ _f_main:
 	sub sp, 2
 	ld r0, 0
 	st r0, (bp+-2)
-_Lf5b095fc_16:
+_L7a8a038a_16:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 7
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc le, _Lf5b095fc_18
+	jmpc le, _L7a8a038a_18
 	ld r0, 0
-	jmp _Lf5b095fc_19
-_Lf5b095fc_18:
+	jmp _L7a8a038a_19
+_L7a8a038a_18:
 	ld r0, 1
-_Lf5b095fc_19:
+_L7a8a038a_19:
 	cmp r0, 0
-	jmpc eq, _Lf5b095fc_17
+	jmpc eq, _L7a8a038a_17
 	ld r0, (bp+-2)
 	push r0
 	call _f_print_int
@@ -150,8 +150,8 @@ _Lf5b095fc_19:
 	pop r0
 	add r0, r1
 	st r0, (bp+-2)
-	jmp _Lf5b095fc_16
-_Lf5b095fc_17:
+	jmp _L7a8a038a_16
+_L7a8a038a_17:
 	ld r0, 0
 	ld sp, bp
 	pop bp

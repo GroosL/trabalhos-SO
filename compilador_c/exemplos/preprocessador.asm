@@ -6,21 +6,21 @@ _f_main:
 	sub sp, 2
 	ld r0, 0
 	st r0, (bp+-2)
-_Lf5a895fc_16:
+_L7a92038a_16:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 5
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Lf5a895fc_18
+	jmpc lt, _L7a92038a_18
 	ld r0, 0
-	jmp _Lf5a895fc_19
-_Lf5a895fc_18:
+	jmp _L7a92038a_19
+_L7a92038a_18:
 	ld r0, 1
-_Lf5a895fc_19:
+_L7a92038a_19:
 	cmp r0, 0
-	jmpc eq, _Lf5a895fc_17
+	jmpc eq, _L7a92038a_17
 	ld r0, _g_quadrados
 	push r0
 	ld r0, (bp+-2)
@@ -48,25 +48,25 @@ _Lf5a895fc_19:
 	pop r0
 	add r0, r1
 	st r0, (bp+-2)
-	jmp _Lf5a895fc_16
-_Lf5a895fc_17:
+	jmp _L7a92038a_16
+_L7a92038a_17:
 	ld r0, 0
 	st r0, (bp+-2)
-_Lf5a895fc_20:
+_L7a92038a_20:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 5
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _Lf5a895fc_22
+	jmpc lt, _L7a92038a_22
 	ld r0, 0
-	jmp _Lf5a895fc_23
-_Lf5a895fc_22:
+	jmp _L7a92038a_23
+_L7a92038a_22:
 	ld r0, 1
-_Lf5a895fc_23:
+_L7a92038a_23:
 	cmp r0, 0
-	jmpc eq, _Lf5a895fc_21
+	jmpc eq, _L7a92038a_21
 	ld r0, _g_quadrados
 	push r0
 	ld r0, (bp+-2)
@@ -88,8 +88,8 @@ _Lf5a895fc_23:
 	pop r0
 	add r0, r1
 	st r0, (bp+-2)
-	jmp _Lf5a895fc_20
-_Lf5a895fc_21:
+	jmp _L7a92038a_20
+_L7a92038a_21:
 	ld r0, 10
 	push r0
 	call _f_putchar
@@ -100,19 +100,19 @@ _Lf5a895fc_21:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _Lf5a895fc_26
+	jmpc gt, _L7a92038a_26
 	ld r0, 0
-	jmp _Lf5a895fc_27
-_Lf5a895fc_26:
+	jmp _L7a92038a_27
+_L7a92038a_26:
 	ld r0, 1
-_Lf5a895fc_27:
+_L7a92038a_27:
 	cmp r0, 0
-	jmpc eq, _Lf5a895fc_24
+	jmpc eq, _L7a92038a_24
 	ld r0, 3
-	jmp _Lf5a895fc_25
-_Lf5a895fc_24:
+	jmp _L7a92038a_25
+_L7a92038a_24:
 	ld r0, 7
-_Lf5a895fc_25:
+_L7a92038a_25:
 	push r0
 	call _f_print_int
 	add sp, 2
@@ -131,24 +131,24 @@ _Lf5a895fc_25:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _Lf5a895fc_30
+	jmpc gt, _L7a92038a_30
 	ld r0, 0
-	jmp _Lf5a895fc_31
-_Lf5a895fc_30:
+	jmp _L7a92038a_31
+_L7a92038a_30:
 	ld r0, 1
-_Lf5a895fc_31:
+_L7a92038a_31:
 	cmp r0, 0
-	jmpc eq, _Lf5a895fc_28
+	jmpc eq, _L7a92038a_28
 	ld r0, 10
 	push r0
 	ld r0, 2
 	ld r1, r0
 	pop r0
 	mul r0, r1
-	jmp _Lf5a895fc_29
-_Lf5a895fc_28:
+	jmp _L7a92038a_29
+_L7a92038a_28:
 	ld r0, 5
-_Lf5a895fc_29:
+_L7a92038a_29:
 	push r0
 	call _f_print_int
 	add sp, 2
@@ -156,7 +156,7 @@ _Lf5a895fc_29:
 	push r0
 	call _f_putchar
 	add sp, 2
-	ld r0, _strf5a895fc_1
+	ld r0, _str7a92038a_1
 	push r0
 	call _f_puts
 	add sp, 2
@@ -182,7 +182,7 @@ _g_quadrados:
 	.db 0
 
 ; ----- literais de string -----
-_strf5a895fc_0:
+_str7a92038a_0:
 	.db 109, 111, 100, 111, 32, 100, 101, 98, 117, 103, 32, 108, 105, 103, 97, 100, 111, 0
-_strf5a895fc_1:
+_str7a92038a_1:
 	.db 109, 111, 100, 111, 32, 100, 101, 98, 117, 103, 32, 108, 105, 103, 97, 100, 111, 0

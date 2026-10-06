@@ -130,6 +130,7 @@ void espera_interrupcao(void);
 // Funcoes do kernel 
 void kputs(char *s);
 void kprint_int(int v);
+int kgetchar(void);
 
 Proc*
 pfind(int pid)
@@ -285,6 +286,8 @@ die(void)
   pwake(up->pid);
   sched();
   if (!up) {
+    kputs("Aperte qualquer tecla para mostrar metricas\n");
+    kgetchar();
     printMetrics();
     halt();
   }
@@ -611,34 +614,100 @@ kprint_int(int v)
     write_char(buf[i]);
 }
 
+int
+kgetchar(void)
+{
+  while (kbd_count == 0)
+    espera_interrupcao();
+
+  int c = kbd_buf[kbd_head];
+  kbd_head = (kbd_head + 1) % TAM_BUF;
+  kbd_count--;
+  return c;
+}
+
+void
+getEnter(void)
+{
+  kgetchar();
+}
+
 void
 printMetrics(void)
 {
-  kputs("Num de processos criados: ");
+  kputs("\nNum de processos criados: ");
   kprint_int(metr_createdProcs);
-  write_char('\n');
 
-  kputs("Tempo total de execucao: ");
+  kputs("\nTempo total de execucao e idle: ");
+  kputs("\t Execucao: ");
   kprint_int(clockTicks);
-  write_char('\n');
-
-  kputs("Tempo idle: ");
+  kputs("\t ");
+  kputs(" Idle: ");
   kprint_int(metr_idleTime);
-  write_char('\n');
 
-  kputs("Num de interrupcoes de clock: ");
+  kputs("\nNum de interrupcoes de clock e teclado: ");
+  kputs("\t Clock: ");
   kprint_int(metr_intClock);
-  write_char('\n');
-
-  kputs("Num de interrupcoes de teclado: ");
+  kputs("\t Teclado: ");
   kprint_int(metr_intKey);
-  write_char('\n');
 
-  kputs("Num de preempcoes: ");
+  kputs("\nNum de preempcoes e syscalls: ");
+  kputs("\t Preempcoes: ");
   kprint_int(metr_totalPreempt);
-  write_char('\n');
-
-  kputs("Num de syscalls: ");
+  kputs("\t Syscalls: ");
   kprint_int(metr_syscalls);
-  write_char('\n');
+ 
+  int i;
+  ProcMetrics *m;
+  for (i = 0; i < numMetrics; i++) {
+    getEnter();
+    m = &metrics[i];
+    
+    kputs("\nPID: ");
+    kprint_int(m->pid);
+  
+    kputs("\nTempo de criacao, termino e retorno: ");
+    kputs("\tCriacao: ");
+    kprint_int(m->tCreated);
+    kputs("\tTermino: ");
+    kprint_int(m->tEnded);
+    kputs("\tRetorno: ");
+    kprint_int(m->tEnded - m->tCreated);
+
+    kputs("\nTempo e vezes em cada estado: ");
+    kputs("\t READY: ");
+    kprint_int(m->tTotalState[READY]);
+    kputs("t em ");
+    kprint_int(m->numState[READY]);
+    kputs(" vezes");
+
+    kputs("\t RUNNING: ");
+    kprint_int(m->tTotalState[RUNNING]);
+    kputs("t em ");
+    kprint_int(m->numState[RUNNING]);
+    kputs(" vezes");
+
+    kputs("\t BLOCKED: ");
+    kprint_int(m->tTotalState[BLOCKED]);
+    kputs("t em ");
+    kprint_int(m->numState[BLOCKED]);
+    kputs(" vezes");
+
+    kputs("\nNum de preempcoes: ");
+    kprint_int(m->numPreemptions);
+
+    kputs("\nNum de trocas voluntarias: ");
+    kprint_int(m->numChanges);
+
+    kputs("\nNum de syscalls: ");
+    kprint_int(m->numSyscalls);
+
+    kputs("\nTempo medio de resposta: ");
+    if (m->numResponses > 0)
+      kprint_int(m->sumResponses / m->numResponses);
+    else
+      kprint_int(0);
+
+    kputs("\nAperte qualquer tecla para ir para o proximo processo");
+ }
 }

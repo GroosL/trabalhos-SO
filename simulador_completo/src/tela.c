@@ -16,7 +16,7 @@
 #define COR_MENSAGEM 4
 #define COR_SUPERV   5
 
-#define CONSOLE_LINHAS 6
+#define CONSOLE_LINHAS 8
 #define MEM_LINHAS     6
 #define MEM_PALAVRAS_POR_LINHA 8
 

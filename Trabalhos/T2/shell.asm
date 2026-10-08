@@ -4,11 +4,11 @@ _f_shell_main:
 	push bp
 	ld bp, sp
 	sub sp, 38
-_L1f0b383f_21:
+_L5b179d46_21:
 	ld r0, 1
 	cmp r0, 0
-	jmpc eq, _L1f0b383f_22
-	ld r0, _str1f0b383f_6
+	jmpc eq, _L5b179d46_22
+	ld r0, _str5b179d46_6
 	push r0
 	call _f_puts
 	add sp, 2
@@ -42,17 +42,17 @@ _L1f0b383f_21:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L1f0b383f_23
+	jmpc eq, _L5b179d46_23
 	ld r0, 0
-	jmp _L1f0b383f_24
-_L1f0b383f_23:
+	jmp _L5b179d46_24
+_L5b179d46_23:
 	ld r0, 1
-_L1f0b383f_24:
+_L5b179d46_24:
 	cmp r0, 0
-	jmpc eq, _L1f0b383f_25
-	jmp _L1f0b383f_21
-_L1f0b383f_25:
-	ld r0, _str1f0b383f_7
+	jmpc eq, _L5b179d46_25
+	jmp _L5b179d46_21
+_L5b179d46_25:
+	ld r0, _str5b179d46_7
 	push r0
 	ld r0, bp
 	add r0, -32
@@ -64,14 +64,14 @@ _L1f0b383f_25:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L1f0b383f_26
+	jmpc eq, _L5b179d46_26
 	ld r0, 0
-	jmp _L1f0b383f_27
-_L1f0b383f_26:
+	jmp _L5b179d46_27
+_L5b179d46_26:
 	ld r0, 1
-_L1f0b383f_27:
+_L5b179d46_27:
 	cmp r0, 0
-	jmpc eq, _L1f0b383f_28
+	jmpc eq, _L5b179d46_28
 	ld r0, _f_rng_main
 	push r0
 	call _f_newproc
@@ -81,9 +81,9 @@ _L1f0b383f_27:
 	push r0
 	call _f_wait
 	add sp, 2
-	jmp _L1f0b383f_29
-_L1f0b383f_28:
-	ld r0, _str1f0b383f_8
+	jmp _L5b179d46_29
+_L5b179d46_28:
+	ld r0, _str5b179d46_8
 	push r0
 	ld r0, bp
 	add r0, -32
@@ -95,14 +95,14 @@ _L1f0b383f_28:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L1f0b383f_30
+	jmpc eq, _L5b179d46_30
 	ld r0, 0
-	jmp _L1f0b383f_31
-_L1f0b383f_30:
+	jmp _L5b179d46_31
+_L5b179d46_30:
 	ld r0, 1
-_L1f0b383f_31:
+_L5b179d46_31:
 	cmp r0, 0
-	jmpc eq, _L1f0b383f_32
+	jmpc eq, _L5b179d46_32
 	ld r0, _f_filho
 	push r0
 	call _f_newproc
@@ -112,9 +112,9 @@ _L1f0b383f_31:
 	push r0
 	call _f_wait
 	add sp, 2
-	jmp _L1f0b383f_33
-_L1f0b383f_32:
-	ld r0, _str1f0b383f_9
+	jmp _L5b179d46_33
+_L5b179d46_32:
+	ld r0, _str5b179d46_9
 	push r0
 	ld r0, bp
 	add r0, -32
@@ -126,22 +126,22 @@ _L1f0b383f_32:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L1f0b383f_34
+	jmpc eq, _L5b179d46_34
 	ld r0, 0
-	jmp _L1f0b383f_35
-_L1f0b383f_34:
+	jmp _L5b179d46_35
+_L5b179d46_34:
 	ld r0, 1
-_L1f0b383f_35:
+_L5b179d46_35:
 	cmp r0, 0
-	jmpc eq, _L1f0b383f_36
+	jmpc eq, _L5b179d46_36
 	ld r0, _f_primos
 	push r0
 	call _f_newproc
 	add sp, 2
 	st r0, (bp+-38)
-	jmp _L1f0b383f_37
-_L1f0b383f_36:
-	ld r0, _str1f0b383f_10
+	jmp _L5b179d46_37
+_L5b179d46_36:
+	ld r0, _str5b179d46_10
 	push r0
 	ld r0, bp
 	add r0, -32
@@ -153,18 +153,18 @@ _L1f0b383f_36:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L1f0b383f_38
+	jmpc eq, _L5b179d46_38
 	ld r0, 0
-	jmp _L1f0b383f_39
-_L1f0b383f_38:
+	jmp _L5b179d46_39
+_L5b179d46_38:
 	ld r0, 1
-_L1f0b383f_39:
+_L5b179d46_39:
 	cmp r0, 0
-	jmpc eq, _L1f0b383f_40
-	jmp _L1f0b383f_22
-	jmp _L1f0b383f_41
-_L1f0b383f_40:
-	ld r0, _str1f0b383f_11
+	jmpc eq, _L5b179d46_40
+	jmp _L5b179d46_22
+	jmp _L5b179d46_41
+_L5b179d46_40:
+	ld r0, _str5b179d46_11
 	push r0
 	call _f_puts
 	add sp, 2
@@ -177,12 +177,12 @@ _L1f0b383f_40:
 	push r0
 	call _f_putchar
 	add sp, 2
-_L1f0b383f_41:
-_L1f0b383f_37:
-_L1f0b383f_33:
-_L1f0b383f_29:
-	jmp _L1f0b383f_21
-_L1f0b383f_22:
+_L5b179d46_41:
+_L5b179d46_37:
+_L5b179d46_33:
+_L5b179d46_29:
+	jmp _L5b179d46_21
+_L5b179d46_22:
 	ld r0, 0
 	push r0
 	call _f_killproc
@@ -194,27 +194,27 @@ _L1f0b383f_22:
 .data
 
 ; ----- literais de string -----
-_str1f0b383f_0:
+_str5b179d46_0:
 	.db 10, 36, 32, 0
-_str1f0b383f_1:
+_str5b179d46_1:
 	.db 114, 110, 103, 0
-_str1f0b383f_2:
+_str5b179d46_2:
 	.db 102, 105, 108, 104, 111, 0
-_str1f0b383f_3:
+_str5b179d46_3:
 	.db 112, 114, 105, 109, 111, 115, 0
-_str1f0b383f_4:
+_str5b179d46_4:
 	.db 101, 120, 105, 116, 0
-_str1f0b383f_5:
+_str5b179d46_5:
 	.db 67, 111, 109, 97, 110, 100, 111, 32, 105, 110, 118, 97, 108, 105, 100, 111, 58, 32, 0
-_str1f0b383f_6:
+_str5b179d46_6:
 	.db 10, 36, 32, 0
-_str1f0b383f_7:
+_str5b179d46_7:
 	.db 114, 110, 103, 0
-_str1f0b383f_8:
+_str5b179d46_8:
 	.db 102, 105, 108, 104, 111, 0
-_str1f0b383f_9:
+_str5b179d46_9:
 	.db 112, 114, 105, 109, 111, 115, 0
-_str1f0b383f_10:
+_str5b179d46_10:
 	.db 101, 120, 105, 116, 0
-_str1f0b383f_11:
+_str5b179d46_11:
 	.db 67, 111, 109, 97, 110, 100, 111, 32, 105, 110, 118, 97, 108, 105, 100, 111, 58, 32, 0

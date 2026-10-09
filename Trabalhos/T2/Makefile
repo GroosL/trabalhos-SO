@@ -4,28 +4,28 @@ BIOS = ../../bios_mancha/src/bios.asm
 
 all: os.mob
 
-kernel.asm: kernel.c
-	$(MCC) kernel.c -o kernel.asm
+kernel.S: kernel.c
+	$(MCC) kernel.c -o kernel.S
 
-libc.asm: libc.c
-	$(MCC) libc.c -o libc.asm
+libc.S: libc.c
+	$(MCC) libc.c -o libc.S
 
-init.asm: init.c 
-	$(MCC) init.c -o init.asm
+init.S: init.c 
+	$(MCC) init.c -o init.S
 
-shell.asm: shell.c
-	$(MCC) shell.c -o shell.asm
+shell.S: shell.c
+	$(MCC) shell.c -o shell.S
 
-apps.asm: apps.c
-	$(MCC) apps.c -o apps.asm
+apps.S: apps.c
+	$(MCC) apps.c -o apps.S
 
-rng.asm: rng.c
-	$(MCC) rng.c -o rng.asm
+rng.S: rng.c
+	$(MCC) rng.c -o rng.S
 
-os.mob: $(BIOS) ponte.asm kernel.asm libc.asm init.asm shell.asm rng.asm apps.asm
-	$(MONTADOR) $(BIOS) ponte.asm kernel.asm libc.asm init.asm rng.asm shell.asm apps.asm -o os.mob
+os.mob: $(BIOS) ponte.asm kernel.S libc.S init.S shell.S rng.S apps.S
+	$(MONTADOR) $(BIOS) ponte.asm kernel.S libc.S init.S rng.S shell.S apps.S -o os.mob
 
 clean:
-	rm -f kernel.asm libc.asm init.asm rng.asm shell.asm apps.asm os.mob
+	rm -f kernel.S libc.S init.S rng.S shell.S apps.S os.mob
 
 .PHONY: all clean

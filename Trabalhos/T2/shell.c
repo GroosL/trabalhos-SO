@@ -28,6 +28,16 @@ shell_main(void)
       int pd = newproc(primos);
       // Roda em plano de fundo!
     }
+    else if (strcmp(cmd, "bench") == 0) {
+      int p1 = newproc(primos);
+      int p2 = newproc(primos);
+      int p3 = newproc(filho);
+      int p4 = newproc(rng_main);
+      wait(p1);
+      wait(p2);
+      wait(p3);
+      wait(p4);
+    }
     else if (strcmp(cmd, "exit") == 0) {
       break;
     }

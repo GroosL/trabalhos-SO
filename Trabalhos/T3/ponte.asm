@@ -166,6 +166,14 @@ _kernel_inicio:
   ld    r0, trampolim_escalonador
   st    r0, (retomada_escalonador)
   
+  ; Handler de page fault
+  ld    r0, trampolim_missingpage
+  st    r0, (40) ; Entrada 5
+
+  ; segfault
+  ld    r0, trampolim_missingpage
+  st    r0, (8)
+
 ; Inicializa os processos
   call  _f_procinit
 
@@ -180,6 +188,10 @@ _f_espera_interrupcao:
 
 trampolim_escalonador:
   call    _f_timerTick
+  rete
+
+trampolim_missingpage:
+  call  _f_pageFault
   rete
 
 _f_write_char:

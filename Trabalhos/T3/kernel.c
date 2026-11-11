@@ -145,6 +145,8 @@ void palloc_init(void);
 int palloc(void);
 void pfree(int q);
 
+void pageFault(void);
+
 void disco_le_setor(int face, int trilha, int setor, int dest_ram); // funcao da ponte
 
 // Inicializacao
@@ -374,17 +376,17 @@ kill(int pid)
 {
   Proc* p = pfind(pid);
 
-  if (p->quadro_cod > 0) {
-    pfree(p->quadro_cod);
-    p->quadro_cod = 0;
-  }
-  if (p->quadro_dados > 0) {
-    pfree(p->quadro_dados);
-    p->quadro_dados = 0;
-  }
 
   if (p) {
     changeState(p, DEAD);
+    if (p->quadro_cod > 0) {
+      pfree(p->quadro_cod);
+      p->quadro_cod = 0;
+    }
+    if (p->quadro_dados > 0) {
+      pfree(p->quadro_dados);
+      p->quadro_dados = 0;
+    }
     p->metr.tEnded = clockTicks;
     if (numMetrics < MAXMETRICS && p != p_idle) {
       metrics[numMetrics] = p->metr;
@@ -833,9 +835,15 @@ pfree(int q)
   quadros[id] = 0;
 }
 
-int
-kstrcmp(char* l, char* r) // Implementacao do musl
+void
+pageFault(void)
 {
-  for (; *l==*r && *l; l++) r++;
-	return *l - *r;
+  kputs("Falha na memoria ou pagina do processo PID: ");
+  if (up) {
+    kprint_int(up->pid);
+    kputs(" no IP: ");
+    kprint_int(QUADRO_SISTEMA[7]);
+    kputs(". Matando processo!\n");
+    die();
+  }
 }

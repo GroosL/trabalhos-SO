@@ -25,7 +25,7 @@ _f_getchar:
 	call _f_mancha_in
 	add sp, 2
 	st r0, (bp+-2)
-_L7a89038a_4:
+_Lb459c5bf_4:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 2
@@ -37,21 +37,21 @@ _L7a89038a_4:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L7a89038a_6
+	jmpc eq, _Lb459c5bf_6
 	ld r0, 0
-	jmp _L7a89038a_7
-_L7a89038a_6:
+	jmp _Lb459c5bf_7
+_Lb459c5bf_6:
 	ld r0, 1
-_L7a89038a_7:
+_Lb459c5bf_7:
 	cmp r0, 0
-	jmpc eq, _L7a89038a_5
+	jmpc eq, _Lb459c5bf_5
 	ld r0, 2
 	push r0
 	call _f_mancha_in
 	add sp, 2
 	st r0, (bp+-2)
-	jmp _L7a89038a_4
-_L7a89038a_5:
+	jmp _Lb459c5bf_4
+_Lb459c5bf_5:
 	ld r0, 1
 	push r0
 	call _f_mancha_in
@@ -65,7 +65,7 @@ _L7a89038a_5:
 _f_puts:
 	push bp
 	ld bp, sp
-_L7a89038a_12:
+_Lb459c5bf_12:
 	ld r0, (bp+4)
 	ld r1, r0
 	ldb r0, (r1)
@@ -75,14 +75,14 @@ _L7a89038a_12:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L7a89038a_14
+	jmpc ne, _Lb459c5bf_14
 	ld r0, 0
-	jmp _L7a89038a_15
-_L7a89038a_14:
+	jmp _Lb459c5bf_15
+_Lb459c5bf_14:
 	ld r0, 1
-_L7a89038a_15:
+_Lb459c5bf_15:
 	cmp r0, 0
-	jmpc eq, _L7a89038a_13
+	jmpc eq, _Lb459c5bf_13
 	ld r0, (bp+4)
 	ld r1, r0
 	ldb r0, (r1)
@@ -97,8 +97,8 @@ _L7a89038a_15:
 	pop r0
 	add r0, r1
 	st r0, (bp+4)
-	jmp _L7a89038a_12
-_L7a89038a_13:
+	jmp _Lb459c5bf_12
+_Lb459c5bf_13:
 	ld r0, 10
 	push r0
 	call _f_putchar
@@ -120,35 +120,35 @@ _f_print_int:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L7a89038a_31
+	jmpc lt, _Lb459c5bf_31
 	ld r0, 0
-	jmp _L7a89038a_32
-_L7a89038a_31:
+	jmp _Lb459c5bf_32
+_Lb459c5bf_31:
 	ld r0, 1
-_L7a89038a_32:
+_Lb459c5bf_32:
 	cmp r0, 0
-	jmpc eq, _L7a89038a_33
+	jmpc eq, _Lb459c5bf_33
 	ld r0, 1
 	st r0, (bp+-12)
 	ld r0, (bp+4)
 	xor r0, -1
 	add r0, 1
 	st r0, (bp+4)
-_L7a89038a_33:
+_Lb459c5bf_33:
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc eq, _L7a89038a_34
+	jmpc eq, _Lb459c5bf_34
 	ld r0, 0
-	jmp _L7a89038a_35
-_L7a89038a_34:
+	jmp _Lb459c5bf_35
+_Lb459c5bf_34:
 	ld r0, 1
-_L7a89038a_35:
+_Lb459c5bf_35:
 	cmp r0, 0
-	jmpc eq, _L7a89038a_36
+	jmpc eq, _Lb459c5bf_36
 	ld r0, bp
 	add r0, -8
 	push r0
@@ -162,22 +162,22 @@ _L7a89038a_35:
 	stb r0, (r1)
 	ld r0, 1
 	st r0, (bp+-10)
-_L7a89038a_36:
-_L7a89038a_37:
+_Lb459c5bf_36:
+_Lb459c5bf_37:
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L7a89038a_39
+	jmpc gt, _Lb459c5bf_39
 	ld r0, 0
-	jmp _L7a89038a_40
-_L7a89038a_39:
+	jmp _Lb459c5bf_40
+_Lb459c5bf_39:
 	ld r0, 1
-_L7a89038a_40:
+_Lb459c5bf_40:
 	cmp r0, 0
-	jmpc eq, _L7a89038a_38
+	jmpc eq, _Lb459c5bf_38
 	ld r0, bp
 	add r0, -8
 	push r0
@@ -217,31 +217,31 @@ _L7a89038a_40:
 	pop r0
 	div r0, r1
 	st r0, (bp+4)
-	jmp _L7a89038a_37
-_L7a89038a_38:
+	jmp _Lb459c5bf_37
+_Lb459c5bf_38:
 	ld r0, (bp+-12)
 	cmp r0, 0
-	jmpc eq, _L7a89038a_41
+	jmpc eq, _Lb459c5bf_41
 	ld r0, 45
 	push r0
 	call _f_putchar
 	add sp, 2
-_L7a89038a_41:
-_L7a89038a_42:
+_Lb459c5bf_41:
+_Lb459c5bf_42:
 	ld r0, (bp+-10)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc gt, _L7a89038a_44
+	jmpc gt, _Lb459c5bf_44
 	ld r0, 0
-	jmp _L7a89038a_45
-_L7a89038a_44:
+	jmp _Lb459c5bf_45
+_Lb459c5bf_44:
 	ld r0, 1
-_L7a89038a_45:
+_Lb459c5bf_45:
 	cmp r0, 0
-	jmpc eq, _L7a89038a_43
+	jmpc eq, _Lb459c5bf_43
 	ld r0, (bp+-10)
 	push r0
 	ld r0, 1
@@ -261,8 +261,8 @@ _L7a89038a_45:
 	push r0
 	call _f_putchar
 	add sp, 2
-	jmp _L7a89038a_42
-_L7a89038a_43:
+	jmp _Lb459c5bf_42
+_Lb459c5bf_43:
 	ld sp, bp
 	pop bp
 	ret
@@ -270,25 +270,25 @@ _f_print_hex:
 	push bp
 	ld bp, sp
 	sub sp, 6
-	ld r0, _str7a89038a_1
+	ld r0, _strb459c5bf_1
 	st r0, (bp+-2)
 	ld r0, 12
 	st r0, (bp+-4)
-_L7a89038a_50:
+_Lb459c5bf_50:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ge, _L7a89038a_52
+	jmpc ge, _Lb459c5bf_52
 	ld r0, 0
-	jmp _L7a89038a_53
-_L7a89038a_52:
+	jmp _Lb459c5bf_53
+_Lb459c5bf_52:
 	ld r0, 1
-_L7a89038a_53:
+_Lb459c5bf_53:
 	cmp r0, 0
-	jmpc eq, _L7a89038a_51
+	jmpc eq, _Lb459c5bf_51
 	ld r0, (bp+4)
 	push r0
 	ld r0, (bp+-4)
@@ -319,8 +319,8 @@ _L7a89038a_53:
 	pop r0
 	sub r0, r1
 	st r0, (bp+-4)
-	jmp _L7a89038a_50
-_L7a89038a_51:
+	jmp _Lb459c5bf_50
+_Lb459c5bf_51:
 	ld sp, bp
 	pop bp
 	ret
@@ -328,7 +328,7 @@ _L7a89038a_51:
 .data
 
 ; ----- literais de string -----
-_str7a89038a_0:
+_strb459c5bf_0:
 	.db 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 0
-_str7a89038a_1:
+_strb459c5bf_1:
 	.db 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 0

@@ -169,9 +169,6 @@ _kernel_inicio:
 ; Inicializa os processos
   call  _f_procinit
 
-; Liga interrupções externas
-  ei
-
 ; Roda o init
   ld    sp, pilha_sistema
   add   sp, -32
@@ -192,6 +189,18 @@ _f_write_char:
   outb  r0, (1)
   ld    sp, bp
   pop bp
+  ret
+
+_f_disco_le_setor:
+  push  bp
+  ld    bp, sp
+  ld    r0, (bp+4)
+  ld    r1, (bp+6)
+  ld    r2, (bp+8)
+  ld    r3, (bp+10)
+  call  bios_disco_le_setor
+  ld    sp, bp
+  pop   bp
   ret
 
 _f_halt:

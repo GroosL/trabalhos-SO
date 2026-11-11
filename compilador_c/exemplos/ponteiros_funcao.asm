@@ -90,21 +90,21 @@ _f_tabela_despacho:
 	sub sp, 2
 	ld r0, 0
 	st r0, (bp+-2)
-_L24b07789_5:
+_Lb55ac5e9_5:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 3
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L24b07789_8
+	jmpc lt, _Lb55ac5e9_8
 	ld r0, 0
-	jmp _L24b07789_9
-_L24b07789_8:
+	jmp _Lb55ac5e9_9
+_Lb55ac5e9_8:
 	ld r0, 1
-_L24b07789_9:
+_Lb55ac5e9_9:
 	cmp r0, 0
-	jmpc eq, _L24b07789_7
+	jmpc eq, _Lb55ac5e9_7
 	ld r0, 2
 	push r0
 	ld r0, 6
@@ -125,14 +125,14 @@ _L24b07789_9:
 	push r0
 	call _f_putchar
 	add sp, 2
-_L24b07789_6:
+_Lb55ac5e9_6:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L24b07789_5
-_L24b07789_7:
+	jmp _Lb55ac5e9_5
+_Lb55ac5e9_7:
 	ld r0, 10
 	push r0
 	call _f_putchar
@@ -166,21 +166,21 @@ _f_tabela_comandos:
 	sub sp, 2
 	ld r0, 0
 	st r0, (bp+-2)
-_L24b07789_15:
+_Lb55ac5e9_15:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 3
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L24b07789_18
+	jmpc lt, _Lb55ac5e9_18
 	ld r0, 0
-	jmp _L24b07789_19
-_L24b07789_18:
+	jmp _Lb55ac5e9_19
+_Lb55ac5e9_18:
 	ld r0, 1
-_L24b07789_19:
+_Lb55ac5e9_19:
 	cmp r0, 0
-	jmpc eq, _L24b07789_17
+	jmpc eq, _Lb55ac5e9_17
 	ld r0, _g_comandos
 	push r0
 	ld r0, (bp+-2)
@@ -216,14 +216,14 @@ _L24b07789_19:
 	push r0
 	call _f_putchar
 	add sp, 2
-_L24b07789_16:
+_Lb55ac5e9_16:
 	ld r0, (bp+-2)
 	push r0
 	add r0, 1
 	st r0, (bp+-2)
 	pop r0
-	jmp _L24b07789_15
-_L24b07789_17:
+	jmp _Lb55ac5e9_15
+_Lb55ac5e9_17:
 	ld r0, 10
 	push r0
 	call _f_putchar

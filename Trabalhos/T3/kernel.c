@@ -27,6 +27,10 @@
 
 #define QUADRO_SISTEMA ((int*)0xEFE0)
 
+#define TAM_QUADRO_FISICO 512
+#define PRIMEIRO_QUADRO 40
+#define NUM_QUADROS 32
+
 struct ProcMetrics {
   int pid;
   int tCreated;
@@ -63,6 +67,8 @@ Proc* p_idle;
 Proc procs[NPROC];
 Proc* up; // Processo atual
 int nextpid;
+
+int quadros[NUM_QUADROS];
 
 ProcMetrics metrics[MAXMETRICS];
 int numMetrics = 0;
@@ -114,6 +120,13 @@ int sys_getpid(void);
 
 void idle(void);
 
+// Memoria
+void palloc_init(void);
+int palloc(void);
+void pfree(int q);
+
+void disco_le_setor(int face, int trilha, int setor, int dest_ram); // funcao da ponte
+
 // Inicializacao
 void procinit(void);
 void halt(void);
@@ -122,7 +135,7 @@ void init(void);
 // Metricas
 void printMetrics(void);
 
-// 
+// IO
 void received_key(int c);
 void write_char(int c);
 void espera_interrupcao(void);
@@ -337,6 +350,8 @@ procinit(void)
     procs[i].wait_io = 0;
   }
   
+  palloc_init();
+
   p_idle = sys_newproc(idle);
   runq_get();
   p_idle->state = BLOCKED;
@@ -710,4 +725,37 @@ printMetrics(void)
 
     kputs("\nAperte qualquer tecla para ir para o proximo processo");
  }
+}
+
+void
+palloc_init(void)
+{
+  int i;
+  for (i = 0; i < NUM_QUADROS; i++) {
+    quadros[i] = 0;
+  }
+}
+
+int
+palloc(void)
+{
+  int i;
+  for (i = 0; i < NUM_QUADROS; i++) {
+    if (quadros[i] == 0) {
+      quadros[i] = 1;
+      return PRIMEIRO_QUADRO + i;
+    }
+  }
+  return -1;
+}
+
+void
+pfree(int q)
+{
+  int id = q - PRIMEIRO_QUADRO;
+
+  if (id >= NUM_QUADROS || id < 0)
+    return;
+
+  quadros[id] = 0;
 }

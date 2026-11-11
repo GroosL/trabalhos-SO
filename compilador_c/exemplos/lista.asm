@@ -66,21 +66,21 @@ _f_imprime:
 	sub sp, 2
 	ld r0, (bp+4)
 	st r0, (bp+-2)
-_L7a94038a_7:
+_Lb55cc5e9_7:
 	ld r0, (bp+-2)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L7a94038a_9
+	jmpc ne, _Lb55cc5e9_9
 	ld r0, 0
-	jmp _L7a94038a_10
-_L7a94038a_9:
+	jmp _Lb55cc5e9_10
+_Lb55cc5e9_9:
 	ld r0, 1
-_L7a94038a_10:
+_Lb55cc5e9_10:
 	cmp r0, 0
-	jmpc eq, _L7a94038a_8
+	jmpc eq, _Lb55cc5e9_8
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, (r1)
@@ -95,25 +95,25 @@ _L7a94038a_10:
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L7a94038a_11
+	jmpc ne, _Lb55cc5e9_11
 	ld r0, 0
-	jmp _L7a94038a_12
-_L7a94038a_11:
+	jmp _Lb55cc5e9_12
+_Lb55cc5e9_11:
 	ld r0, 1
-_L7a94038a_12:
+_Lb55cc5e9_12:
 	cmp r0, 0
-	jmpc eq, _L7a94038a_13
+	jmpc eq, _Lb55cc5e9_13
 	ld r0, 32
 	push r0
 	call _f_putchar
 	add sp, 2
-_L7a94038a_13:
+_Lb55cc5e9_13:
 	ld r0, (bp+-2)
 	ld r1, r0
 	ld r0, (r1+2)
 	st r0, (bp+-2)
-	jmp _L7a94038a_7
-_L7a94038a_8:
+	jmp _Lb55cc5e9_7
+_Lb55cc5e9_8:
 	ld r0, 10
 	push r0
 	call _f_putchar
@@ -127,21 +127,21 @@ _f_soma:
 	sub sp, 2
 	ld r0, 0
 	st r0, (bp+-2)
-_L7a94038a_18:
+_Lb55cc5e9_18:
 	ld r0, (bp+4)
 	push r0
 	ld r0, 0
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc ne, _L7a94038a_20
+	jmpc ne, _Lb55cc5e9_20
 	ld r0, 0
-	jmp _L7a94038a_21
-_L7a94038a_20:
+	jmp _Lb55cc5e9_21
+_Lb55cc5e9_20:
 	ld r0, 1
-_L7a94038a_21:
+_Lb55cc5e9_21:
 	cmp r0, 0
-	jmpc eq, _L7a94038a_19
+	jmpc eq, _Lb55cc5e9_19
 	ld r0, (bp+-2)
 	push r0
 	ld r0, (bp+4)
@@ -155,8 +155,8 @@ _L7a94038a_21:
 	ld r1, r0
 	ld r0, (r1+2)
 	st r0, (bp+4)
-	jmp _L7a94038a_18
-_L7a94038a_19:
+	jmp _Lb55cc5e9_18
+_Lb55cc5e9_19:
 	ld r0, (bp+-2)
 	ld sp, bp
 	pop bp
@@ -210,38 +210,38 @@ _f_main:
 	add sp, 2
 	ld r0, 0
 	st r0, (bp+-4)
-_L7a94038a_42:
+_Lb55cc5e9_42:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 3
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L7a94038a_45
+	jmpc lt, _Lb55cc5e9_45
 	ld r0, 0
-	jmp _L7a94038a_46
-_L7a94038a_45:
+	jmp _Lb55cc5e9_46
+_Lb55cc5e9_45:
 	ld r0, 1
-_L7a94038a_46:
+_Lb55cc5e9_46:
 	cmp r0, 0
-	jmpc eq, _L7a94038a_44
+	jmpc eq, _Lb55cc5e9_44
 	ld r0, 0
 	st r0, (bp+-6)
-_L7a94038a_47:
+_Lb55cc5e9_47:
 	ld r0, (bp+-6)
 	push r0
 	ld r0, 4
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L7a94038a_50
+	jmpc lt, _Lb55cc5e9_50
 	ld r0, 0
-	jmp _L7a94038a_51
-_L7a94038a_50:
+	jmp _Lb55cc5e9_51
+_Lb55cc5e9_50:
 	ld r0, 1
-_L7a94038a_51:
+_Lb55cc5e9_51:
 	cmp r0, 0
-	jmpc eq, _L7a94038a_49
+	jmpc eq, _Lb55cc5e9_49
 	ld r0, _g_matriz
 	push r0
 	ld r0, (bp+-4)
@@ -268,56 +268,56 @@ _L7a94038a_51:
 	add r0, r1
 	pop r1
 	st r0, (r1)
-_L7a94038a_48:
+_Lb55cc5e9_48:
 	ld r0, (bp+-6)
 	push r0
 	add r0, 1
 	st r0, (bp+-6)
 	pop r0
-	jmp _L7a94038a_47
-_L7a94038a_49:
-_L7a94038a_43:
+	jmp _Lb55cc5e9_47
+_Lb55cc5e9_49:
+_Lb55cc5e9_43:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _L7a94038a_42
-_L7a94038a_44:
+	jmp _Lb55cc5e9_42
+_Lb55cc5e9_44:
 	ld r0, 0
 	st r0, (bp+-4)
-_L7a94038a_52:
+_Lb55cc5e9_52:
 	ld r0, (bp+-4)
 	push r0
 	ld r0, 3
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L7a94038a_55
+	jmpc lt, _Lb55cc5e9_55
 	ld r0, 0
-	jmp _L7a94038a_56
-_L7a94038a_55:
+	jmp _Lb55cc5e9_56
+_Lb55cc5e9_55:
 	ld r0, 1
-_L7a94038a_56:
+_Lb55cc5e9_56:
 	cmp r0, 0
-	jmpc eq, _L7a94038a_54
+	jmpc eq, _Lb55cc5e9_54
 	ld r0, 0
 	st r0, (bp+-6)
-_L7a94038a_57:
+_Lb55cc5e9_57:
 	ld r0, (bp+-6)
 	push r0
 	ld r0, 4
 	ld r1, r0
 	pop r0
 	cmp r0, r1
-	jmpc lt, _L7a94038a_60
+	jmpc lt, _Lb55cc5e9_60
 	ld r0, 0
-	jmp _L7a94038a_61
-_L7a94038a_60:
+	jmp _Lb55cc5e9_61
+_Lb55cc5e9_60:
 	ld r0, 1
-_L7a94038a_61:
+_Lb55cc5e9_61:
 	cmp r0, 0
-	jmpc eq, _L7a94038a_59
+	jmpc eq, _Lb55cc5e9_59
 	ld r0, _g_matriz
 	push r0
 	ld r0, (bp+-4)
@@ -338,22 +338,22 @@ _L7a94038a_61:
 	push r0
 	call _f_putchar
 	add sp, 2
-_L7a94038a_58:
+_Lb55cc5e9_58:
 	ld r0, (bp+-6)
 	push r0
 	add r0, 1
 	st r0, (bp+-6)
 	pop r0
-	jmp _L7a94038a_57
-_L7a94038a_59:
-_L7a94038a_53:
+	jmp _Lb55cc5e9_57
+_Lb55cc5e9_59:
+_Lb55cc5e9_53:
 	ld r0, (bp+-4)
 	push r0
 	add r0, 1
 	st r0, (bp+-4)
 	pop r0
-	jmp _L7a94038a_52
-_L7a94038a_54:
+	jmp _Lb55cc5e9_52
+_Lb55cc5e9_54:
 	ld r0, 10
 	push r0
 	call _f_putchar

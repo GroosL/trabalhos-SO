@@ -59,8 +59,28 @@ struct Proc {
   struct Proc* qnext; // Lista encadeada porque o N eh muito pequeno para se importar com a performance, entao foquei na simplicidade
 
   ProcMetrics metr;
+
+  int pt[256];
+  int quadro_cod;
+  int quadro_dados;
 };
 #define Proc struct Proc
+
+struct DiskApp {
+  int sector;
+  int nPages;
+};
+#define DiskApp struct DiskApp
+
+#define NUM_APPS 2
+
+//apps
+#define INIT 0
+#define FILHO 1
+DiskApp apps[NUM_APPS] = {
+  { INIT, 1 },
+  { FILHO, 1}
+};
 
 // Variaveis globais
 Proc* p_idle;
@@ -110,7 +130,7 @@ void changeState(Proc* p, int newState);
 void countSyscall(void);
 
 // Processos
-Proc* sys_newproc(void (*entry)(void));
+Proc* sys_newproc(int appId);
 int sys_killproc(int pid);
 
 int die(void);
@@ -144,6 +164,7 @@ void espera_interrupcao(void);
 void kputs(char *s);
 void kprint_int(int v);
 int kgetchar(void);
+int kstrcmp(char* l, char* r);
 
 Proc*
 pfind(int pid)
@@ -237,7 +258,7 @@ sched(void) {
 }
 
 Proc* 
-sys_newproc(void (*entry)(void))
+sys_newproc(int appId)
 {
   countSyscall();
   Proc* p = 0;
@@ -252,15 +273,46 @@ sys_newproc(void (*entry)(void))
   // Tabela cheia
   if (p == 0) 
     return 0;
+  
+  if (appId < 0 || appId >= NUM_APPS)
+    return 0;
+
+  DiskApp *app = &apps[appId];
+
 
   for (i = 0; i < TAM_QUADRO; i++) 
     p->quadro[i] = 0;
+
+  int q_cod = palloc();
+  int q_dados = palloc();
+
+  if (q_cod == -1 || q_dados == -1) {
+    if (q_cod != -1) pfree(q_cod);
+    if (q_dados != -1) pfree(q_dados);
+    return 0;
+  }
+
+  p->quadro_cod = q_cod;
+  p->quadro_dados = q_dados;
   
+  disco_le_setor(0, 0, app->sector, q_cod * TAM_QUADRO_FISICO);
+
+  int *dados = (int *)(q_dados * TAM_QUADRO_FISICO);
+
+  for (i = 0; i < 256; i++) {
+    dados[i] = 0;
+    p->pt[i] = 0;
+  }
+
+  p->pt[0] = 0x6000 | q_cod;
+  p->pt[128] = 0xE000 | q_dados;
+
   p->pid = nextpid++;
-  p->quadro[6] = (int)&p->pilha[TAM_PILHA]; // sp (comeca no topo e cresce para baixo)
-  p->quadro[7] = (int)entry; // ip
-  p->quadro[8] = 0; // sr (S = 0 ; I = 0 ; D = 0)
-  
+  p->quadro[6] = 512;
+  p->quadro[7] = 0;
+  p->quadro[8] = 0x4000;
+  p->quadro[12] = (int)p->pt;
+
   p->waitpid = 0;
   p->wait_io = 0;
   p->priority = 500;
@@ -296,6 +348,16 @@ die(void)
     metrics[numMetrics] = up->metr;
     numMetrics++;
   }
+
+  if (up->quadro_cod > 0) {
+    pfree(up->quadro_cod);
+    up->quadro_cod = 0;
+  }
+  if (up->quadro_dados > 0) {
+    pfree(up->quadro_dados);
+    up->quadro_dados = 0;
+  }
+
   pwake(up->pid);
   sched();
   if (!up) {
@@ -311,6 +373,15 @@ int
 kill(int pid)
 {
   Proc* p = pfind(pid);
+
+  if (p->quadro_cod > 0) {
+    pfree(p->quadro_cod);
+    p->quadro_cod = 0;
+  }
+  if (p->quadro_dados > 0) {
+    pfree(p->quadro_dados);
+    p->quadro_dados = 0;
+  }
 
   if (p) {
     changeState(p, DEAD);
@@ -351,13 +422,15 @@ procinit(void)
   }
   
   palloc_init();
-
-  p_idle = sys_newproc(idle);
-  runq_get();
-  p_idle->state = BLOCKED;
+  
+  p_idle = &procs[0];
+  p_idle->pid = nextpid++;
+  p_idle->quadro[6] = (int)&p_idle->pilha[TAM_PILHA];
+  p_idle->quadro[7] = (int)idle;
   p_idle->quadro[8] = 0x8000;
+  p_idle->state = BLOCKED;
 
-  sys_newproc(init);
+  sys_newproc(INIT);
   up = runq_get();
   changeState(up, RUNNING);
   restauraContexto();
@@ -758,4 +831,11 @@ pfree(int q)
     return;
 
   quadros[id] = 0;
+}
+
+int
+kstrcmp(char* l, char* r) // Implementacao do musl
+{
+  for (; *l==*r && *l; l++) r++;
+	return *l - *r;
 }

@@ -60,11 +60,21 @@ struct Proc {
   ProcMetrics metr;
 
   int pt[256];
-  int quadro_cod;
+  int quadro_pilha;
   int quadro_dados;
   int appId;
 };
 #define Proc struct Proc
+
+struct Frame {
+  int occupied;
+  int pid;
+  int pagVirt;
+  int alocTime;
+  int age;
+  int evictable; // 1 se for codigo e 0 se for dados/pilha
+};
+#define Frame struct Frame
 
 struct DiskApp {
   int sector;
@@ -95,7 +105,7 @@ Proc* up; // Processo atual
 int nextpid;
 
 int primeiro_quadro;
-int quadros[NUM_QUADROS];
+Frame quadros[NUM_QUADROS];
 
 ProcMetrics metrics[MAXMETRICS];
 int numMetrics = 0;
@@ -151,7 +161,7 @@ int fim_kernel(void);
 
 // Memoria
 void palloc_init(void);
-int palloc(void);
+int palloc(int pid, int pagVirt, int evictable);
 void pfree(int q);
 
 void pageFault(void);
@@ -292,18 +302,23 @@ sys_newproc(int appId)
 
   DiskApp *app = &apps[appId];
 
-
   for (i = 0; i < TAM_QUADRO; i++) 
     p->quadro[i] = 0;
 
-  int q_dados = palloc();
+  p->pid = nextpid++;
 
-  if (q_dados == -1)
-    return 0;
+  int q_dados = palloc(p->pid, 128, 0);
+  int q_pilha = palloc(p->pid, 127, 0);
   
-  p->appId = appId;
+  if (q_dados == -1 || q_pilha == -1) {
+    if (q_dados != -1) pfree(q_dados); 
+    if (q_pilha != -1) pfree(q_pilha); 
+    return 0; 
+  }
 
+  p->appId = appId;
   p->quadro_dados = q_dados;
+  p->quadro_pilha = q_pilha;
   
   int *dados = (int *)(q_dados * TAM_QUADRO_FISICO);
 
@@ -315,9 +330,9 @@ sys_newproc(int appId)
   disco_le_lba(app->sector, q_dados * TAM_QUADRO_FISICO);
 
   p->pt[128] = 0xE000 | q_dados;
+  p->pt[255] = 0xE000 | q_pilha;
 
-  p->pid = nextpid++;
-  p->quadro[6] = 512;
+  p->quadro[6] = 0;
   p->quadro[7] = 0;
   p->quadro[8] = 0x4000;
   p->quadro[12] = (int)p->pt;
@@ -371,6 +386,11 @@ die(void)
     up->quadro_dados = 0;
   }
 
+  if (up->quadro_pilha > 0) {
+    pfree(up->quadro_pilha);
+    up->quadro_pilha = 0;
+  }
+
   pwake(up->pid);
   sched();
   if (!up) {
@@ -400,6 +420,10 @@ kill(int pid)
     if (p->quadro_dados > 0) {
       pfree(p->quadro_dados);
       p->quadro_dados = 0;
+    }
+    if (p->quadro_pilha > 0) {
+      pfree(p->quadro_pilha);
+      p->quadro_pilha = 0;
     }
     p->metr.tEnded = clockTicks;
     if (numMetrics < MAXMETRICS && p != p_idle) {
@@ -831,18 +855,32 @@ palloc_init(void)
 {
   int i;
   primeiro_quadro = (fim_kernel() + 511) / 512;
+  Frame* q;
   for (i = 0; i < NUM_QUADROS; i++) {
-    quadros[i] = 0;
+    q = &quadros[i];
+    q->age = 0;
+    q->alocTime = 0;
+    q->occupied = 0;
+    q->pagVirt = 0;
+    q->pid = 0;
+    q->evictable = 0;
   }
 }
 
 int
-palloc(void)
+palloc(int pid, int pagVirt, int evictable)
 {
   int i;
+  Frame *f;
   for (i = 0; i < NUM_QUADROS; i++) {
-    if (quadros[i] == 0) {
-      quadros[i] = 1;
+    f = &quadros[i];
+    if (f->occupied == 0) {
+      f->occupied = 1;
+      f->pid = pid;
+      f->pagVirt = pagVirt;
+      f->evictable = evictable;
+      f->alocTime = clockTicks;
+      f->age = 0;
       return primeiro_quadro + i;
     }
   }
@@ -856,8 +894,14 @@ pfree(int q)
 
   if (id >= NUM_QUADROS || id < 0)
     return;
-
-  quadros[id] = 0;
+  
+  Frame *f = &quadros[id];
+  f->age = 0;
+  f->alocTime = 0;
+  f->evictable = 0;
+  f->occupied = 0;
+  f->pagVirt = 0;
+  f->pid = 0;
 }
 
 void
@@ -880,7 +924,7 @@ pageFault(void)
     return;
   }
     
-  int q = palloc();
+  int q = palloc(up->pid, pagVirt, 1);
   if (q == -1) {
     kputs("\nSem memoria disponivel!\n");
     die();

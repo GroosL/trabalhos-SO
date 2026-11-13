@@ -126,6 +126,16 @@ _f_espera_interrupcao:
   ei
   ret
 
+_f_kgetchar:
+.espera:
+  inb   r0, (2)
+  and   r0, 2
+  cmp   r0, 0
+  jmpc  eq, .espera
+  inb   r0, (1)
+  and   r0, 255
+  ret
+
 trampolim_escalonador:
   call    _f_timerTick
   rete
@@ -151,6 +161,18 @@ _f_disco_le_setor:
   ld    r2, (bp+8)
   ld    r3, (bp+10)
   call  bios_disco_le_setor
+  ld    sp, bp
+  pop   bp
+  ret
+
+_f_disco_escreve_setor:
+  push  bp
+  ld    bp, sp
+  ld    r0, (bp+4)
+  ld    r1, (bp+6)
+  ld    r2, (bp+8)
+  ld    r3, (bp+10)
+  call  bios_disco_escreve_setor
   ld    sp, bp
   pop   bp
   ret

@@ -5,7 +5,7 @@ main(void)
 {
   puts("Iniciando calculo de numeros primos\n");
 
-  int total = 0, lim = 4000, n, ok, d;
+  int total = 0, lim = 400, n, ok, d;
   
   for (n = 2; n <= lim; n++) {
     ok = 1;

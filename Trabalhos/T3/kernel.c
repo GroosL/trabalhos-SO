@@ -3,6 +3,11 @@
 #define SCHED_PRIO 1
 #define SCHEDULER SCHED_PRIO
 
+#define PAGE_ALGO_FIFO 0
+#define PAGE_ALGO_LRU 1
+
+#define PAGE_ALGO PAGE_ALGO_FIFO
+
 // Limites
 #define NPROC 8
 #define TAM_PILHA 64
@@ -43,6 +48,7 @@ struct ProcMetrics {
   int tUnblock;
   int sumResponses;
   int numResponses;
+  int numPageFaults;
 };
 #define ProcMetrics struct ProcMetrics
 
@@ -163,10 +169,13 @@ int fim_kernel(void);
 void palloc_init(void);
 int palloc(int pid, int pagVirt, int evictable);
 void pfree(int q);
+void lru_tick(void);
+int escolheVitima(void);
 
 void pageFault(void);
 
 void disco_le_setor(int face, int trilha, int setor, int dest_ram); // funcao da ponte
+void disco_escreve_setor(int face, int trilha, int setor, int dest_ram);
 
 // Inicializacao
 void procinit(void);
@@ -188,6 +197,7 @@ int kgetchar(void);
 int kstrcmp(char* l, char* r);
 
 void disco_le_lba(int lba, int dest_ram);
+void disco_escreve_lba(int lba, int src_ram);
 
 Proc*
 pfind(int pid)
@@ -352,6 +362,7 @@ sys_newproc(int appId)
   p->metr.tUnblock = clockTicks;
   p->metr.sumResponses = 0;
   p->metr.numResponses = 0;
+  p->metr.numPageFaults = 0;
   for (i = 0; i < 4; i++) {
     p->metr.numState[i] = 0;
     p->metr.tTotalState[i] = 0;
@@ -616,6 +627,7 @@ timerTick(void)
 {
   clockTicks++;
   metr_intClock++;
+  lru_tick();
 
   if (up == p_idle) {
     metr_idleTime++;
@@ -742,18 +754,6 @@ kprint_int(int v)
     write_char(buf[i]);
 }
 
-int
-kgetchar(void)
-{
-  while (kbd_count == 0)
-    espera_interrupcao();
-
-  int c = kbd_buf[kbd_head];
-  kbd_head = (kbd_head + 1) % TAM_BUF;
-  kbd_count--;
-  return c;
-}
-
 void
 getEnter(void)
 {
@@ -779,7 +779,7 @@ printMetrics(void)
   kputs("\t Teclado: ");
   kprint_int(metr_intKey);
 
-  kputs("\nNum de preempcoes e syscalls: ");
+  kputs("\nNum de preempcoes, syscalls: ");
   kputs("\t Preempcoes: ");
   kprint_int(metr_totalPreempt);
   kputs("\t Syscalls: ");
@@ -821,8 +821,11 @@ printMetrics(void)
     kprint_int(m->numState[BLOCKED]);
     kputs(" vezes");
 
-    kputs("\nNum de preempcoes: ");
+    kputs("\nNum de preempcoes e page faults: ");
+    kputs("\t Preempcoes: ");
     kprint_int(m->numPreemptions);
+    kputs("\t Page faults: ");
+    kprint_int(m->numPageFaults);
 
     kputs("\nNum de trocas voluntarias: ");
     kprint_int(m->numChanges);
@@ -840,7 +843,6 @@ printMetrics(void)
  }
 }
 
-
 void
 disco_le_lba(int lba, int dest_ram)
 {
@@ -848,6 +850,15 @@ disco_le_lba(int lba, int dest_ram)
   int trilha = (lba / 18) % 40;
   int face = (lba / 18) / 40;
   disco_le_setor(face, trilha, setor, dest_ram);
+}
+
+void 
+disco_escreve_lba(int lba, int src_ram)
+{
+  int setor = lba % 18;
+  int trilha = (lba / 18 % 40);
+  int face = (lba / 18) / 40;
+  disco_escreve_setor(face, trilha, setor, src_ram);
 }
 
 void
@@ -884,7 +895,32 @@ palloc(int pid, int pagVirt, int evictable)
       return primeiro_quadro + i;
     }
   }
-  return -1;
+
+  int vitima = escolheVitima();
+  if (vitima == -1)
+    return -1;
+  
+  Proc *p = pfind(quadros[vitima].pid);
+
+  if (p) {
+    int tipo = (p->pt[quadros[vitima].pagVirt] >> 14) & 3;
+    if (tipo == 3) {
+      int setor = apps[p->appId].sector + quadros[vitima].pagVirt;
+      disco_escreve_lba(setor, (primeiro_quadro + vitima) * TAM_QUADRO_FISICO);
+    }
+    p->pt[quadros[vitima].pagVirt] = 0;
+    if (quadros[vitima].pagVirt > 0) {
+      p->pt[128 + quadros[vitima].pagVirt] = 0;
+    }
+  }
+
+  quadros[vitima].occupied = 1;
+  quadros[vitima].pid = pid;
+  quadros[vitima].pagVirt = pagVirt;
+  quadros[vitima].evictable = evictable;
+  quadros[vitima].alocTime = clockTicks;
+  quadros[vitima].age = 0;
+  return primeiro_quadro + vitima;
 }
 
 void
@@ -908,7 +944,8 @@ void
 pageFault(void)
 {
   if (!up) return;
-
+  
+  up->metr.numPageFaults++;
   int ipFalta = QUADRO_SISTEMA[7];
   int pagVirt = ipFalta / TAM_QUADRO_FISICO;
 
@@ -923,8 +960,8 @@ pageFault(void)
     die();
     return;
   }
-    
-  int q = palloc(up->pid, pagVirt, 1);
+  
+  int q = palloc(up->pid, pagVirt, (up->appId == SHELL && pagVirt == 1) ? 0 : 1);
   if (q == -1) {
     kputs("\nSem memoria disponivel!\n");
     die();
@@ -937,4 +974,57 @@ pageFault(void)
   up->pt[pagVirt] = 0x6000 | q;
   if (pagVirt > 0) 
     up->pt[128 + pagVirt] = 0x6000 | q;
+}
+
+void
+lru_tick(void)
+{
+  int i;
+  for (i = 0; i < NUM_QUADROS; i++) {
+    Frame *f = &quadros[i];
+    if (f->occupied && f->evictable) {
+      Proc *p = pfind(f->pid);
+      if (p) {
+        int acess = 0;
+        if (p->pt[f->pagVirt] & 0x2000) {
+          acess = 1;
+          p->pt[f->pagVirt] &= ~0x2000;
+        }
+        if (f->pagVirt > 0 && (p->pt[128 + f->pagVirt] & 0x2000)) {
+          acess = 1;
+          p->pt[128 + f->pagVirt] &= ~0x2000;
+        }
+
+        f->age = (f->age >> 1) & 0x3FFF;
+        if (acess)
+          f->age |= 0x4000;
+      }
+    }
+  }
+}
+
+int
+escolheVitima(void)
+{
+  Frame *f;
+  int i, minTime = 0, minAge = 0, choice = -1;
+  for (i = 0; i < NUM_QUADROS; i++) {
+    f = &quadros[i];
+    
+    if (f->occupied && f->evictable) {
+      if (PAGE_ALGO == PAGE_ALGO_FIFO) {
+        if (f->alocTime < minTime || choice == -1) {
+          choice = i;
+          minTime = f->alocTime;
+        }
+      }
+      else {
+        if (f->age < minAge || choice == -1) {
+          choice = i;
+          minAge = f->age;
+        }
+      }
+    }
+  }
+  return choice;
 }

@@ -28,7 +28,6 @@
 #define QUADRO_SISTEMA ((int*)0xEFE0)
 
 #define TAM_QUADRO_FISICO 512
-#define PRIMEIRO_QUADRO 40
 #define NUM_QUADROS 32
 
 struct ProcMetrics {
@@ -63,6 +62,7 @@ struct Proc {
   int pt[256];
   int quadro_cod;
   int quadro_dados;
+  int appId;
 };
 #define Proc struct Proc
 
@@ -88,6 +88,7 @@ Proc procs[NPROC];
 Proc* up; // Processo atual
 int nextpid;
 
+int primeiro_quadro;
 int quadros[NUM_QUADROS];
 
 ProcMetrics metrics[MAXMETRICS];
@@ -139,6 +140,8 @@ int kill(int pid);
 int sys_getpid(void);
 
 void idle(void);
+
+int fim_kernel(void);
 
 // Memoria
 void palloc_init(void);
@@ -285,16 +288,13 @@ sys_newproc(int appId)
   for (i = 0; i < TAM_QUADRO; i++) 
     p->quadro[i] = 0;
 
-  int q_cod = palloc();
   int q_dados = palloc();
 
-  if (q_cod == -1 || q_dados == -1) {
-    if (q_cod != -1) pfree(q_cod);
-    if (q_dados != -1) pfree(q_dados);
+  if (q_dados == -1)
     return 0;
-  }
+  
+  p->appId = appId;
 
-  p->quadro_cod = q_cod;
   p->quadro_dados = q_dados;
   
   int *dados = (int *)(q_dados * TAM_QUADRO_FISICO);
@@ -304,10 +304,8 @@ sys_newproc(int appId)
     p->pt[i] = 0;
   }
 
-  disco_le_setor(0, 0, app->sector, q_cod * TAM_QUADRO_FISICO);
   disco_le_setor(0, 0, app->sector, q_dados * TAM_QUADRO_FISICO);
 
-  p->pt[0] = 0x6000 | q_cod;
   p->pt[128] = 0xE000 | q_dados;
 
   p->pid = nextpid++;
@@ -345,6 +343,7 @@ sys_newproc(int appId)
 int
 die(void)
 {
+  int i;
   changeState(up, DEAD);
   up->metr.tEnded = clockTicks;
   if (numMetrics < MAXMETRICS && up != p_idle) {
@@ -352,9 +351,12 @@ die(void)
     numMetrics++;
   }
 
-  if (up->quadro_cod > 0) {
-    pfree(up->quadro_cod);
-    up->quadro_cod = 0;
+  for (i = 0; i < 128; i++) {
+    if ((up->pt[i] & 0xC000) != 0) { // tipo != 0
+      int q = up->pt[i] & 0x1FFF; // 13 bits inferiores
+      pfree(q);
+      up->pt[i] = 0;
+    }
   }
   if (up->quadro_dados > 0) {
     pfree(up->quadro_dados);
@@ -376,13 +378,16 @@ int
 kill(int pid)
 {
   Proc* p = pfind(pid);
-
+  int i;
 
   if (p) {
     changeState(p, DEAD);
-    if (p->quadro_cod > 0) {
-      pfree(p->quadro_cod);
-      p->quadro_cod = 0;
+    for (i = 0; i < 128; i++) {
+      if ((p->pt[i] & 0xC000) != 0) { // tipo != 0
+        int q = p->pt[i] & 0x1FFF; // 13 bits inferiores
+        pfree(q);
+        p->pt[i] = 0;
+      }
     }
     if (p->quadro_dados > 0) {
       pfree(p->quadro_dados);
@@ -807,6 +812,7 @@ void
 palloc_init(void)
 {
   int i;
+  primeiro_quadro = (fim_kernel() + 511) / 512;
   for (i = 0; i < NUM_QUADROS; i++) {
     quadros[i] = 0;
   }
@@ -819,7 +825,7 @@ palloc(void)
   for (i = 0; i < NUM_QUADROS; i++) {
     if (quadros[i] == 0) {
       quadros[i] = 1;
-      return PRIMEIRO_QUADRO + i;
+      return primeiro_quadro + i;
     }
   }
   return -1;
@@ -828,7 +834,7 @@ palloc(void)
 void
 pfree(int q)
 {
-  int id = q - PRIMEIRO_QUADRO;
+  int id = q - primeiro_quadro;
 
   if (id >= NUM_QUADROS || id < 0)
     return;
@@ -839,12 +845,32 @@ pfree(int q)
 void
 pageFault(void)
 {
-  kputs("Falha na memoria ou pagina do processo PID: ");
-  if (up) {
+  if (!up) return;
+
+  int ipFalta = QUADRO_SISTEMA[7];
+  int pagVirt = ipFalta / TAM_QUADRO_FISICO;
+
+  DiskApp *app = &apps[up->appId];
+
+  if (pagVirt >= 128 || pagVirt >= app->nPages) {
+    kputs("Falha de pagina ilegal no PID: ");
     kprint_int(up->pid);
     kputs(" no IP: ");
     kprint_int(QUADRO_SISTEMA[7]);
     kputs(". Matando processo!\n");
     die();
+    return;
   }
+    
+  int q = palloc();
+  if (q == -1) {
+    kputs("\nSem memoria disponivel!\n");
+    die();
+    return;
+  }
+
+  int setorDisco = app->sector + pagVirt;
+  disco_le_setor(0, 0, setorDisco, q * TAM_QUADRO_FISICO);
+
+  up->pt[pagVirt] = 0x6000 | q;
 }

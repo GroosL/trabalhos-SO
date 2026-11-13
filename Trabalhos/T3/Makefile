@@ -11,8 +11,8 @@ all: os.mob disco.img
 kernel.S: kernel.c
 	$(MCC) $< -o $@
 
-os.mob: $(BIOS) ponte.asm kernel.S
-	$(MONTADOR) $(BIOS) ponte.asm kernel.S -o $@
+os.mob: $(BIOS) ponte.asm kernel.S fim.asm
+	$(MONTADOR) $(BIOS) ponte.asm kernel.S fim.asm -o $@
 
 # --- User Space ---
 user/libc.S: user/libc.c user/libc.h

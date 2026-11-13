@@ -155,5 +155,9 @@ _f_disco_le_setor:
   pop   bp
   ret
 
+_f_fim_kernel:
+  ld    r0, _fim_do_kernel
+  ret
+
 _f_halt:
   halt

@@ -1,6 +1,12 @@
 #ifndef LIBC_H
 #define LIBC_H
 
+#define INIT 0
+#define FILHO 1
+#define PRIMOS 2
+#define RNG 3
+#define SHELL 4
+
 // Syscalls
 int write(int c);
 int read(void);

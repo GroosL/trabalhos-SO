@@ -72,14 +72,20 @@ struct DiskApp {
 };
 #define DiskApp struct DiskApp
 
-#define NUM_APPS 2
+#define NUM_APPS 5
 
 //apps
 #define INIT 0
 #define FILHO 1
+#define PRIMOS 2
+#define RNG 3
+#define SHELL 4
 DiskApp apps[NUM_APPS] = {
-  { INIT, 1 },
-  { FILHO, 1}
+  { 0, 3 },  // INIT: setor 0, 3 paginas
+  { 3, 3 },  // FILHO: setor 3, 3 paginas
+  { 6, 4 },  // PRIMOS: setor 6, 4 paginas
+  { 10, 4 }, // RNG: setor 10, 4 paginas
+  { 14, 5 }  // SHELL: setor 14, 5 paginas
 };
 
 // Variaveis globais
@@ -170,6 +176,8 @@ void kputs(char *s);
 void kprint_int(int v);
 int kgetchar(void);
 int kstrcmp(char* l, char* r);
+
+void disco_le_lba(int lba, int dest_ram);
 
 Proc*
 pfind(int pid)
@@ -304,7 +312,7 @@ sys_newproc(int appId)
     p->pt[i] = 0;
   }
 
-  disco_le_setor(0, 0, app->sector, q_dados * TAM_QUADRO_FISICO);
+  disco_le_lba(app->sector, q_dados * TAM_QUADRO_FISICO);
 
   p->pt[128] = 0xE000 | q_dados;
 
@@ -808,6 +816,16 @@ printMetrics(void)
  }
 }
 
+
+void
+disco_le_lba(int lba, int dest_ram)
+{
+  int setor = lba % 18;
+  int trilha = (lba / 18) % 40;
+  int face = (lba / 18) / 40;
+  disco_le_setor(face, trilha, setor, dest_ram);
+}
+
 void
 palloc_init(void)
 {
@@ -870,7 +888,9 @@ pageFault(void)
   }
 
   int setorDisco = app->sector + pagVirt;
-  disco_le_setor(0, 0, setorDisco, q * TAM_QUADRO_FISICO);
+  disco_le_lba(setorDisco, q * TAM_QUADRO_FISICO);
 
   up->pt[pagVirt] = 0x6000 | q;
+  if (pagVirt > 0) 
+    up->pt[128 + pagVirt] = 0x6000 | q;
 }

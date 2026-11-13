@@ -6,7 +6,7 @@ void srand(int seed);
 int rand(void);
 
 void
-rng_main(void)
+main(void)
 {
   puts("Insira uma semente:");
   int s = read_int();

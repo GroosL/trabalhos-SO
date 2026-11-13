@@ -1,8 +1,7 @@
 #include "libc.h"
-#include "apps.h"
 
 void 
-shell_main(void)
+main(void)
 {
   char cmd[32];
 
@@ -17,22 +16,22 @@ shell_main(void)
       continue;
 
     if (strcmp(cmd, "rng") == 0) {
-      int pid = newproc(rng_main);
+      int pid = newproc(RNG);
       wait(pid);
     }
     else if (strcmp(cmd, "filho") == 0) {
-      int pid = newproc(filho);
+      int pid = newproc(FILHO);
       wait(pid);
     }
     else if (strcmp(cmd, "primos") == 0) {
-      int pd = newproc(primos);
+      int pd = newproc(PRIMOS);
       // Roda em plano de fundo!
     }
     else if (strcmp(cmd, "bench") == 0) {
-      int p1 = newproc(primos);
-      int p2 = newproc(primos);
-      int p3 = newproc(filho);
-      int p4 = newproc(rng_main);
+      int p1 = newproc(PRIMOS);
+      int p2 = newproc(PRIMOS);
+      int p3 = newproc(FILHO);
+      int p4 = newproc(RNG);
       wait(p1);
       wait(p2);
       wait(p3);

@@ -1,3 +1,5 @@
+.text
+
 _f_read:
   push  bp
   ld    bp, sp 

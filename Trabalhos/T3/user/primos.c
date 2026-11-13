@@ -1,8 +1,7 @@
 #include "libc.h"
-#include "apps.h"
 
 void
-primos(void)
+main(void)
 {
   puts("Iniciando calculo de numeros primos\n");
 

@@ -6,7 +6,7 @@ void
 main(void)
 {
   puts("Iniciando init...\n");
-  int pid = newproc(FILHO);
+  int pid = newproc(SHELL);
   wait(pid);
   killproc(0);
 }

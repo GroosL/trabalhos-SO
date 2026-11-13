@@ -297,14 +297,15 @@ sys_newproc(int appId)
   p->quadro_cod = q_cod;
   p->quadro_dados = q_dados;
   
-  disco_le_setor(0, 0, app->sector, q_cod * TAM_QUADRO_FISICO);
-
   int *dados = (int *)(q_dados * TAM_QUADRO_FISICO);
 
   for (i = 0; i < 256; i++) {
     dados[i] = 0;
     p->pt[i] = 0;
   }
+
+  disco_le_setor(0, 0, app->sector, q_cod * TAM_QUADRO_FISICO);
+  disco_le_setor(0, 0, app->sector, q_dados * TAM_QUADRO_FISICO);
 
   p->pt[0] = 0x6000 | q_cod;
   p->pt[128] = 0xE000 | q_dados;

@@ -37,6 +37,10 @@ main(void)
       wait(p3);
       wait(p4);
     }
+    else if (strcmp(cmd, "segfault") == 0) {
+      int pid = newproc(SEGFAULT);
+      wait(pid);
+    }
     else if (strcmp(cmd, "exit") == 0) {
       break;
     }

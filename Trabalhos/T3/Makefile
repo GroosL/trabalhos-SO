@@ -33,6 +33,9 @@ user/rng.S: user/rng.c user/libc.h
 user/shell.S: user/shell.c user/libc.h
 	cd user && ../$(MCC) shell.c -o shell.S
 
+user/segfault.S: user/segfault.c user/libc.h
+	cd user && ../$(MCC) segfault.c -o segfault.S
+
 user/init.mob: user/init.S user/usyscall.asm user/libc.S
 	cd user && ../$(MONTADOR) init.S usyscall.asm libc.S -o init.mob
 
@@ -47,6 +50,9 @@ user/rng.mob: user/rng.S user/usyscall.asm user/libc.S
 
 user/shell.mob: user/shell.S user/usyscall.asm user/libc.S
 	cd user && ../$(MONTADOR) shell.S usyscall.asm libc.S -o shell.mob
+
+user/segfault.mob: user/segfault.S user/usyscall.asm user/libc.S
+	cd user && ../$(MONTADOR) segfault.S usyscall.asm libc.S -o segfault.mob
 
 # %.bin: %.mob
 # 	$(MOB2BIN) $< $(TAM_SETOR) $@
@@ -66,9 +72,12 @@ user/rng.bin: user/rng.mob
 user/shell.bin: user/shell.mob
 		$(MOB2BIN) $< 2560 $@
 
+user/segfault.bin: user/segfault.mob
+		$(MOB2BIN) $< 2560 $@
+
 # Disco: setor 0 = init, setor 1 = filho, setor 2 = primos, setor 3 = rng
-disco.img: user/init.bin user/filho.bin user/primos.bin user/rng.bin user/shell.bin
-	cat user/init.bin user/filho.bin user/primos.bin user/rng.bin user/shell.bin > $@
+disco.img: user/init.bin user/filho.bin user/primos.bin user/rng.bin user/shell.bin user/segfault.bin
+	cat user/init.bin user/filho.bin user/primos.bin user/rng.bin user/shell.bin user/segfault.bin > $@
 
 clean:
 	rm -f kernel.S os.mob disco.img

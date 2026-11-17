@@ -85,10 +85,11 @@ struct Frame {
 struct DiskApp {
   int sector;
   int nPages;
+  int nPreload; // paginas extras
 };
 #define DiskApp struct DiskApp
 
-#define NUM_APPS 5
+#define NUM_APPS 6
 
 //apps
 #define INIT 0
@@ -96,12 +97,14 @@ struct DiskApp {
 #define PRIMOS 2
 #define RNG 3
 #define SHELL 4
+#define SEGFAULT 5
 DiskApp apps[NUM_APPS] = {
-  { 0, 3 },  // INIT: setor 0, 3 paginas
-  { 3, 3 },  // FILHO: setor 3, 3 paginas
-  { 6, 4 },  // PRIMOS: setor 6, 4 paginas
-  { 10, 4 }, // RNG: setor 10, 4 paginas
-  { 14, 5 }  // SHELL: setor 14, 5 paginas
+  { 0, 3, 0 },  // INIT: setor 0, 3 paginas
+  { 3, 3, 0 },  // FILHO: setor 3, 3 paginas
+  { 6, 4, 0 },  // PRIMOS: setor 6, 4 paginas
+  { 10, 4, 0 }, // RNG: setor 10, 4 paginas
+  { 14, 5, 1 }, // SHELL: setor 14, 5 paginas
+  { 19, 5, 2 }, // SEGFAULT: setor 19, 3 paginas
 };
 
 // Variaveis globais
@@ -173,6 +176,7 @@ void lru_tick(void);
 int escolheVitima(void);
 
 void pageFault(void);
+void segfault(void);
 
 void disco_le_setor(int face, int trilha, int setor, int dest_ram); // funcao da ponte
 void disco_escreve_setor(int face, int trilha, int setor, int dest_ram);
@@ -341,6 +345,22 @@ sys_newproc(int appId)
 
   p->pt[128] = 0xE000 | q_dados;
   p->pt[255] = 0xE000 | q_pilha;
+
+  for (i = 1; i <= app->nPreload; i++) {
+    int qp = palloc(p->pid, i, 0);
+    if (qp == -1) {
+      int j;
+      for (j = 1; j < i; j++) {
+        pfree(p->pt[j] & 0x1FFF);
+      }
+      pfree(q_dados);
+      pfree(q_pilha);
+      return 0;
+    }
+    disco_le_lba(app->sector + i, qp * TAM_QUADRO_FISICO);
+    p->pt[i] = 0x6000 | qp;
+    p->pt[128 + i] = 0x6000 | qp;
+  }
 
   p->quadro[6] = 0;
   p->quadro[7] = 0;
@@ -951,7 +971,7 @@ pageFault(void)
 
   DiskApp *app = &apps[up->appId];
 
-  if (pagVirt >= 128 || pagVirt >= app->nPages) {
+  if (pagVirt >= 128 || pagVirt >= app->nPages || up->pt[pagVirt] != 0) {
     kputs("Falha de pagina ilegal no PID: ");
     kprint_int(up->pid);
     kputs(" no IP: ");
@@ -961,7 +981,7 @@ pageFault(void)
     return;
   }
   
-  int q = palloc(up->pid, pagVirt, (up->appId == SHELL && pagVirt == 1) ? 0 : 1);
+  int q = palloc(up->pid, pagVirt, 1);
   if (q == -1) {
     kputs("\nSem memoria disponivel!\n");
     die();
@@ -1027,4 +1047,16 @@ escolheVitima(void)
     }
   }
   return choice;
+}
+
+void
+segfault(void)
+{
+  if (!up) return;
+  kputs("Segfault no PID: ");
+  kprint_int(up->pid);
+  kputs(" no IP: ");
+  kprint_int(QUADRO_SISTEMA[7]);
+  kputs(". Matando processo!\n");
+  die();
 }

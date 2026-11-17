@@ -6,6 +6,7 @@
 #define PRIMOS 2
 #define RNG 3
 #define SHELL 4
+#define SEGFAULT 5
 
 // Syscalls
 int write(int c);

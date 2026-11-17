@@ -111,7 +111,7 @@ _kernel_inicio:
   st    r0, (40) ; Entrada 5
 
   ; segfault
-  ld    r0, trampolim_missingpage
+  ld    r0, trampolim_segfault
   st    r0, (8)
 
 ; Inicializa os processos
@@ -142,6 +142,10 @@ trampolim_escalonador:
 
 trampolim_missingpage:
   call  _f_pageFault
+  rete
+
+trampolim_segfault:
+  call  _f_segfault
   rete
 
 _f_write_char:

@@ -647,7 +647,8 @@ timerTick(void)
 {
   clockTicks++;
   metr_intClock++;
-  lru_tick();
+  if (PAGE_ALGO == PAGE_ALGO_FIFO)
+    lru_tick();
 
   if (up == p_idle) {
     metr_idleTime++;

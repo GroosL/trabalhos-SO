@@ -1,4 +1,4 @@
-.equ TICKS_POR_FATIA = 4000
+.equ TICKS_POR_FATIA = 6000
 
 ; Syscalls
 
